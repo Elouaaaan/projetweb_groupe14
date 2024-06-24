@@ -18,8 +18,6 @@ class Rooter
 
     private function addRoute(string $method, string $path, array $callback)
     {
-        $path = ltrim($path, '/');
-
         $this->routes[$method][$path] = $callback;
     }
 
@@ -27,6 +25,8 @@ class Rooter
     {
         $method = $_SERVER['REQUEST_METHOD'];
         $path = $_SERVER['REQUEST_URI'];
+
+        echo $method . ' ' . $path . '<br>';
 
         $callback = $this->routes[$method][$path] ?? false;
 
