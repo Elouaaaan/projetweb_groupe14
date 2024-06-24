@@ -6,34 +6,33 @@ class Rooter
 {
     private $routes = [];
 
-    public function __construct()
+    public function get(string $path, array $callback)
     {
-        $this->routes = [];
+        $this->addRoute('GET', $path, $callback);
     }
 
-    public function addRoute($path, $controller)
+    public function post(string $path, array $callback)
     {
-        $this->routes[$path] = function () use ($controller) {
-            $class = $controller[0];
-            $method = $controller[1];
-            $instance = new $class();
-            $instance->$method();
-        };
+        $this->addRoute('POST', $path, $callback);
+    }
+
+    private function addRoute(string $method, string $path, array $callback)
+    {
+        $this->routes[$method][$path] = $callback;
     }
 
     public function run()
     {
-        $path = $_SERVER['REQUEST_URI'];
         $method = $_SERVER['REQUEST_METHOD'];
+        $path = $_SERVER['REQUEST_URI'];
 
-        foreach ($this->routes as $route => $controller) {
-            if ($route === $path) {
-                if ($method === 'GET') {
-                    $controller();
-                } else {
-                    $controller($_POST);
-                }
-            }
+        $callback = $this->routes[$method][$path] ?? false;
+
+        if ($callback === false) {
+            echo '404 Not Found';
+            return;
         }
+
+        echo call_user_func($callback);
     }
 }
