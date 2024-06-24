@@ -1,7 +1,5 @@
 <?php
 
-namespace Core;
-
 class Rooter
 {
     private $routes = [];

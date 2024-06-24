@@ -14,6 +14,10 @@
 
 <?php
 
+if (!defined('AUTOLOAD_VERSION')) {
+    require_once dirname(__DIR__) . '/autoload.php';
+}
+
 use Core\Rooter;
 
 $rooter = new Rooter();
