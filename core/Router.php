@@ -33,6 +33,8 @@ class Router
             return;
         }
 
+        echo 'aaa';
+
         echo call_user_func($callback);
     }
 }
