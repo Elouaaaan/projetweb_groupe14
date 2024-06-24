@@ -1,7 +1,5 @@
 <?php
 
-define('AUTOLOAD_VERSION', '0.0.1');
-
 $classmap = [
     'Core' => __DIR__ . DIRECTORY_SEPARATOR . 'core',
     'App' => __DIR__ . DIRECTORY_SEPARATOR . 'app'
