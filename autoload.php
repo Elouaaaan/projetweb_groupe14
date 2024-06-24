@@ -25,7 +25,5 @@ spl_autoload_register(function (string $classname) use ($classmap) {
         return;
     }
 
-    echo $file;
-
     require_once $file;
 });
