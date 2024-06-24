@@ -18,7 +18,7 @@ require_once dirname(__DIR__) . '/autoload.php';
 
 use Core\Rooter;
 
-$rooter = new Rooter();
+$router = new Rooter();
 
 require_once __DIR__ . '/../config/routes.php';
 

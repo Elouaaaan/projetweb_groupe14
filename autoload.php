@@ -18,9 +18,6 @@ spl_autoload_register(function (string $classname) use ($classmap) {
     $path = implode(DIRECTORY_SEPARATOR, $parts);
     $file = $classmap[$namespace] . $path . DIRECTORY_SEPARATOR . $classfile;
 
-    echo $path . PHP_EOL;
-    echo $file . PHP_EOL;
-
     if (!file_exists($file) && !class_exists($classname)) {
         return;
     }

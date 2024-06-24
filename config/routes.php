@@ -3,4 +3,5 @@
 use App\Controllers\HomeController;
 
 echo HomeController::index();
-$rooter->get('/public/', HomeController::index());
+$router->get('/', HomeController::index());
+$router->get('/home', HomeController::index());
