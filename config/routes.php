@@ -2,5 +2,5 @@
 
 use App\Controllers\HomeController;
 
-echo '3';
+echo HomeController::index();
 $rooter->get('/public/', HomeController::index());
