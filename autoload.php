@@ -11,8 +11,6 @@ spl_autoload_register(function (string $classname) use ($classmap) {
     $namespace = array_shift($parts);
     $classfile = array_pop($parts) . '.php';
 
-    echo $namespace . '<br>';
-
     if (!array_key_exists($namespace, $classmap)) {
         return;
     }
@@ -20,9 +18,13 @@ spl_autoload_register(function (string $classname) use ($classmap) {
     $path = implode(DIRECTORY_SEPARATOR, $parts);
     $file = $classmap[$namespace] . $path . DIRECTORY_SEPARATOR . $classfile;
 
+    echo $file;
+
     if (!file_exists($file) && !class_exists($classname)) {
         return;
     }
+
+    echo $file;
 
     require_once $file;
 });
