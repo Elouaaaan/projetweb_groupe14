@@ -8,6 +8,7 @@ class Rooter
 
     public function get(string $path, array $callback)
     {
+        echo '4';
         $this->addRoute('GET', $path, $callback);
     }
 
@@ -18,6 +19,7 @@ class Rooter
 
     private function addRoute(string $method, string $path, array $callback)
     {
+        echo '5';
         $this->routes[$method][$path] = $callback;
     }
 
