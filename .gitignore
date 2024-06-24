@@ -1,2 +1,7 @@
 .github/
 .ssh/
+.vscode-server/
+.vscode/
+.cache/
+.dotnet/
+.bash_history
