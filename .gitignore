@@ -1,1 +1,2 @@
-.github/main.yml
+# Ignore .github directory
+.github/
