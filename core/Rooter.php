@@ -6,6 +6,11 @@ class Rooter
 {
     private $routes = [];
 
+    public function __construct()
+    {
+        $this->routes = [];
+    }
+
     public function addRoute($path, $controller)
     {
         $this->routes[$path] = function () use ($controller) {
