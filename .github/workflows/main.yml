@@ -31,8 +31,6 @@ jobs:
           
           # will put all file under this path
           local_path: /var/www/etu1114/ # default is ./*
-          # files will copy to under remote_path
-          remote_path: /var/www/etu1114/
           
           # sftp args
           args: '-o ConnectTimeout=5'
