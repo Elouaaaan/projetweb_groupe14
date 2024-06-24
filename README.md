@@ -2,17 +2,12 @@
 
 ## Liste des tâches
 
-### Lundi
-
-#### Matin
-
-- Zelman -> Figma
-- Elouan -> Configuration serveur apache
-
-#### Après-midi
-
-- Zelman -> ?
-- Elouan -> ?
+|                  | Elouan               | Zelman |
+|------------------|----------------------|--------|
+| Lundi matin      | Configuration apache | Figma  |
+| Lundi après-midi |                      |        |
+|                  |                      |        |
+|                  |                      |        |
 
 ## Fonctionnalités de base
 
