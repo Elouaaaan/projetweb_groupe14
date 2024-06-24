@@ -23,6 +23,7 @@ class Router
 
     public function run()
     {
+        echo 'Router is running...<br>';
         $method = $_SERVER['REQUEST_METHOD'];
         $path = $_SERVER['REQUEST_URI'];
 
