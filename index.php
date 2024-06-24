@@ -15,11 +15,16 @@
 <?php
 
 require_once dirname(__DIR__) . '/autoload.php';
+echo 'aaa';
 
 use Core\Router;
 
+echo 'aaa';
+
 $router = new Router();
+echo 'aaa';
 
 require_once dirname(__DIR__) . '/config/routes.php';
+echo 'aaa';
 
 $rooter->run();
