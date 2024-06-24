@@ -29,7 +29,7 @@ class Rooter
 
         echo 'Still running...';
         foreach ($this->routes as $route => $controller) {
-            echo $route;
+            echo $path;
             if ($route === $path) {
                 echo 'ça marche';
                 if ($method === 'GET') {
