@@ -11,6 +11,7 @@ class HomeController
         // $database = $databaseConfig['database'];
 
         // return $database;
+        echo 'Hello World';
         return 'aaaaa';
     }
 }
