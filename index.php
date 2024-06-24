@@ -22,6 +22,4 @@ $router = new Rooter();
 
 require_once __DIR__ . '/../config/routes.php';
 
-echo '4';
-
 $rooter->run();
