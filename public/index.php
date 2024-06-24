@@ -11,3 +11,13 @@
 <body>
     <h1>Welcome to Tree</h1>
 </body>
+
+<?php
+
+use Core\Rooter;
+
+$rooter = new Rooter();
+
+require_once __DIR__ . '/../config/routes.php';
+
+$rooter->run();
