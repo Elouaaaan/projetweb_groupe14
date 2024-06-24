@@ -13,19 +13,13 @@
 </body>
 
 <?php
-echo dirname(__DIR__) . '/autoload.php';
 
-require_once dirname(__DIR__) . '/autoload.php';
-echo 'aaa';
+require_once __DIR__ . '/../autoload.php';
 
 use Core\Router;
 
-echo 'aaa';
-
 $router = new Router();
-echo 'aaa';
 
-require_once dirname(__DIR__) . '/config/routes.php';
-echo 'aaa';
+require_once __DIR__ . '/../config/routes.php';
 
 $rooter->run();
