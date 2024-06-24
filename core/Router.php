@@ -26,6 +26,9 @@ class Router
         $method = $_SERVER['REQUEST_METHOD'];
         $path = $_SERVER['REQUEST_URI'];
 
+        echo $method . '<br>';
+        echo $path . '<br>';
+
         $callback = $this->routes[$method][$path] ?? false;
 
         if ($callback === false) {
