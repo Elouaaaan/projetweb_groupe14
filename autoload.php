@@ -11,6 +11,8 @@ spl_autoload_register(function (string $classname) use ($classmap) {
     $namespace = array_shift($parts);
     $classfile = array_pop($parts) . '.php';
 
+    echo $namespace . '<br>';
+
     if (!array_key_exists($namespace, $classmap)) {
         return;
     }
