@@ -16,10 +16,10 @@
 
 require_once dirname(__DIR__) . '/autoload.php';
 
-use Core\Rooter;
+use Core\Router;
 
-$router = new Rooter();
+$router = new Router();
 
-require_once __DIR__ . '/../config/routes.php';
+require_once dirname(__DIR__) . '/config/routes.php';
 
 $rooter->run();

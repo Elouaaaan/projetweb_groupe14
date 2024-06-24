@@ -2,6 +2,5 @@
 
 use App\Controllers\HomeController;
 
-echo HomeController::index();
-$router->get('/', HomeController::index());
-$router->get('/home', HomeController::index());
+$router->get('/', [HomeController::class, 'index']);
+$router->get('/home', [HomeController::class, 'index']);

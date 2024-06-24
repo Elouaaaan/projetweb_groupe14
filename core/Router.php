@@ -2,7 +2,7 @@
 
 namespace Core;
 
-class Rooter
+class Router
 {
     private $routes = [];
 
@@ -25,8 +25,6 @@ class Rooter
     {
         $method = $_SERVER['REQUEST_METHOD'];
         $path = $_SERVER['REQUEST_URI'];
-
-        echo $method . ' ' . $path . '<br>';
 
         $callback = $this->routes[$method][$path] ?? false;
 

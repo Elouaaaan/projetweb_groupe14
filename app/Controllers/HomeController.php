@@ -6,7 +6,6 @@ class HomeController
 {
     static public function index()
     {
-        echo 'Hello World';
-        return 'aaaaa';
+        return 'Welcome to Home Page';
     }
 }
