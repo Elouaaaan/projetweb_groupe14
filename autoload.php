@@ -7,7 +7,6 @@ $classmap = [
 ];
 
 spl_autoload_register(function (string $classname) use ($classmap) {
-    echo $classname;
     $parts = explode('\\', $classname);
 
     $namespace = array_shift($parts);
@@ -16,8 +15,6 @@ spl_autoload_register(function (string $classname) use ($classmap) {
     if (!array_key_exists($namespace, $classmap)) {
         return;
     }
-    echo $classname;
-
 
     $path = implode(DIRECTORY_SEPARATOR, $parts);
     $file = $classmap[$namespace] . $path . DIRECTORY_SEPARATOR . $classfile;
@@ -25,7 +22,7 @@ spl_autoload_register(function (string $classname) use ($classmap) {
     if (!file_exists($file) && !class_exists($classname)) {
         return;
     }
-    echo $classname;
+    echo $file;
 
 
     require_once $file;
