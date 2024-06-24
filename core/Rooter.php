@@ -23,13 +23,18 @@ class Rooter
 
     public function run()
     {
+        echo 'Running...';
         $path = $_SERVER['REQUEST_URI'];
         $method = $_SERVER['REQUEST_METHOD'];
 
+        echo 'Still running...';
         foreach ($this->routes as $route => $controller) {
+            echo 'ca court';
             if ($route === $path) {
+                echo 'ça marche';
                 if ($method === 'GET') {
-                    $controller();
+                    echo 'ça marche GET';
+                    echo $controller();
                 } else {
                     $controller($_POST);
                 }
