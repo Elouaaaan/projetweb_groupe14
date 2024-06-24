@@ -5,3 +5,5 @@
 .cache/
 .dotnet/
 .bash_history
+.selected_editor
+.viminfo
