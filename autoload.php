@@ -4,6 +4,7 @@ define('AUTOLOAD_VERSION', '0.0.1');
 
 $classmap = [
     'Core' => __DIR__ . DIRECTORY_SEPARATOR . 'core',
+    'App' => __DIR__ . DIRECTORY_SEPARATOR . 'app'
 ];
 
 spl_autoload_register(function (string $classname) use ($classmap) {
@@ -22,8 +23,6 @@ spl_autoload_register(function (string $classname) use ($classmap) {
     if (!file_exists($file) && !class_exists($classname)) {
         return;
     }
-    echo $file;
-
 
     require_once $file;
 });

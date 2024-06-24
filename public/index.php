@@ -20,6 +20,8 @@ if (!defined('AUTOLOAD_VERSION')) {
 
 use Core\Rooter;
 
+$echo "Hello World";
+
 $rooter = new Rooter();
 
 require_once __DIR__ . '/../config/routes.php';
