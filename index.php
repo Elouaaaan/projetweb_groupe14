@@ -22,4 +22,4 @@ $router = new Router();
 
 require_once __DIR__ . '/config/routes.php';
 
-$rooter->run();
+$router->run();
