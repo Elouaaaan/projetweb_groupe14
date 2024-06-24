@@ -23,15 +23,21 @@ class Rooter
 
     public function run()
     {
+        echo '5';
+
         $method = $_SERVER['REQUEST_METHOD'];
         $path = $_SERVER['REQUEST_URI'];
 
         $callback = $this->routes[$method][$path] ?? false;
 
+        echo '6';
+
         if ($callback === false) {
             echo '404 Not Found';
             return;
         }
+
+        echo '7';
 
         echo call_user_func($callback);
     }

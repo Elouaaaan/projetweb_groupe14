@@ -16,10 +16,18 @@
 
 require_once dirname(__DIR__) . '/autoload.php';
 
+echo '1';
+
 use Core\Rooter;
+
+echo '2';
 
 $rooter = new Rooter();
 
+echo '3';
+
 require_once __DIR__ . '/../config/routes.php';
+
+echo '4';
 
 $rooter->run();
