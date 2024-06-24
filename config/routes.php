@@ -2,4 +2,4 @@
 
 use App\Controllers\HomeController;
 
-$rooter->addRoute('/', [HomeController::class, 'index']);
+$rooter->addRoute('/public/', [HomeController::class, 'index']);
