@@ -7,9 +7,10 @@ class HomeController
 {
     public function index()
     {
-        $databaseConfig = require_once '../../config/database.php';
-        $database = $databaseConfig['database'];
+        // $databaseConfig = require_once '../../config/database.php';
+        // $database = $databaseConfig['database'];
 
-        return $database;
+        // return $database;
+        return 'aaaaa';
     }
 }

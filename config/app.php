@@ -1,6 +1,6 @@
 <?php
 
-use App\Helpers\Env;
+use Core\Env;
 
 return [
     'name' => Env::env('APP_NAME', 'Tree'),

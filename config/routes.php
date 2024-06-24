@@ -2,4 +2,4 @@
 
 use App\Controllers\HomeController;
 
-$router->get('/', [HomeController::class, 'index']);
+$rooter->addRoute('/', [HomeController::class, 'index']);

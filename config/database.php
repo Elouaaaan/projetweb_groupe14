@@ -1,6 +1,6 @@
 <?php
 
-use App\Helpers\Env;
+use Core\Env;
 
 return [
     'host' => Env::env('DB_HOST', 'localhost'),

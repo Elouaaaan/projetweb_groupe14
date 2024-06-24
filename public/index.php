@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tree</title>
+    <title>Welcome to Tree</title>
 </head>
 
 <body>
-    <script>
-        fetch('/')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            });
-    </script>
+    <h1>Welcome to Tree</h1>
 </body>
-
-<?php
-
-require __DIR__ . '/../config/routes.php';
