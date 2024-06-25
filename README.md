@@ -21,10 +21,12 @@ aa
 
 ## Rendu Intermédiaire
 
+Les documents se trouvent dans le dossier [rendu intermédiaire](./rendu_intermediaire/)
+
 - [x] Maquette Figma pdf [lien figma](https://www.figma.com/design/wBkDKv9k42slwQ001P6LNQ/ProjetWeb?node-id=0-1&t=xsehOe0UXzx57aVn-1)
-- [ ] MCD pdf
-- [ ] Interface Client/Serveur
-- [ ] Readme d'où trouver les documents
+- [x] MCD pdf
+- [x] Interface Client/Serveur
+- [x] Readme d'où trouver les documents
 
 ## Rendu Final
 
