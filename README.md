@@ -38,7 +38,7 @@ Les documents se trouvent dans le dossier [rendu intermédiaire](./rendu_interme
 
 ### Interfaces Client-Serveur
 
-<embed src ='./rendu_intermediaire/interfaces client-serveur' type='application/pdf'>
+<embed src ='./rendu_intermediaire/interfaces client-serveur.pdf' type='application/pdf'>
 
 ## Rendu Final
 
