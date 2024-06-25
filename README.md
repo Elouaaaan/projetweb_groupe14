@@ -2,14 +2,14 @@
 
 aa
 
-## Liste des tâchess
+## Liste des tâches
 
 |                  | Elouan               | Zelman                |
 |------------------|----------------------|-----------------------|
 | Lundi matin      | Configuration apache | Figma                 |
 | Lundi après-midi | Routes (impossible)  | Figma & Début du html |
-| Mardi matin      |                      |                       |
-| Mardi après-midi |                      |                       |
+| Mardi matin      | SQL                  | Pages PHP             |
+| Mardi après-midi | Backend              | Blocks HTML           |
 
 ## Fonctionnalités de base
 
@@ -38,6 +38,6 @@ Les documents se trouvent dans le dossier [rendu intermédiaire](./rendu_interme
 
 ## Rendu Final
 
-- [ ] Readmen
+- [ ] Readme
 - [ ] Support présentation (avec slide bilan)
 - [ ] Partage des tâches pour chaque demi-journée
