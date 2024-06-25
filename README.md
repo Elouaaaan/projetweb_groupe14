@@ -31,7 +31,10 @@ Les documents se trouvent dans le dossier [rendu intermédiaire](./rendu_interme
 ### MCD
 
 ![mcd](./rendu_intermediaire/MCD.png)
-![figma](./rendu_intermediaire/maquette.pdf)
+
+### Maquette
+
+![figma](./rendu_intermediaire/figma.png)
 
 ## Rendu Final
 
