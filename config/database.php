@@ -7,8 +7,9 @@ use Core\Env;
 (new Env(__DIR__ . '/../.env'))->load();
 
 return [
+    'conn' => getenv('DB_CONNECTION'),
     'host' => getenv('DB_HOST'),
-    'username' => getenv('DB_USERNAME'),
-    'password' => getenv('DB_PASSWORD'),
-    'database' => getenv('DB_DATABASE'),
+    'name' => getenv('DB_DATABASE'),
+    'user' => getenv('DB_USERNAME'),
+    'pass' => getenv('DB_PASSWORD')
 ];

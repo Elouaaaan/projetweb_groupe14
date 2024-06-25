@@ -11,3 +11,4 @@
 .gitconfig
 error.log
 .gnupg/
+.env

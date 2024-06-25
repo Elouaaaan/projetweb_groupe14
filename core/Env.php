@@ -26,7 +26,7 @@ class Env
                 $value = trim($value);
 
                 if (!array_key_exists($key, $_ENV)) {
-                    $_ENV[$key] = $value;
+                    putenv("$key=$value");
                 }
             }
         }
