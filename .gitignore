@@ -8,3 +8,5 @@
 .selected_editor
 .viminfo
 .wget-hsts
+.gitconfig
+error.log

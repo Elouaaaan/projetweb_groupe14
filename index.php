@@ -15,11 +15,3 @@
 <?php
 
 require_once __DIR__ . '/autoload.php';
-
-use Core\Router;
-
-$router = new Router();
-
-require_once __DIR__ . '/config/routes.php';
-
-$router->run();
