@@ -1,5 +1,5 @@
 <?php
-$database = require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . '/autoload.php';
 
 ?>
 
@@ -21,6 +21,3 @@ $database = require_once __DIR__ . '/config/database.php';
 </body>
 
 <?php
-echo Env::env('APP_NAME', 'Tree');
-
-require_once __DIR__ . '/autoload.php';
