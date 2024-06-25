@@ -1,15 +1,57 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  <title>Ajout</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="stylax.css">
-</head>
-<body>
+<?php
+
+namespace App\Views;
+
+class Form {
+    private $form = '';
+
+    public function __construct() {
+        $this->form = '<form class="tree-form">';
+    }
+
+    public function addRow(FormRow $row) {
+        $this->form .= $row->getRow();
+    }
+
+    public function getForm() {
+        return $this->form . '</form>';
+    }
+}
+
+class FormRow {
+    private $rowHTML = '';
+
+    public function __construct() {
+        $this->rowHTML = '<div class="form-row">';
+    }
+
+    public function addField($label, $type, $placeholder) {
+        $this->rowHTML .= '<div class="form-group">
+        <label for="' . $label . '">' . $label . '</label>
+        <input type="' . $type . '" id="' . $label . '" placeholder="' . $placeholder . '">
+        </div>';
+    }
+
+    public function addRadioGroup($label, $name, $options) {
+        $this->rowHTML .= '<div class="form-group-radio">
+        <label for="' . $label . '">' . $label . '</label>
+        <div class="radio-group">';
+        foreach ($options as $option) {
+        $this->rowHTML .= '<input type="radio" name="' . $name . '" id="' . $option . '" checked>
+            <label for="' . $option . '">' . $option . '</label>';
+        }
+        $this->rowHTML .= '</div>
+        </div>';
+    }
+
+    public function getRow() {
+        return $this->rowHTML . '</div>';
+  }
+}
+
+?>
+
+<!-- 
   <form class="tree-form">
 
     <div class="form-row">
@@ -136,6 +178,5 @@
     <div class="form-row">
       <button type="submit" class="submit-button">Soumettre</button>
     </div>
-  </form>
-</body>
-</html>
+  </form> -->
+

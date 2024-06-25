@@ -21,6 +21,5 @@ spl_autoload_register(function (string $classname) use ($classmap) {
     if (!file_exists($file) && !class_exists($classname)) {
         return;
     }
-
     require_once $file;
 });
