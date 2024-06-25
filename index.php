@@ -1,3 +1,8 @@
+<?php
+$database = require_once __DIR__ . '/config/database.php';
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -8,16 +13,14 @@
     <title>Welcome to Tree</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
-    
+
 </head>
 
 <body>
-    <?php 
-    require_once __DIR__ . '/app/Views/header.php'; 
-    echo $header;
-    ?>
+
 </body>
 
 <?php
+echo Env::env('APP_NAME', 'Tree');
 
 require_once __DIR__ . '/autoload.php';
