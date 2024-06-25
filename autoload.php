@@ -19,6 +19,7 @@ spl_autoload_register(function (string $classname) use ($classmap) {
     $file = $classmap[$namespace] . $path . DIRECTORY_SEPARATOR . $classfile;
 
     if (!file_exists($file) && !class_exists($classname)) {
+        echo "File not found: $file";
         return;
     }
     require_once $file;
