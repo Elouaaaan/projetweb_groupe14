@@ -36,6 +36,10 @@ Les documents se trouvent dans le dossier [rendu intermédiaire](./rendu_interme
 
 ![figma](./rendu_intermediaire/figma.png)
 
+### Interfaces Client-Serveur
+
+![ics](./rendu_intermediaire/interfaces client-serveur)
+
 ## Rendu Final
 
 - [ ] Readme
