@@ -33,3 +33,7 @@ Les documents se trouvent dans le dossier [rendu intermédiaire](./rendu_interme
 - [ ] Readmen
 - [ ] Support présentation (avec slide bilan)
 - [ ] Partage des tâches pour chaque demi-journée
+
+## Images
+
+![mcd](./rendu_intermediaire/MCD.png)
