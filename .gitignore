@@ -1,0 +1,13 @@
+.github/
+.ssh/
+.vscode-server/
+.vscode/
+.cache/
+.dotnet/
+.bash_history
+.selected_editor
+.viminfo
+.wget-hsts
+.gitconfig
+error.log
+.gnupg/

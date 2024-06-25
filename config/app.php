@@ -1,5 +1,13 @@
 <?php
 
-use App\Helpers\Env;
+require_once __DIR__ . '/../autoload.php';
 
-define('APP_NAME', Env::env('APP_NAME', 'My App'));
+use Core\Env;
+
+return [
+    'name' => Env::env('APP_NAME', 'Tree'),
+    'url' => Env::env('APP_URL', 'http://localhost'),
+    'debug' => Env::env('APP_DEBUG', true),
+    'timezone' => Env::env('APP_TIMEZONE', 'UTC'),
+    'locale' => Env::env('APP_LOCALE', 'en'),
+];

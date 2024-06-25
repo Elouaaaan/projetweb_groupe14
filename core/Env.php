@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Helpers;
+namespace Core;
 
 class Env
 {
     public static function load()
     {
-        $envFile = __DIR__ . '/../../.env';
+        $envFile = __DIR__ . '/../.env';
 
         if (file_exists($envFile)) {
             $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
