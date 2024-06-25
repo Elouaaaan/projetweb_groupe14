@@ -52,7 +52,11 @@
     <div class="form-row">
       <div class="form-group">
         <label for="etatArbre">État arbre</label>
-        <input type="text" id="etatArbre" placeholder="EN PLACE">
+        <select id="etatArbre">
+          <option value="EN PLACE">EN PLACE</option>
+          <option value="AVION">AVION</option>
+          <option value="BATEAU">BATEAU</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="stadeDeveloppement">Stade développement</label>
