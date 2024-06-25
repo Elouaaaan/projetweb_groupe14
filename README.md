@@ -32,13 +32,13 @@ Les documents se trouvent dans le dossier [rendu intermédiaire](./rendu_interme
 
 ![mcd](./rendu_intermediaire/MCD.png)
 
-### Maquette
-
-![figma](./rendu_intermediaire/figma.png)
-
 ### Interfaces Client-Serveur
 
 ![ics](<./rendu_intermediaire/interfaces_client_serveur.jpg>)
+
+### Maquette
+
+![figma](./rendu_intermediaire/figma.png)
 
 ## Rendu Final
 
