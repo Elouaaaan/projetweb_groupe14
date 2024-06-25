@@ -10,3 +10,4 @@
 .wget-hsts
 .gitconfig
 error.log
+.gnupg/
