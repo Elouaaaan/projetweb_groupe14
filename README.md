@@ -1,13 +1,15 @@
 # Projet-Web
 
+aa
+
 ## Liste des tâchess
 
-|                  | Elouan               | Zelman |
-|------------------|----------------------|--------|
-| Lundi matin      | Configuration apache | Figma  |
-| Lundi après-midi |                      |        |
-|                  |                      |        |
-|                  |                      |        |
+|                  | Elouan               | Zelman                |
+|------------------|----------------------|-----------------------|
+| Lundi matin      | Configuration apache | Figma                 |
+| Lundi après-midi | Routes (impossible)  | Figma & Début du html |
+| Mardi matin      |                      |                       |
+| Mardi après-midi |                      |                       |
 
 ## Fonctionnalités de base
 
