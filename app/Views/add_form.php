@@ -1,3 +1,14 @@
+
+<?php
+
+$etat_arbre = [
+  'En Place' => 'enplace',
+  'Essouché' => 'essouche'
+];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -53,9 +64,9 @@
       <div class="form-group">
         <label for="etatArbre">État arbre</label>
         <select id="etatArbre">
-          <option value="EN PLACE">EN PLACE</option>
-          <option value="AVION">AVION</option>
-          <option value="BATEAU">BATEAU</option>
+          <?php foreach ($etat_arbre as $title => $value): ?>
+          <option value="<?= $url ?>"><?= $title ?></option>
+          <?php endforeach; ?>
         </select>
       </div>
       <div class="form-group">
