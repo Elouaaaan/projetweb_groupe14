@@ -1,12 +1,30 @@
+<?php
+
+namespace App\Views;
+
+$nav_list = [
+  'Accueil' => '#php',
+  'Ajout' => '#',
+  'Carte & Tableau' => '#',
+  'Clusters' => '#',
+  'Âge et déracinage' => '#'
+];
+
+ob_start();
+
+?>
+
 <header>
   <h1>Arbres</h1>
   <nav>
     <ul>
-      <li><a href="#">Accueil</a></li>
-      <li><a href="#">Ajout</a></li>
-      <li><a href="#">Carte & Tableau</a></li>
-      <li><a href="#">Clusters</a></li>
-      <li><a href="#">Âge et déracinage</a></li>
+      <?php foreach ($nav_list as $title => $url): ?>
+        <li><a href="<?= $url ?>"><?= $title ?></a></li>
+      <?php endforeach; ?>
     </ul>
   </nav>
 </header>
+
+<?php
+
+$header = ob_get_clean();
