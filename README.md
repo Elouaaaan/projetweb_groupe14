@@ -28,12 +28,13 @@ Les documents se trouvent dans le dossier [rendu intermédiaire](./rendu_interme
 - [x] Interface Client/Serveur
 - [x] Readme d'où trouver les documents
 
+### MCD
+
+![mcd](./rendu_intermediaire/MCD.png)
+![figma](./rendu_intermediaire/maquette.pdf)
+
 ## Rendu Final
 
 - [ ] Readmen
 - [ ] Support présentation (avec slide bilan)
 - [ ] Partage des tâches pour chaque demi-journée
-
-## Images
-
-![mcd](./rendu_intermediaire/MCD.png)
