@@ -48,15 +48,15 @@ $etat_arbre = [
     <div class="form-row">
       <div class="form-group">
         <label for="hauteurTotale">Hauteur totale</label>
-        <input type="text" id="hauteurTotale" placeholder="6.0">
+        <input type="text" id="hauteurTotale" placeholder="6.0" required="required">
       </div>
       <div class="form-group">
         <label for="hauteurTronc">Hauteur tronc</label>
-        <input type="text" id="hauteurTronc" placeholder="2.0">
+        <input type="text" id="hauteurTronc" placeholder="2.0" required="required">
       </div>
       <div class="form-group">
         <label for="diametreTronc">Diamètre tronc</label>
-        <input type="text" id="diametreTronc" placeholder="37.0">
+        <input type="text" id="diametreTronc" placeholder="37.0" required="required">
       </div>
     </div>
 
@@ -71,7 +71,7 @@ $etat_arbre = [
       </div>
       <div class="form-group">
         <label for="stadeDeveloppement">Stade développement</label>
-        <input type="text" id="stadeDeveloppement" placeholder="Jeune">
+        <input type="text" id="stadeDeveloppement" placeholder="Jeune" required="required">
       </div>
     </div>
 
@@ -111,7 +111,7 @@ $etat_arbre = [
       </div>
       <div class="form-group">
         <label for="nomTechnique">Nom technique</label>
-        <input type="text" id="nomTechnique" placeholder="QUERUB">
+        <input type="text" id="nomTechnique" placeholder="QUERUB" required="required">
       </div>
     </div>
 
