@@ -21,7 +21,7 @@ aa
 
 ## Rendu Intermédiaire
 
-- [ ] Maquette Figma pdf
+- [ ] Maquette Figma pdf (lien figma: https://www.figma.com/design/wBkDKv9k42slwQ001P6LNQ/ProjetWeb?node-id=0-1&t=xsehOe0UXzx57aVn-1)
 - [ ] MCD pdf
 - [ ] Interface Client/Serveur
 - [ ] Readme d'où trouver les documents
