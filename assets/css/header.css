@@ -55,3 +55,11 @@ header {
 .header-nav .header-ul .header-li .header-a:hover {
   text-decoration: underline;
 }
+
+/*
+
+pour l'instant on laisse comme ça mais on verra si on peut pas faire un meilleur sélecteur.
+idée : on met la classe "header" à tous les éléments et le selecteur est div.header {}
+jsp si c'est propre de faire comme ça
+
+*/
