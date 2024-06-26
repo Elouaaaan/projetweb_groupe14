@@ -45,7 +45,7 @@ class FormRow
         $this->rowHTML .= '<div class="form-group">
         <label for="' . $name . '">' . $label . '</label>
         <select id="' . $name . '" name="' . $name . '">
-        <option value="">Select...</option>';
+        <option value="">-- ' . $name . ' --</option>';
         foreach ($options as $option) {
             $this->rowHTML .= '<option value="' . $option[0] . '">' . $option[1] . '</option>';
         }
