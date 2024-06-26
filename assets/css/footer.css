@@ -10,5 +10,5 @@ footer {
   align-items: center;
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  min-width: 100vw;
+  /* min-width: 100vw; */
 }
