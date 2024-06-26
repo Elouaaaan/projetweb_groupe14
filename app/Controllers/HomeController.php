@@ -97,7 +97,7 @@ class HomeController
         $form->addRow($row);
 
         $content = $form->getForm();
-        $footer = '';
+        $footer = (new Footer())->render();
 
         echo HTML::generateHTML($header, $content, $footer);
     }
