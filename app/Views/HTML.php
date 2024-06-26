@@ -4,30 +4,36 @@ namespace App\Views;
 
 use Core\Env;
 
-class HTML {
-    public static function generateHead() {
-        return '
+class HTML
+{
+    public static function generateHead($cssFiles = [], $jsFiles = [])
+    {
+        $cssLinks = '';
+        foreach ($cssFiles as $cssFile) {
+            $cssLinks .= '<link rel="stylesheet" type="text/css" href=assets/css/"' . $cssFile . '">' . PHP_EOL;
+        }
+
+        $jsScripts = '';
+        foreach ($jsFiles as $jsFile) {
+            $jsScripts .= '<script src=assets/js/"' . $jsFile . '" defer></script>' . PHP_EOL;
+        }
+
+        return <<<HTML
         <head>
             <meta charset="utf-8">
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-            <title>' . getenv('APP_NAME') . '</title>
+            <title>{getenv('APP_NAME')}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-            <link rel="stylesheet" type="text/css" href="assets/css/header.css">
-
-            <link rel="stylesheet" type="text/css" href="assets/css/accueil.css">
-
-            <link rel="stylesheet" type="text/css" href="assets/css/form.css">
-
-            <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
-            <script src="assets/js/script.js" defer></script>
+            {$cssLinks}
+            {$jsScripts}
         </head>
-        ';
+        HTML;
     }
 
-    public static function generateBody($header, $content, $footer) {
+    public static function generateBody($header, $content, $footer)
+    {
         return '
         <body>
             ' . $header . '
@@ -37,14 +43,14 @@ class HTML {
         ';
     }
 
-    public static function generateHTML($header, $content, $footer) {
+    public static function generateHTML($header, $content, $footer, $cssFiles = [], $jsFiles = [])
+    {
         return '
         <!DOCTYPE html>
         <html lang="fr">
-        ' . self::generateHead() . '
+        ' . self::generateHead($cssFiles, $jsFiles) . '
         ' . self::generateBody($header, $content, $footer) . '
         </html>
         ';
     }
 }
-

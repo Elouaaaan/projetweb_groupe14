@@ -28,7 +28,14 @@ class HomeController
         $content = (new Accueil())->render();
         $footer = (new Footer())->render();
 
-        echo HTML::generateHTML($header, $content, $footer);
+        $cssFiles = [
+            'main.css',
+            'header.css',
+            'footer.css',
+            'accueil.css',
+        ];
+
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 
     static public function ajout()
@@ -102,7 +109,18 @@ class HomeController
         $content = $form->getForm();
         $footer = (new Footer())->render();
 
-        echo HTML::generateHTML($header, $content, $footer);
+        $cssFiles = [
+            'main.css',
+            'header.css',
+            'footer.css',
+            'form.css',
+        ];
+
+        $jsFiles = [
+            'form.js',
+        ];
+
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles, $jsFiles);
     }
 
     static public function tableaucarte()
@@ -110,6 +128,12 @@ class HomeController
         $header = (new Header())->render();
         $content = '<h2>tableau et carte</h2>';
         $footer = (new Footer())->render();
+
+        $cssFiles = [
+            'main.css',
+            'header.css',
+            'footer.css',
+        ];
 
         echo HTML::generateHTML($header, $content, $footer);
     }
