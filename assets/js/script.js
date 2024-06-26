@@ -23,6 +23,38 @@ async function get_arbres(column = 'id_arbre', reverse = false, per_page = 10, p
     }
 }
 
+async function get_quartier(id_secteur) {
+    try {
+        const url = `api/request.php/quartier/?id_secteur=${id_secteur}`;
+        const response = await fetch(url, {
+            method: 'GET'
+        });
+        if (!response.ok) {
+            throw new Error('Request failed with status:', response.status);
+        }
+        return await response.json();
+    }
+    catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+async function get_secteur() {
+    try {
+        const url = `api/request.php/secteur/`;
+        const response = await fetch(url, {
+            method: 'GET'
+        });
+        if (!response.ok) {
+            throw new Error('Request failed with status:', response.status);
+        }
+        return await response.json();
+    }
+    catch (error) {
+        console.error('Error:', error);
+    }
+}
+
 get_arbres('id_arbre', false, 10, 1, 'en place')
     .then(data => {
         console.log(data);
