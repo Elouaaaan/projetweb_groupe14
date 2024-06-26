@@ -10,7 +10,7 @@
  */
 async function get_arbres(column = 'id_arbre', reverse = false, per_page = 10, page = 1, search = '') {
     try {
-        const url = `http://etu1114.projets.isen-ouest.fr/api/request.php/arbre/?column=${column}&reverse=${reverse}&per_page=${per_page}&page=${page}&search=${search}`;
+        const url = `api/request.php/arbre/?column=${column}&reverse=${reverse}&per_page=${per_page}&page=${page}&search=${search}`;
         const response = await fetch(url, {
             method: 'GET'
         });
