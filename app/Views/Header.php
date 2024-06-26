@@ -8,9 +8,7 @@ class Header
 
   public function __construct()
   {
-    $this->appConfig = require_once(__DIR__ . '/../../config/app.php');
-
-    $url = $this->appConfig['url'];
+    $url = getenv('APP_URL');
     $this->nav_list = [
       'Accueil' => $url,
       'Ajout' => $url . 'ajout.php',
@@ -33,7 +31,7 @@ class Header
     ?>
 
     <header>
-      <h1><?php echo $this->appConfig['name']; ?></h1>
+      <h1><?php echo getenv('APP_NAME'); ?></h1>
       <nav>
         <ul>
           <?php foreach ($this->nav_list as $title => $url): ?>

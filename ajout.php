@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/autoload.php';
+require __DIR__ . '/bootstrap.php';
 
 use App\Controllers\HomeController;
 
