@@ -34,7 +34,7 @@ class SecteurController
         if ($id_quartier) {
             $result = $this->secteur->findByIdQuartier($id_quartier);
         } else {
-            $result = $this->secteur->all();
+            $result = $this->secteur->all(false);
         }
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($result);
