@@ -1,6 +1,11 @@
 # Projet-Web
 
-aa
+## Todo
+
+- footer alignement vertical des éléments
+- Bouton accueil qui ne marche pas
+- descriptif rapide accueil
+- renommer tableaucarte dans l'url et dans la navbar
 
 ## Liste des tâches
 
@@ -15,8 +20,8 @@ aa
 
 ## Fonctionnalités de base
 
-- [ ] Page d'accueil
-- [ ] Ajout d'arbres
+- [x] Page d'accueil
+- [x] Ajout d'arbres
 - [ ] Visualisation tableau et carte
 - [ ] Prédiction du cluster
 - [ ] Prédiction âge et déracinement
