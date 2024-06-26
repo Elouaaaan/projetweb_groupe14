@@ -23,7 +23,7 @@ async function get_arbres(column = 'id_arbre', reverse = false, per_page = 10, p
     }
 }
 
-get_arbres('id_arbre', false, 10, 1, 'remplacé feuillu')
+get_arbres('id_arbre', false, 10, 1, 'en place')
     .then(data => {
         console.log(data);
     })

@@ -79,7 +79,7 @@ class Arbre
             $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
             $stmt->bindValue(':per_page', $per_page, PDO::PARAM_INT);
         }
-        
+
         $stmt->execute();
         return $stmt->fetchAll();
     }
