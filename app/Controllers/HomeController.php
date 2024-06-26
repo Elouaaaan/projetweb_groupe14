@@ -53,8 +53,8 @@ class HomeController
         $form->addRow($row);
 
         $row = new FormRow();
-        $row->addSelect('Quartier', 'quartier', $quartier->all());
-        $row->addSelect('Secteur', 'secteur', $secteur->all());
+        $row->addSelect('Quartier', 'quartier', $quartier->all(), true);
+        $row->addSelect('Secteur', 'secteur', $secteur->all(), true);
         $form->addRow($row);
 
         $row = new FormRow();
@@ -77,7 +77,8 @@ class HomeController
         $row->addSelect('Situation', 'situation', $situation->all());
         $row->addRadioGroup('Revêtement', 'revetement', [
             ['0', 'Non'],
-            ['1', 'Oui'],]);
+            ['1', 'Oui'],
+        ]);
         $form->addRow($row);
 
         $row = new FormRow();
@@ -90,7 +91,8 @@ class HomeController
         $row->addRadioGroup('Feuillage', 'feuillage', $feuillage->all());
         $row->addRadioGroup('Remarquable', 'remarquable', [
             ['0', 'Non'],
-            ['1', 'Oui'],]);
+            ['1', 'Oui'],
+        ]);
         $form->addRow($row);
 
         $row = new FormRow();
