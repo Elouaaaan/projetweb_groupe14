@@ -2,14 +2,17 @@
 
 namespace App\Views;
 
-class FormRow {
+class FormRow
+{
     private $rowHTML = '';
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->rowHTML = '<div class="form-row">';
     }
 
-    public function addField($label, $name, $type, $placeholder, $required = false) {
+    public function addField($label, $name, $type, $placeholder, $required = false)
+    {
         $this->rowHTML .= '<div class="form-group">
         <label for="' . $name . '">' . $label . '</label>
         <input type="' . $type . '" id="' . $name . '" name="' . $name . '" placeholder="' . $placeholder . '"';
@@ -20,14 +23,15 @@ class FormRow {
         </div>';
     }
 
-    public function addRadioGroup($label, $name, $options) {
+    public function addRadioGroup($label, $name, $options)
+    {
         $this->rowHTML .= '<div class="form-group-radio">
         <label>' . $label . '</label>
         <div class="radio-group">';
         foreach ($options as $index => $option) {
             $this->rowHTML .= '<input type="radio" name="' . $name . '" id="' . $name . '_' . $option[0] . '" value="' . $option[1] . '"';
             if ($index === 0) {
-            $this->rowHTML .= ' checked';
+                $this->rowHTML .= ' checked';
             }
             $this->rowHTML .= '>';
             $this->rowHTML .= '<label for="' . $name . '_' . $option[0] . '">' . $option[1] . '</label>';
@@ -36,10 +40,12 @@ class FormRow {
         </div>';
     }
 
-    public function addSelect($label, $name, $options) {
+    public function addSelect($label, $name, $options)
+    {
         $this->rowHTML .= '<div class="form-group">
         <label for="' . $name . '">' . $label . '</label>
-        <select id="' . $name . '" name="' . $name . '">';
+        <select id="' . $name . '" name="' . $name . '">
+        <option value="">Select...</option>';
         foreach ($options as $option) {
             $this->rowHTML .= '<option value="' . $option[0] . '">' . $option[1] . '</option>';
         }
@@ -47,13 +53,15 @@ class FormRow {
         </div>';
     }
 
-    public function addSubmit($label) {
+    public function addSubmit($label)
+    {
         $this->rowHTML .= '<div class="form-row">
         <button type="submit" class="submit-button">' . $label . '</button>
         </div>';
     }
 
-    public function getRow() {
+    public function getRow()
+    {
         return $this->rowHTML . '</div>';
-  }
+    }
 }
