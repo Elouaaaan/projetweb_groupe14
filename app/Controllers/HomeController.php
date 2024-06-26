@@ -135,6 +135,6 @@ class HomeController
             'footer.css',
         ];
 
-        echo HTML::generateHTML($header, $content, $footer);
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 }
