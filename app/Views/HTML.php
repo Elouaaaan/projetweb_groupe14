@@ -6,17 +6,17 @@ use Core\Env;
 
 class HTML {
     public static function generateHead() {
-        $appConfig = require_once(__DIR__ . '/../../config/app.php');
         return '
         <head>
             <meta charset="utf-8">
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-            <title>' . $appConfig['name'] . '</title>
+            <title>' . getenv('APP_NAME') . '</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" type="text/css" href="assets/css/header_style.css">
+            <link rel="stylesheet" type="text/css" href="assets/css/header.css">
             <link rel="stylesheet" type="text/css" href="assets/css/form.css">
+            <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
         </head>
         ';
     }

@@ -20,13 +20,12 @@ class Database
 
     private function connect()
     {
-        $db_config = require_once(__DIR__ . '/../config/database.php');
-        $conn = $db_config['conn'];
-        $host = $db_config['host'];
-        $name = $db_config['name'];
-        $user = $db_config['user'];
-        $pass = $db_config['pass'];
-
+        $conn = getenv('DB_CONNECTION');
+        $host = getenv('DB_HOST');
+        $name = getenv('DB_DATABASE');
+        $user = getenv('DB_USERNAME');
+        $pass = getenv('DB_PASSWORD');
+        
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
