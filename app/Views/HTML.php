@@ -17,8 +17,10 @@ class HTML {
             <link rel="stylesheet" type="text/css" href="assets/css/main.css">
             <link rel="stylesheet" type="text/css" href="assets/css/header.css">
 
+            <link rel="stylesheet" type="text/css" href="assets/css/accueil.css">
+
             <link rel="stylesheet" type="text/css" href="assets/css/form.css">
-            
+
             <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
             <script src="assets/js/script.js" defer></script>
         </head>
