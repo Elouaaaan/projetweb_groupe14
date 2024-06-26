@@ -15,9 +15,9 @@ abstract class Categories
         $this->conn = Database::getInstance()->getConnection();
     }
 
-    public function all()
+    public function all($fetch_num = true)
     {
         $stmt = $this->conn->query('SELECT * FROM ' . $this->table);
-        return $stmt->fetchAll(PDO::FETCH_NUM);
+        return $stmt->fetchAll($fetch_num ? PDO::FETCH_NUM : PDO::FETCH_ASSOC);
     }
 }
