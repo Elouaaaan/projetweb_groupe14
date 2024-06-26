@@ -32,10 +32,10 @@ class Header
 
     <header>
       <h1><?php echo getenv('APP_NAME'); ?></h1>
-      <nav>
-        <ul>
+      <nav class="header-nav">
+        <ul class="header-ul">
           <?php foreach ($this->nav_list as $title => $url): ?>
-            <li><a href="<?= $url ?>"><?= $title ?></a></li>
+            <li class="header-li"><a class="header-a" href="<?= $url ?>"><?= $title ?></a></li>
           <?php endforeach; ?>
         </ul>
       </nav>
