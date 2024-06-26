@@ -40,12 +40,14 @@ class FormRow
         </div>';
     }
 
-    public function addSelect($label, $name, $options)
+    public function addSelect($label, $name, $options, $placeholder = false)
     {
         $this->rowHTML .= '<div class="form-group">
         <label for="' . $name . '">' . $label . '</label>
-        <select id="' . $name . '" name="' . $name . '">
-        <option value="">Select...</option>';
+        <select id="' . $name . '" name="' . $name . '">';
+        if ($placeholder) {
+            $this->rowHTML .= '<option value="">-- ' . $label . ' --</option>';
+        }
         foreach ($options as $option) {
             $this->rowHTML .= '<option value="' . $option[0] . '">' . $option[1] . '</option>';
         }
