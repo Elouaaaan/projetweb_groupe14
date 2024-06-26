@@ -2,20 +2,18 @@
 
 namespace App\Views;
 
-use Core\Env;
-
 class HTML
 {
     public static function generateHead($cssFiles = [], $jsFiles = [])
     {
         $cssLinks = '';
         foreach ($cssFiles as $cssFile) {
-            $cssLinks .= '<link rel="stylesheet" type="text/css" href=assets/css/"' . $cssFile . '">' . PHP_EOL;
+            $cssLinks .= '<link rel="stylesheet" type="text/css" href="assets/css/' . $cssFile . '">' . PHP_EOL;
         }
 
         $jsScripts = '';
         foreach ($jsFiles as $jsFile) {
-            $jsScripts .= '<script src=assets/js/"' . $jsFile . '" defer></script>' . PHP_EOL;
+            $jsScripts .= '<script src="assets/js/' . $jsFile . '" defer></script>' . PHP_EOL;
         }
 
         $appName = getenv('APP_NAME');
