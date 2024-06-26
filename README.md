@@ -4,12 +4,14 @@ aa
 
 ## Liste des tâches
 
-|                  | Elouan               | Zelman                |
-|------------------|----------------------|-----------------------|
-| Lundi matin      | Configuration apache | Figma                 |
-| Lundi après-midi | Routes (impossible)  | Figma & Début du html |
-| Mardi matin      | SQL                  | Pages PHP             |
-| Mardi après-midi | Backend              | Blocks HTML           |
+|                     | Elouan               | Zelman                |
+|---------------------|----------------------|-----------------------|
+| Lundi matin         | Configuration apache | Figma                 |
+| Lundi après-midi    | Routes (impossible)  | Figma & Début du html |
+| Mardi matin         | SQL                  | Pages PHP             |
+| Mardi après-midi    | Backend              | Blocks HTML           |
+| Mercredi matin      | Backend              | Tableau et carte      |
+| Mercredi après-midi |                      |                       |
 
 ## Fonctionnalités de base
 
