@@ -24,28 +24,90 @@
     </nav>
   </header>
 
-  <table>
+  <div class="toggle-container">
+    <input type="checkbox" id="longitude" class="column-toggle" data-col-index="0" checked="checked">
+    <label for="longitude">Longitude</label>
+
+    <input type="checkbox" id="latitude" class="column-toggle" data-col-index="1" checked="checked">
+    <label for="latitude">Latitude</label>
+
+    <input type="checkbox" id="quartier" class="column-toggle" data-col-index="2" checked="checked">
+    <label for="quartier">Quartier</label>
+
+    <input type="checkbox" id="secteur" class="column-toggle" data-col-index="3" checked="checked">
+    <label for="secteur">Secteur</label>
+
+    <input type="checkbox" id="hauteur_totale" class="column-toggle" data-col-index="4" checked="checked">
+    <label for="hauteur_totale">Hauteur totale</label>
+
+    <input type="checkbox" id="hauteur_tronc" class="column-toggle" data-col-index="5" checked="checked">
+    <label for="hauteur_tronc">Hauteur tronc</label>
+
+    <input type="checkbox" id="diametre_tronc" class="column-toggle" data-col-index="6" checked="checked">
+    <label for="diametre_tronc">Diamètre tronc</label>
+
+    <input type="checkbox" id="etat_arbre" class="column-toggle" data-col-index="7" checked="checked">
+    <label for="etat_arbre">État arbre</label>
+
+    <input type="checkbox" id="stade_developpement" class="column-toggle" data-col-index="8" checked="checked">
+    <label for="stade_developpement">Stade de développement</label>
+
+    <label for="port">Port</label>
+    <input type="checkbox" id="port" class="column-toggle" data-col-index="9" checked="checked">
+
+    <label for="pied">Pied</label>
+    <input type="checkbox" id="pied" class="column-toggle" data-col-index="10" checked="checked">
+
+    <label for="situation">Situation</label>
+    <input type="checkbox" id="situation" class="column-toggle" data-col-index="11" checked="checked">
+
+    <label for="revetement">Revêtement</label>
+    <input type="checkbox" id="revetement" class="column-toggle" data-col-index="12" checked="checked">
+
+    <label for="age_estime">Âge estimé</label>
+    <input type="checkbox" id="age_estime" class="column-toggle" data-col-index="13" checked="checked">
+
+    <label for="precision_estimee">Précision estimée</label>
+    <input type="checkbox" id="precision_estimee" class="column-toggle" data-col-index="14" checked="checked">
+
+    <label for="nombre_diagnostics">Nombre de diagnostics</label>
+    <input type="checkbox" id="nombre_diagnostics" class="column-toggle" data-col-index="15" checked="checked">
+
+    <label for="nom_technique">Nom technique</label>
+    <input type="checkbox" id="nom_technique" class="column-toggle" data-col-index="16" checked="checked">
+
+    <label for="villeca">Villeca</label>
+    <input type="checkbox" id="villeca" class="column-toggle" data-col-index="17" checked="checked">
+
+    <label for="feuillage">Feuillage</label>
+    <input type="checkbox" id="feuillage" class="column-toggle" data-col-index="18" checked="checked">
+
+    <label for="remarquable">Remarquable</label>
+    <input type="checkbox" id="remarquable" class="column-toggle" data-col-index="19" checked="checked">
+  </div>
+
+  <table id="tableau">
     <tr>
-      <th>Longitude</th>
-      <th>Latitude</th>
-      <th>Quartier</th>
-      <th>Secteur</th>
-      <th>Hauteur totale</th>
-      <th>Hauteur tronc</th>
-      <th>Diamètre tronc</th>
-      <th>État arbre</th>
-      <th>Stade de développement</th>
-      <th>Port</th>
-      <th>Pied</th>
-      <th>Situation</th>
-      <th>Revêtement</th>
-      <th>Âge estimé</th>
-      <th>Précision estimée</th>
-      <th>Nombre de diagnostics</th>
-      <th>Nom technique</th>
-      <th>Villeca</th>
-      <th>Feuillage</th>
-      <th>Remarquable</th>
+      <th id="longitude">Longitude</th>
+      <th id="latitude">Latitude</th>
+      <th id="quartier">Quartier</th>
+      <th id="secteur">Secteur</th>
+      <th id="hauteur_totale">Hauteur totale</th>
+      <th id="hauteur_tronc">Hauteur tronc</th>
+      <th id="diametre_tronc">Diamètre tronc</th>
+      <th id="etat_arbre">État arbre</th>
+      <th id="stade_developpement">Stade de développement</th>
+      <th id="port">Port</th>
+      <th id="pied">Pied</th>
+      <th id="situation">Situation</th>
+      <th id="revetement">Revêtement</th>
+      <th id="age_estime">Âge estimé</th>
+      <th id="precision_estimee">Précision estimée</th>
+      <th id="nombre_diagnostics">Nombre de diagnostics</th>
+      <th id="nom_technique">Nom technique</th>
+      <th id="villeca">Villeca</th>
+      <th id="feuillage">Feuillage</th>
+      <th id="remarquable">Remarquable</th>
     </tr>
     <tr>
       <td>3.2932636093638927</td>
@@ -121,6 +183,29 @@
   <footer>
     <p>Il est beau mon footer hein ?</p>
   </footer>
+
+  <script>
+    function toggleColumn(colIndex, isVisible) {
+      // afficher/masquer la colonne basée sur colIndex et isVisible
+      document.querySelectorAll(`#tableau tr > *:nth-child(${colIndex + 1})`).forEach(cell => {
+        if (isVisible) {
+          cell.style.display = '';
+        } else {
+          cell.style.display = 'none';
+        }
+      });
+    }
+    
+    // Correction du gestionnaire d'événements
+    document.querySelectorAll('.column-toggle').forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        // Utiliser l'attribut data-col-index pour déterminer l'index de la colonne
+        var colIndex = parseInt(this.getAttribute('data-col-index'), 10);
+        // Afficher/masquer la colonne
+        toggleColumn(colIndex, this.checked);
+      });
+    });
+  </script>
 
 </body>
 </html>
