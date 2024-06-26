@@ -12,13 +12,13 @@ class Quartier extends Categories
         $this->table = 'quartier';
     }
 
-    public function getQuartierBySecteur($sector_id)
+    public function findByIdSecteur($sector_id)
     {
         $stmt = $this->conn->prepare('SELECT id_quartier, quartier FROM quartier_secteur
             JOIN quartier USING(id_quartier)
             WHERE id_secteur = :id_secteur');
         $stmt->bindParam(':id_secteur', $sector_id);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll();
     }
 }

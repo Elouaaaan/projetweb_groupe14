@@ -6,6 +6,11 @@ use App\Models\Arbre;
 
 class ArbreController
 {
+    private $arbre;
+    private $requestMethod;
+    private $options;
+
+
     public function __construct($requestMethod, $options)
     {
         $this->arbre = new Arbre();
@@ -13,7 +18,9 @@ class ArbreController
         $this->options = $options;
     }
 
-    public function processRequest() {
+    public function processRequest()
+    {
+        $response = null;
         switch ($this->requestMethod) {
             case 'GET':
                 $column = $this->options['column'] ?? 'id_arbre';
@@ -23,7 +30,7 @@ class ArbreController
                 $search = $this->options['search'] ?? null;
 
                 $response = $this->getArbres($column, $reverse, $per_page, $page, $search);
-            }
+        }
 
         header($response['status_code_header']);
         if ($response['body']) {
@@ -31,11 +38,11 @@ class ArbreController
         }
     }
 
-    private function getArbres($column, $reverse, $per_page = null, $page = null, $search = null) {
+    private function getArbres($column, $reverse, $per_page = null, $page = null, $search = null)
+    {
         $result = $this->arbre->all($column, $reverse, $per_page, $page, $search);
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($result);
         return $response;
     }
-
 }
