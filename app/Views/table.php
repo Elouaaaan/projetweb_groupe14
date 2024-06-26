@@ -24,6 +24,11 @@
     </nav>
   </header>
 
+  <div class="search-button">
+    <input type="text" id="search" name="search" placeholder="Rechercher...">
+    <button type="submit" id="search-button">Rechercher</button>
+  </div>
+
   <div class="toggle-container">
     <input type="checkbox" id="longitude" class="column-toggle" data-col-index="0" checked="checked">
     <label for="longitude">Longitude</label>
