@@ -29,3 +29,10 @@ async function get_secteur() {
         console.error('Error:', error);
     }
 }
+
+document.querySelector('#quartier').addEventListener('change', async function () {
+    const selectedSectorId = this.value;
+    const secteurs = await get_secteur(selectedSectorId)
+
+    console.log(secteurs)
+});
