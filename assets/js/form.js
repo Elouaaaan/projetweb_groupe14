@@ -14,9 +14,9 @@ async function get_quartier(id_secteur) {
     }
 }
 
-async function get_secteur() {
+async function get_secteur(id_quartier) {
     try {
-        const url = `api/request.php/secteur/`;
+        const url = `api/request.php/secteur/${id_quartier}`;
         const response = await fetch(url, {
             method: 'GET'
         });
