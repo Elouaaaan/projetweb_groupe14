@@ -12,7 +12,7 @@ class Secteur extends Categories
         $this->table = 'secteur';
     }
 
-    public function getSecteurByQuartier($quartier_id)
+    public function findByIdQuartier($quartier_id)
     {
         $stmt = $this->conn->prepare('SELECT id_secteur, secteur FROM quartier_secteur
             JOIN secteur USING(id_secteur)
