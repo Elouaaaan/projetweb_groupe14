@@ -32,6 +32,7 @@ async function get_secteur() {
 
 document.querySelector('#quartier').addEventListener('change', async function () {
     const selectedSectorId = this.value;
+    console.log(selectedSectorId)
     const secteurs = await get_secteur(selectedSectorId)
 
     console.log(secteurs)
