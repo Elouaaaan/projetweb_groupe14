@@ -16,7 +16,9 @@ class HTML {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="assets/css/main.css">
             <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+
             <link rel="stylesheet" type="text/css" href="assets/css/form.css">
+            
             <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
             <script src="assets/js/script.js" defer></script>
         </head>
