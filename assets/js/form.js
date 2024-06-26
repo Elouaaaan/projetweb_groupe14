@@ -1,3 +1,4 @@
+
 async function get_quartier(id_secteur) {
     try {
         const url = `api/request.php/quartier/?id_secteur=${id_secteur}`;
@@ -32,8 +33,18 @@ async function get_secteur(id_quartier) {
 
 document.querySelector('#quartier').addEventListener('change', async function () {
     const selectedSectorId = this.value;
-    console.log(selectedSectorId)
-    const secteurs = await get_secteur(selectedSectorId)
+    console.log(selectedSectorId);
+    const secteurs = await get_secteur(selectedSectorId);
 
-    console.log(secteurs)
+    // Hide options that are not in the secteur JSON
+    const selectElement = document.querySelector('#secteur');
+    const options = selectElement.options;
+    for (let i = 0; i < options.length; i++) {
+        const option = options[i];
+        if (!secteurs.some(secteur => secteur.id_secteur === option.value)) {
+            option.style.display = 'none';
+        } else {
+            option.style.display = 'block';
+        }
+    }
 });
