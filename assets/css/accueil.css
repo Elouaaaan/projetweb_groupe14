@@ -1,16 +1,19 @@
 
 main {
-  padding: 10vh 13vw 20vh 13vw;
-  margin: 0;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  gap: 20px;*/
+  margin: 0 auto;
+  padding: 0;
   position: relative;
   text-align: center;
-  width: 100%;
+  width: 60vw;
   box-sizing: border-box;
+  z-index: -1;
+}
+
+.accueil-img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 img {
@@ -27,7 +30,7 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
-  font-size: 64px;
+  font-size: 40px;
   z-index: 2;
 }
 
