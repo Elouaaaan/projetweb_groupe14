@@ -15,6 +15,7 @@ use App\Models\Categories\ArbEtat;
 
 use App\Views\HTML;
 use App\Views\Header;
+use App\Views\Footer;
 use App\Views\Form;
 use App\Views\FormRow;
 
@@ -24,7 +25,7 @@ class HomeController
     {
         $header = (new Header())->render();
         $content = '<h2>Accueil</h2>';
-        $footer = '';
+        $footer = (new Footer())->render();
 
         echo HTML::generateHTML($header, $content, $footer);
     }
