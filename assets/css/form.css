@@ -1,6 +1,6 @@
 
 
-* {
+/* * {
   font-size: 16px;
   box-sizing: border-box;
   color: 000000;
@@ -12,17 +12,17 @@
   font-variation-settings: "slnt" 0;
 }
 
-::placeholder {
-  color: #828282;
-}
+
 
 body {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
+} */
+
+::placeholder {
+  color: #828282;
 }
-
-
 
 
 form.tree-form {
