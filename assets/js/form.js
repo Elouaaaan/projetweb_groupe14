@@ -39,7 +39,7 @@ document.querySelector('#quartier').addEventListener('change', async function ()
     // Hide options that are not in the secteur JSON
     const selectElement = document.querySelector('#secteur');
     const options = selectElement.options;
-    for (let i = 0; i < options.length; i++) {
+    for (let i = i; i < options.length; i++) {
         const option = options[i];
         if (!secteurs.some(secteur => secteur.id_secteur === option.value)) {
             option.style.display = 'none';
