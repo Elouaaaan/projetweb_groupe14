@@ -18,6 +18,6 @@ abstract class Categories
     public function all($fetch_num = true)
     {
         $stmt = $this->conn->query('SELECT * FROM ' . $this->table);
-        return $stmt->fetchAll($fetch_num ? PDO::FETCH_NUM : '');
+        return $stmt->fetchAll($fetch_num ? PDO::FETCH_NUM : PDO::FETCH_ASSOC);
     }
 }
