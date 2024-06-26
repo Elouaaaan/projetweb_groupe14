@@ -46,4 +46,8 @@ document.querySelector('#quartier').addEventListener('change', async function ()
             option.style.display = 'block';
         }
     }
+
+    if (secteurs.length === 1) {
+        selectElement.value = secteurs[1].id_secteur;
+    }
 });
