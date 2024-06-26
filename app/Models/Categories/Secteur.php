@@ -16,7 +16,8 @@ class Secteur extends Categories
     {
         $stmt = $this->conn->prepare('SELECT id_secteur, secteur FROM quartier_secteur
             JOIN secteur USING(id_secteur)
-            ');
+            WHERE id_quartier = :id_quartier');
+        $stmt->bindParam(':id_quartier', $quartier_id);
         $stmt->execute();
         return $stmt->fetchAll();
     }
