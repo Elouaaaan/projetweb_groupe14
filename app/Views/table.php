@@ -52,38 +52,38 @@
     <input type="checkbox" id="stade_developpement" class="column-toggle" data-col-index="8" checked="checked">
     <label for="stade_developpement">Stade de développement</label>
 
-    <label for="port">Port</label>
     <input type="checkbox" id="port" class="column-toggle" data-col-index="9" checked="checked">
-
-    <label for="pied">Pied</label>
+    <label for="port">Port</label>
+    
     <input type="checkbox" id="pied" class="column-toggle" data-col-index="10" checked="checked">
-
-    <label for="situation">Situation</label>
+    <label for="pied">Pied</label>
+    
     <input type="checkbox" id="situation" class="column-toggle" data-col-index="11" checked="checked">
-
-    <label for="revetement">Revêtement</label>
+    <label for="situation">Situation</label>
+    
     <input type="checkbox" id="revetement" class="column-toggle" data-col-index="12" checked="checked">
-
-    <label for="age_estime">Âge estimé</label>
+    <label for="revetement">Revêtement</label>
+    
     <input type="checkbox" id="age_estime" class="column-toggle" data-col-index="13" checked="checked">
-
-    <label for="precision_estimee">Précision estimée</label>
+    <label for="age_estime">Âge estimé</label>
+    
     <input type="checkbox" id="precision_estimee" class="column-toggle" data-col-index="14" checked="checked">
-
-    <label for="nombre_diagnostics">Nombre de diagnostics</label>
+    <label for="precision_estimee">Précision estimée</label>
+    
     <input type="checkbox" id="nombre_diagnostics" class="column-toggle" data-col-index="15" checked="checked">
-
-    <label for="nom_technique">Nom technique</label>
+    <label for="nombre_diagnostics">Nombre de diagnostics</label>
+    
     <input type="checkbox" id="nom_technique" class="column-toggle" data-col-index="16" checked="checked">
-
-    <label for="villeca">Villeca</label>
+    <label for="nom_technique">Nom technique</label>
+    
     <input type="checkbox" id="villeca" class="column-toggle" data-col-index="17" checked="checked">
-
-    <label for="feuillage">Feuillage</label>
+    <label for="villeca">Villeca</label>
+    
     <input type="checkbox" id="feuillage" class="column-toggle" data-col-index="18" checked="checked">
-
-    <label for="remarquable">Remarquable</label>
+    <label for="feuillage">Feuillage</label>
+    
     <input type="checkbox" id="remarquable" class="column-toggle" data-col-index="19" checked="checked">
+    <label for="remarquable">Remarquable</label>
   </div>
 
   <table id="tableau">
@@ -204,6 +204,12 @@
         // Afficher/masquer la colonne
         toggleColumn(colIndex, this.checked);
       });
+    });
+
+    // si la page est rechargée, les colonnes sont affichées
+    document.querySelectorAll('.column-toggle').forEach(checkbox => {
+      var colIndex = parseInt(checkbox.getAttribute('data-col-index'), 10);
+      toggleColumn(colIndex, checkbox.checked);
     });
   </script>
 
