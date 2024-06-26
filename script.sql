@@ -1,171 +1,28 @@
-#------------------------------------------------------------
-#        Script MySQL.
-#------------------------------------------------------------
+DROP TABLE IF EXISTS arbre;
+DROP TABLE IF EXISTS quartier_secteur;
+DROP TABLE IF EXISTS quartier;
+DROP TABLE IF EXISTS secteur;
+DROP TABLE IF EXISTS arb_etat;
+DROP TABLE IF EXISTS stadedev;
+DROP TABLE IF EXISTS port;
+DROP TABLE IF EXISTS pied;
+DROP TABLE IF EXISTS situation;
+DROP TABLE IF EXISTS nomtech;
+DROP TABLE IF EXISTS villeca;
+DROP TABLE IF EXISTS feuillage;
 
-
-#------------------------------------------------------------
-# Table: quartier
-#------------------------------------------------------------
-
-CREATE TABLE quartier(
-        id_quartier Int  Auto_increment  NOT NULL ,
-        quartier    Varchar (31) NOT NULL
-	,CONSTRAINT quartier_PK PRIMARY KEY (id_quartier)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: secteur
-#------------------------------------------------------------
-
-CREATE TABLE secteur(
-        id_secteur Int  Auto_increment  NOT NULL ,
-        secteur    Varchar (58) NOT NULL
-	,CONSTRAINT secteur_PK PRIMARY KEY (id_secteur)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: arb_etat
-#------------------------------------------------------------
-
-CREATE TABLE arb_etat(
-        id_arb_etat Int  Auto_increment  NOT NULL ,
-        arb_etat    Varchar (12) NOT NULL
-	,CONSTRAINT arb_etat_PK PRIMARY KEY (id_arb_etat)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: stadedev
-#------------------------------------------------------------
-
-CREATE TABLE stadedev(
-        id_stadedev Int  Auto_increment  NOT NULL ,
-        stadedev    Varchar (9) NOT NULL
-	,CONSTRAINT stadedev_PK PRIMARY KEY (id_stadedev)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: port
-#------------------------------------------------------------
-
-CREATE TABLE port(
-        id_port Int  Auto_increment  NOT NULL ,
-        port    Varchar (20) NOT NULL
-	,CONSTRAINT port_PK PRIMARY KEY (id_port)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: pied
-#------------------------------------------------------------
-
-CREATE TABLE pied(
-        id_pied Int  Auto_increment  NOT NULL ,
-        pied    Varchar (30) NOT NULL
-	,CONSTRAINT pied_PK PRIMARY KEY (id_pied)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: situation
-#------------------------------------------------------------
-
-CREATE TABLE situation(
-        id_situation Int  Auto_increment  NOT NULL ,
-        situation    Varchar (10) NOT NULL
-	,CONSTRAINT situation_PK PRIMARY KEY (id_situation)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: nomtech
-#------------------------------------------------------------
-
-CREATE TABLE nomtech(
-        id_nomtech Int  Auto_increment  NOT NULL ,
-        nomtech    Varchar (15) NOT NULL
-	,CONSTRAINT nomtech_PK PRIMARY KEY (id_nomtech)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: villeca
-#------------------------------------------------------------
-
-CREATE TABLE villeca(
-        id_villeca Int  Auto_increment  NOT NULL ,
-        villeca    Varchar (5) NOT NULL
-	,CONSTRAINT villeca_PK PRIMARY KEY (id_villeca)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: feuillage
-#------------------------------------------------------------
-
-CREATE TABLE feuillage(
-        id_feuillage Int  Auto_increment  NOT NULL ,
-        feuillage    Varchar (8) NOT NULL
-	,CONSTRAINT feuillage_PK PRIMARY KEY (id_feuillage)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: arbre
-#------------------------------------------------------------
-
-CREATE TABLE arbre(
-        id_arbre     Int  Auto_increment  NOT NULL ,
-        longitude    Double ,
-        latitude     Double ,
-        haut_tot     Smallint NOT NULL ,
-        haut_tronc   Smallint NOT NULL ,
-        tronc_diam   Smallint NOT NULL ,
-        age_estim    Smallint ,
-        prec_estim   TinyINT ,
-        revetement   Bool ,
-        nbr_diag     TinyINT ,
-        remarquable  Bool ,
-        id_arb_etat  Int ,
-        id_stadedev  Int NOT NULL ,
-        id_port      Int ,
-        id_pied      Int ,
-        id_situation Int ,
-        id_nomtech   Int NOT NULL ,
-        id_villeca   Int ,
-        id_feuillage Int ,
-        id_secteur   Int ,
-        id_quartier  Int
-	,CONSTRAINT arbre_PK PRIMARY KEY (id_arbre)
-
-	,CONSTRAINT arbre_arb_etat_FK FOREIGN KEY (id_arb_etat) REFERENCES arb_etat(id_arb_etat)
-	,CONSTRAINT arbre_stadedev0_FK FOREIGN KEY (id_stadedev) REFERENCES stadedev(id_stadedev)
-	,CONSTRAINT arbre_port1_FK FOREIGN KEY (id_port) REFERENCES port(id_port)
-	,CONSTRAINT arbre_pied2_FK FOREIGN KEY (id_pied) REFERENCES pied(id_pied)
-	,CONSTRAINT arbre_situation3_FK FOREIGN KEY (id_situation) REFERENCES situation(id_situation)
-	,CONSTRAINT arbre_nomtech4_FK FOREIGN KEY (id_nomtech) REFERENCES nomtech(id_nomtech)
-	,CONSTRAINT arbre_villeca5_FK FOREIGN KEY (id_villeca) REFERENCES villeca(id_villeca)
-	,CONSTRAINT arbre_feuillage6_FK FOREIGN KEY (id_feuillage) REFERENCES feuillage(id_feuillage)
-	,CONSTRAINT arbre_secteur7_FK FOREIGN KEY (id_secteur) REFERENCES secteur(id_secteur)
-	,CONSTRAINT arbre_quartier8_FK FOREIGN KEY (id_quartier) REFERENCES quartier(id_quartier)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: quartier_secteur
-#------------------------------------------------------------
-
-CREATE TABLE quartier_secteur(
-        id_secteur  Int NOT NULL ,
-        id_quartier Int NOT NULL
-	,CONSTRAINT quartier_secteur_PK PRIMARY KEY (id_secteur,id_quartier)
-
-	,CONSTRAINT quartier_secteur_secteur_FK FOREIGN KEY (id_secteur) REFERENCES secteur(id_secteur)
-	,CONSTRAINT quartier_secteur_quartier0_FK FOREIGN KEY (id_quartier) REFERENCES quartier(id_quartier)
-)ENGINE=InnoDB;
+CREATE TABLE quartier(id_quartier Int Auto_increment NOT NULL, quartier Varchar(31) NOT NULL, CONSTRAINT quartier_PK PRIMARY KEY (id_quartier))ENGINE=InnoDB;
+CREATE TABLE secteur(id_secteur Int Auto_increment NOT NULL, secteur Varchar(58) NOT NULL, CONSTRAINT secteur_PK PRIMARY KEY (id_secteur))ENGINE=InnoDB;
+CREATE TABLE arb_etat(id_arb_etat Int Auto_increment NOT NULL, arb_etat Varchar(12) NOT NULL, CONSTRAINT arb_etat_PK PRIMARY KEY (id_arb_etat))ENGINE=InnoDB;
+CREATE TABLE stadedev(id_stadedev Int Auto_increment NOT NULL, stadedev Varchar(9) NOT NULL, CONSTRAINT stadedev_PK PRIMARY KEY (id_stadedev))ENGINE=InnoDB;
+CREATE TABLE port(id_port Int Auto_increment NOT NULL, port Varchar(20) NOT NULL, CONSTRAINT port_PK PRIMARY KEY (id_port))ENGINE=InnoDB;
+CREATE TABLE pied(id_pied Int Auto_increment NOT NULL, pied Varchar(30) NOT NULL, CONSTRAINT pied_PK PRIMARY KEY (id_pied))ENGINE=InnoDB;
+CREATE TABLE situation(id_situation Int Auto_increment NOT NULL, situation Varchar(10) NOT NULL, CONSTRAINT situation_PK PRIMARY KEY (id_situation))ENGINE=InnoDB;
+CREATE TABLE nomtech(id_nomtech Int Auto_increment NOT NULL, nomtech Varchar(15) NOT NULL, CONSTRAINT nomtech_PK PRIMARY KEY (id_nomtech))ENGINE=InnoDB;
+CREATE TABLE villeca(id_villeca Int Auto_increment NOT NULL, villeca Varchar(5) NOT NULL, CONSTRAINT villeca_PK PRIMARY KEY (id_villeca))ENGINE=InnoDB;
+CREATE TABLE feuillage(id_feuillage Int Auto_increment NOT NULL, feuillage Varchar(8) NOT NULL, CONSTRAINT feuillage_PK PRIMARY KEY (id_feuillage))ENGINE=InnoDB;
+CREATE TABLE arbre(id_arbre Int Auto_increment NOT NULL, longitude Double, latitude Double, haut_tot Smallint NOT NULL, haut_tronc Smallint NOT NULL, tronc_diam Smallint NOT NULL, age_estim Smallint, prec_estim TinyINT, revetement Bool, nbr_diag TinyINT, remarquable Bool, id_arb_etat Int, id_stadedev Int NOT NULL, id_port Int, id_pied Int, id_situation Int, id_nomtech Int NOT NULL, id_villeca Int, id_feuillage Int, id_secteur Int, id_quartier Int, CONSTRAINT arbre_PK PRIMARY KEY (id_arbre), CONSTRAINT arbre_arb_etat_FK FOREIGN KEY (id_arb_etat) REFERENCES arb_etat(id_arb_etat), CONSTRAINT arbre_stadedev0_FK FOREIGN KEY (id_stadedev) REFERENCES stadedev(id_stadedev), CONSTRAINT arbre_port1_FK FOREIGN KEY (id_port) REFERENCES port(id_port), CONSTRAINT arbre_pied2_FK FOREIGN KEY (id_pied) REFERENCES pied(id_pied), CONSTRAINT arbre_situation3_FK FOREIGN KEY (id_situation) REFERENCES situation(id_situation), CONSTRAINT arbre_nomtech4_FK FOREIGN KEY (id_nomtech) REFERENCES nomtech(id_nomtech), CONSTRAINT arbre_villeca5_FK FOREIGN KEY (id_villeca) REFERENCES villeca(id_villeca), CONSTRAINT arbre_feuillage6_FK FOREIGN KEY (id_feuillage) REFERENCES feuillage(id_feuillage), CONSTRAINT arbre_secteur7_FK FOREIGN KEY (id_secteur) REFERENCES secteur(id_secteur), CONSTRAINT arbre_quartier8_FK FOREIGN KEY (id_quartier) REFERENCES quartier(id_quartier))ENGINE=InnoDB;
+CREATE TABLE quartier_secteur(id_secteur Int NOT NULL, id_quartier Int NOT NULL, CONSTRAINT quartier_secteur_PK PRIMARY KEY (id_secteur,id_quartier), CONSTRAINT quartier_secteur_secteur_FK FOREIGN KEY (id_secteur) REFERENCES secteur(id_secteur), CONSTRAINT quartier_secteur_quartier0_FK FOREIGN KEY (id_quartier) REFERENCES quartier(id_quartier))ENGINE=InnoDB;
 
 INSERT INTO quartier (id_quartier, quartier) VALUES (1, "Quartier du Centre-Ville");
 INSERT INTO secteur (id_secteur, secteur) VALUES (1, "Quai Gayant");
