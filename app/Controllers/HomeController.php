@@ -101,4 +101,13 @@ class HomeController
 
         echo HTML::generateHTML($header, $content, $footer);
     }
+
+    static public function tableaucarte()
+    {
+        $header = (new Header())->render();
+        $content = '<h2>tableau et carte</h2>';
+        $footer = (new Footer())->render();
+
+        echo HTML::generateHTML($header, $content, $footer);
+    }
 }
