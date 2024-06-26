@@ -1,4 +1,8 @@
-/* * {
+/*
+
+ancien code (maintenant dans le main.css)
+
+* {
   font-family: "Inter", sans-serif;
   font-size: 20px;
 }
@@ -21,7 +25,7 @@ header {
   position: sticky;
   top: 0;
   width: auto;
-  height: 20vh;
+  height: 12vh;
   padding: 0 5vw;
   background-color: #ffffff;
   display: flex;
@@ -30,7 +34,7 @@ header {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-nav ul {
+.header-nav .header-ul {
   display: flex;
   justify-content: space-around;
   align-items: right;
@@ -38,16 +42,16 @@ nav ul {
   margin: 0;
 }
 
-nav ul li {
+.header-nav .header-ul .header-li {
   list-style: none;
 }
 
-nav ul li a {
+.header-nav .header-ul .header-li .header-a {
   text-decoration: none;
   color: #000000;
   padding: 10px 20px;
 }
 
-nav ul li a:hover {
+.header-nav .header-ul .header-li .header-a:hover {
   text-decoration: underline;
 }
