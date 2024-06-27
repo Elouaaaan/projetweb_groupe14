@@ -29,11 +29,11 @@ class Tableau
     public function addRow($data)
     {
         $ageBtn = '<button type="button" class="age-btn" onclick="window.location.href=\'./age.php\'">prédiction âge</button>';
-        $row = '<tr>';
-        $row .= '<td>' . $ageBtn . '</td>' . '</tr>';
+        $row = '<tr><td>' . $ageBtn . '</td>';
         foreach ($this->columnsNames as $column) {
             $row .= '<td>' . $data[$column] . '</td>';
         }
+        $row .= '</tr>';
 
         $this->rows[] = $row;
 
