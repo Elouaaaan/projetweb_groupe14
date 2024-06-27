@@ -84,9 +84,10 @@ function show_arbres(arbre_data) {
       const cell = document.createElement('td');
       cell.textContent = arbre[column];
       row.appendChild(cell);
-      if (!column_visible[index]) {
+      if (!column_visible[index])
         cell.style.display = 'none';
-      }
+      else
+        cell.style.display = '';
     });
     table.appendChild(row);
   });
