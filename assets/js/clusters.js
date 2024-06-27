@@ -1,4 +1,5 @@
 let controller = null;
+let map = L.map('map').setView([51.505, -0.09], 13);
 
 function get_clusters(clusterId) {
     if (controller) {
@@ -37,8 +38,27 @@ document.getElementsByName('choix-clusters').forEach((radio) => {
 
 function show_clusters(cluster_data) {
     cluster_data.forEach(cluster => {
-        const { longitude, latitude } = cluster;
+        const { longitude, latitude, clusterNb } = cluster;
         console.log(latitude, longitude);
         const marker = L.marker([latitude, longitude]).addTo(map);
+        marker.setIcon(getClusterIcon(clusterNb));
     });
+}
+
+function getClusterIcon(cluster) {
+    const clusterColors = {
+        0: 'red',
+        1: 'blue',
+        2: 'green',
+    };
+
+    const color = clusterColors[cluster];
+
+    const icon = L.divIcon({
+        className: 'cluster-icon',
+        html: `<div style="background-color: ${color};"></div>`,
+        iconSize: [25, 25]
+    });
+
+    return icon;
 }
