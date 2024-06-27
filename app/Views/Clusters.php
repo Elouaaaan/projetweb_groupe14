@@ -10,7 +10,6 @@ class Clusters
           <div class="div-clusters">
             <p>Choix des clusters</p>
             <div class="form-group-radio">
-              <!-- <label for="choix-clusters">Choix des clusters</label> -->
               <div class="radio-group">
                 <input type="radio" id="deux" name="choix-clusters" value="1" checked>
                 <label for="deux">Deux clusters</label>

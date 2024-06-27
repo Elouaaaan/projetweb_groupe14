@@ -25,3 +25,8 @@ function get_clusters(clusterId) {
         });
 }
 
+document.getElementsByName('choix-cluster').forEach((radio) => {
+    radio.addEventListener('change', (event) => {
+        get_clusters(event.target.value);
+    });
+}
