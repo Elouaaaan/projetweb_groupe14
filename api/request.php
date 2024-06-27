@@ -40,6 +40,10 @@ switch ($uri[3]) {
         $controller = new SecteurController($requestMethod);
         $controller->processRequest($id_quartier);
         break;
+    case 'clusters':
+        $controller = new ArbreController($requestMethod);
+        $controller->getClusters();
+        break;
     default:
         header("HTTP/1.1 404 Not Found");
         exit();

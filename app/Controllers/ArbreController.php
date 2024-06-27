@@ -67,4 +67,12 @@ class ArbreController
         $result = $this->arbre->add($haut_tot, $haut_tronc, $tronc_diam, $id_stadedev, $id_nom_tech, $longitude, $latitude, $revetement, $nbr_diag, $remarquable, $id_secteur, $id_quartier, $id_arb_etat, $id_port, $id_pied, $id_situation, $id_villeca, $id_feuillage);
         return $result;
     }
+
+    public function getClusters()
+    {
+        $result = $this->arbre->get_cluster_data();
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
+    }
 }
