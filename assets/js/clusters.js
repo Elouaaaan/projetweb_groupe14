@@ -1,10 +1,12 @@
 let controller = null;
-const map = L.map('map').setView([49.84050020512298, 3.2932636093638927], 13);
+const map = L.map('map').setView([51.505, -0.09], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
+const markers = L.markerClusterGroup();
 
 function get_clusters(clusterId) {
     if (controller) {
@@ -42,20 +44,28 @@ document.getElementsByName('choix-clusters').forEach((radio) => {
 });
 
 function show_clusters(cluster_data) {
+    markers.clearLayers();
+
     cluster_data.forEach(cluster_tree => {
         const { longitude, latitude, cluster } = cluster_tree;
-        const marker = L.marker([latitude, longitude]).addTo(map);
-        marker.setIcon(createMarkerIcon(cluster));
+        const marker = L.marker([latitude, longitude]);
+        marker.setIcon(createMarkerIcon(cluster_tree));
 
         marker.bindPopup(`
                     <b>Cluster:</b> ${cluster_tree.cluster}<br>
                     <b>Height:</b> ${cluster_tree.haut_tot}m<br>
                     <b>Diameter:</b> ${cluster_tree.tronc_diam}cm
                 `);
+
+        markers.addLayer(marker);
     });
+
+    map.addLayer(markers);
 }
 
-function createMarkerIcon(cluster) {
+function createMarkerIcon(cluster_tree) {
+    const { cluster } = cluster_tree;
+
     const clusterColors = {
         0: 'red',
         1: 'blue',
