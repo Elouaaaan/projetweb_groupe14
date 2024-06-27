@@ -73,7 +73,13 @@ class ArbreController
         $result = $this->arbre->get_cluster_data();
 
         # get console output
-        $output = shell_exec('/var/www/etu1114/venv/bin/python3 /var/www/etu1114/python/cluster_models.py \'' . json_encode($result) . '\'');
+        $json_data = tempnam(sys_get_temp_dir(), 'json_data');
+        file_put_contents($json_data, json_encode($result));
+
+        $output = shell_exec('/var/www/etu1114/venv/bin/python3 /var/www/etu1114/python/cluster_models.py \'' . $json_data . '\'');
+
+        unlink($json_data);
+
         echo json_encode($output);
     }
 }

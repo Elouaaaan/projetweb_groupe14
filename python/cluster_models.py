@@ -8,6 +8,8 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 print(sys.argv)
 
+print(pd.read_json(sys.argv[1]))
+
 # df = pd.read_json(sys.argv[1])
 
 # df['tronc_section'] = np.pi * (df['tronc_diam'] / 2) ** 2
