@@ -42,10 +42,11 @@ class Arbre
             JOIN arb_etat USING(id_arb_etat)';
 
         if ($search) {
-            echo json_encode($column, $reverse, $search);
-            exit();
             $searchWords = str_getcsv($search, ' ', '"');
             $searchConditions = [];
+
+            echo json_encode($column, $reverse, $search);
+            exit();
 
             foreach ($searchWords as $index => $word) {
                 $searchConditions[] = '(' .
