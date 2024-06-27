@@ -5,7 +5,6 @@
 - footer alignement vertical des éléments
 - Bouton accueil qui ne marche pas
 - descriptif rapide accueil
-- renommer tableaucarte dans l'url et dans la navbar
 
 ## Liste des tâches
 
@@ -17,7 +16,9 @@
 | Mardi après-midi    | Backend              | Accueil               |
 | Mercredi matin      | Backend              | Ajout                 |
 | Mercredi après-midi |                      | Ajout et Tableau      |
-| Jeudi matin         | Backend              | Tableau et carte      |
+| Jeudi matin         | Backend              | Tableau               |
+| Jeudi après-midi    |                      | Age                   |
+| Vendredi matin      | Backend              |                       |
 
 ## Fonctionnalités de base
 
