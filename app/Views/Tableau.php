@@ -28,7 +28,7 @@ class Tableau
 
     public function addRow($data)
     {
-        $ageBtn = '<button type="button" class="age-btn">Prédire</button>';
+        $ageBtn = '<button type="button" class="age-btn" value="' . $data['id_arbre'] . '">Prédire</button>';
         $row = '<tr><td>' . $ageBtn . '</td>';
         foreach ($this->columnsNames as $column) {
             $row .= '<td>' . $data[$column] . '</td>';
