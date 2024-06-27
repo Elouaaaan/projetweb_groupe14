@@ -22,7 +22,7 @@ function get_clusters(clusterId) {
                 throw new Error('Request failed with status: ' + response.status);
             }
             return response.json();
-        })
+        });
 }
 
 document.getElementsByName('choix-clusters').forEach((radio) => {
@@ -46,6 +46,12 @@ function show_clusters(cluster_data) {
         const { longitude, latitude, cluster } = cluster_tree;
         const marker = L.marker([latitude, longitude]).addTo(map);
         marker.setIcon(createMarkerIcon(cluster_tree));
+
+        marker.bindPopup(`
+                    <b>Cluster:</b> ${cluster_tree.cluster}<br>
+                    <b>Height:</b> ${cluster_tree.haut_tot}m<br>
+                    <b>Diameter:</b> ${cluster_tree.tronc_diam}cm
+                `);
     });
 }
 
@@ -58,12 +64,10 @@ function createMarkerIcon(cluster_tree) {
         2: 'green'
     };
 
-    const color = 'style="background-color: ' + clusterColors[cluster] + ';"';
+    const color = clusterColors[cluster];
 
     return L.divIcon({
-        className: `marker-icon ${colorClass}`,
-        style: `background-color: ${clusterColors[cluster]};`,
-        html: `<div ${color}>${cluster}</div>`
+        className: 'marker-icon',
+        html: `<div style="background-color: ${color}; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${cluster}</div>`
     });
 }
-
