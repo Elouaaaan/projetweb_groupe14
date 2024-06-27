@@ -59,14 +59,18 @@ class Tableau
         </div>
 
         <table id="tableau">
-            <tr>
-                <?php foreach ($this->columns as $column) : ?>
-                    <?= $column ?>
+            <thead>
+                <tr>
+                    <?php foreach ($this->columns as $column) : ?>
+                        <?= $column ?>
+                    <?php endforeach; ?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($this->rows as $row) : ?>
+                    <?= $row ?>
                 <?php endforeach; ?>
-            </tr>
-            <?php foreach ($this->rows as $row) : ?>
-                <?= $row ?>
-            <?php endforeach; ?>
+            </tbody>
         </table>
 <?php
         return ob_get_clean();

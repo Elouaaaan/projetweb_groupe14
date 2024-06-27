@@ -69,3 +69,7 @@ document.getElementById('search').addEventListener('keypress', () => {
       console.error('Error:', error);
     });
 });
+
+function show_arbres(arbre_data) {
+
+}
