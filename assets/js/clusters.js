@@ -7,7 +7,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const markers = L.markerClusterGroup({
-    maxClusterRadius: 30, // Smaller clusters
+    maxClusterRadius: 40, // Smaller clusters
     iconCreateFunction: function (cluster) {
         const childCount = cluster.getChildCount();
         let size = 'small';
@@ -20,7 +20,7 @@ const markers = L.markerClusterGroup({
         return new L.DivIcon({
             html: '<div><span>' + childCount + '</span></div>',
             className: 'marker-cluster marker-cluster-' + size,
-            iconSize: new L.Point(30, 30)
+            iconSize: new L.Point(40, 40)
         });
     }
 });
@@ -69,13 +69,13 @@ function show_clusters(cluster_data) {
         marker.setIcon(createMarkerIcon(cluster));
 
         marker.bindPopup(`
-                    <b>Espèce:</b> ${nomtech}<br>
-                    <b>Type:</b> ${feuillage}<br>
-                    <b>Port:</b> ${port}<br>
-                    <b>Stade de développement:</b> ${stadedev}<br>
-                    <b>Hauteur de l'arbre:</b> ${haut_tot}cm<br>
-                    <b>Diameter du tronc:</b> ${tronc_diam}cm<br>
-                `);
+            <b>Espèce:</b> ${nomtech}<br>
+            <b>Type:</b> ${feuillage}<br>
+            <b>Port:</b> ${port}<br>
+            <b>Stade de développement:</b> ${stadedev}<br>
+            <b>Hauteur de l'arbre:</b> ${haut_tot}cm<br>
+            <b>Diameter du tronc:</b> ${tronc_diam}cm<br>
+        `);
 
         markers.addLayer(marker);
     });
@@ -113,7 +113,7 @@ function createMarkerIcon(cluster) {
 
     return L.divIcon({
         className: 'marker-icon',
-        html: `<div style="background-color: ${color}; width: 15px; height: 15px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${cluster}</div>`
+        html: `<div style="background-color: ${color}; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${cluster}</div>`
     });
 }
 
