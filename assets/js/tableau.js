@@ -23,13 +23,34 @@ async function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, p
   }
 }
 
-get_arbres('id_arbre', false, 10, 1, 'en place')
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
+document.getElementById('search').addEventListener('keypress', (event) => {
+  var search = event.target.value;
+  console.log(search);
+  get_arbres('id_arbre', false, 10, 1, search)
+    .then(data => {
+      console.log(data);
+      show_arbres(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+
+
+columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
+function show_arbres(arbre_data) {
+  const table = document.querySelector('#tableau tbody');
+  table.innerHTML = '';
+  arbre_data.forEach(arbre => {
+    const row = document.createElement('tr');
+    columns.forEach(column => {
+      const cell = document.createElement('td');
+      cell.textContent = arbre[column];
+      row.appendChild(cell);
+    });
+    table.appendChild(row);
   });
+}
 
 
 function toggleColumn(colIndex, isVisible) {
@@ -58,32 +79,3 @@ document.querySelectorAll('.column-toggle').forEach(checkbox => {
   var colIndex = parseInt(checkbox.getAttribute('data-col-index'), 10);
   toggleColumn(colIndex, checkbox.checked);
 });
-
-document.getElementById('search').addEventListener('keypress', () => {
-  var search = this.value;
-  console.log(search);
-  get_arbres('id_arbre', false, 10, 1, search)
-    .then(data => {
-      console.log(data);
-      show_arbres(data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-});
-
-
-columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
-function show_arbres(arbre_data) {
-  const table = document.querySelector('#tableau tbody');
-  table.innerHTML = '';
-  arbre_data.forEach(arbre => {
-    const row = document.createElement('tr');
-    columns.forEach(column => {
-      const cell = document.createElement('td');
-      cell.textContent = arbre[column];
-      row.appendChild(cell);
-    });
-    table.appendChild(row);
-  });
-}
