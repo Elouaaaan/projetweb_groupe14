@@ -30,10 +30,10 @@ class Tableau
     {
         $ageBtn = '<button type="button" class="age-btn" onclick="window.location.href=\'./age.php\'">prédiction âge</button>';
         $row = '<tr>';
+        $row .= '<td>' . $ageBtn . '</td>' . '</tr>';
         foreach ($this->columnsNames as $column) {
             $row .= '<td>' . $data[$column] . '</td>';
         }
-        $row .= '<td>' . $ageBtn . '</td>' . '</tr>';
 
         $this->rows[] = $row;
 
@@ -67,6 +67,7 @@ class Tableau
         <table id="tableau">
             <thead>
                 <tr>
+                    <th>Prédiction âge</th>
                     <?php foreach ($this->columns as $column) : ?>
                         <?= $column ?>
                     <?php endforeach; ?>
