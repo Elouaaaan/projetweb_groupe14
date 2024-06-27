@@ -6,9 +6,6 @@ from sklearn.cluster import KMeans, DBSCAN
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
-print(sys.argv)
-
-print(pd.read_json(sys.argv[1]))
 
 df = pd.read_json(sys.argv[1])
 
@@ -49,6 +46,7 @@ dbscan.fit(X_prep)
 import os
 current_path = os.getcwd()
 print("Current path:", current_path)
+print(os.path.dirname(__file__))
 
 # Save the models and preprocessor
 joblib.dump(preprocessor, '../python/models/preprocessor.pkl')
