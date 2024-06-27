@@ -61,6 +61,8 @@ class Arbre
             $query .= ' WHERE ' . implode(' AND ', $searchConditions);
         }
 
+        echo json_encode($column, $reverse, $search);
+        exit();
         $query .= ' ORDER BY ' . $column . ' ' . ($reverse ? 'DESC' : 'ASC');
 
         if ($per_page && $page) {
