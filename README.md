@@ -13,10 +13,11 @@
 |---------------------|----------------------|-----------------------|
 | Lundi matin         | Configuration apache | Figma                 |
 | Lundi après-midi    | Routes (impossible)  | Figma & Début du html |
-| Mardi matin         | SQL                  | Pages PHP             |
-| Mardi après-midi    | Backend              | Blocks HTML           |
-| Mercredi matin      | Backend              | Tableau et carte      |
-| Mercredi après-midi |                      |                       |
+| Mardi matin         | SQL                  | Blocks PHP            |
+| Mardi après-midi    | Backend              | Accueil               |
+| Mercredi matin      | Backend              | Ajout                 |
+| Mercredi après-midi |                      | Ajout et Tableau      |
+| Jeudi matin         | Backend              | Tableau et carte      |
 
 ## Fonctionnalités de base
 
