@@ -81,9 +81,6 @@ class Arbre
             $stmt->bindValue(':per_page', $per_page, PDO::PARAM_INT);
         }
 
-        echo json_encode($stmt);
-
-
         $stmt->execute();
         $data = $stmt->fetchAll();
 
