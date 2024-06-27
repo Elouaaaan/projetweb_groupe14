@@ -71,12 +71,7 @@ class ArbreController
     public function getClusters()
     {
         $result = $this->arbre->get_cluster_data();
-        $response['status_code_header'] = 'HTTP/1.1 200 OK';
-        $response['body'] = json_encode($result);
 
-        header($response['status_code_header']);
-        if ($response['body']) {
-            echo $response['body'];
-        }
+        system('python3 ' . __DIR__ . '/../../python/cluster_models.py ' . json_encode($result));
     }
 }
