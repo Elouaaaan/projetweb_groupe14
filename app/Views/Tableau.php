@@ -14,6 +14,11 @@ class Tableau
         <button type="submit" id="search-button">Rechercher</button>
       </div>
 
+      <?php for ($i = 0; $i < 20; $i++): ?> <!-- 20 => nb_columns -->
+        <input type="checkbox" id="column-toggle-<?= $i ?>" class="column-toggle" data-col-index="<?= $i ?>" checked="checked">
+        <label for="column-toggle-<?= $i ?>">Column <?= $i ?></label>
+      <?php endfor; ?>
+
       <div class="toggle-container">
         <input type="checkbox" id="longitude" class="column-toggle" data-col-index="0" checked="checked">
         <label for="longitude">Longitude</label>
@@ -78,6 +83,11 @@ class Tableau
 
       <table id="tableau">
         <tr>
+          
+          <?php for ($i = 0; $i < 20; $i++): ?>
+            <th id="column-<?= $i ?>">Column <?= $i ?></th>
+          <?php endfor; ?>
+
           <th id="longitude">Longitude</th>
           <th id="latitude">Latitude</th>
           <th id="quartier">Quartier</th>
