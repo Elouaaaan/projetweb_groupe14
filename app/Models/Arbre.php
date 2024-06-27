@@ -162,8 +162,8 @@ class Arbre
         JOIN nomtech USING(id_nomtech)
         JOIN stadedev USING(id_stadedev)
         JOIN feuillage USING(id_feuillage)
-        JOIN stadedev USING(id_stadedev)
-        WHERE stadedev = "EN PLACE"';
+        JOIN arb_etat USING(id_arb_etat)
+        WHERE arb_etat = "En Place"';
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $data = $stmt->fetchAll();
