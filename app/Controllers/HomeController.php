@@ -19,6 +19,7 @@ use App\Views\Footer;
 use App\Views\Accueil;
 use App\Views\Form;
 use App\Views\FormRow;
+use App\Views\Tableau;
 
 class HomeController
 {
@@ -126,7 +127,7 @@ class HomeController
     static public function tableaucarte()
     {
         $header = (new Header())->render();
-        $content = '<h2>tableau et carte</h2>';
+        $content = (new Tableau())->render();
         $footer = (new Footer())->render();
 
         $cssFiles = [
@@ -135,6 +136,10 @@ class HomeController
             'footer.css',
         ];
 
-        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
+        $jsFiles = [
+            'tableau.js',
+        ];
+
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles, $jsFiles);
     }
 }
