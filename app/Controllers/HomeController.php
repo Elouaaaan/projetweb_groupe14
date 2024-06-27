@@ -133,7 +133,7 @@ class HomeController
 
         $table_data = (new Arbre())->all();
 
-        $$content = $tableau->addColumn('Longitude', 'longitude')
+        $content = $tableau->addColumn('Longitude', 'longitude')
             ->addColumn('Latitude', 'latitude')
             ->addColumn('Quartier', 'quartier')
             ->addColumn('Secteur', 'secteur')
