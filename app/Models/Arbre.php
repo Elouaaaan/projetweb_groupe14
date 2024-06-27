@@ -42,6 +42,8 @@ class Arbre
             JOIN arb_etat USING(id_arb_etat)';
 
         if ($search) {
+            echo json_encode($column, $reverse, $search);
+            exit();
             $searchWords = str_getcsv($search, ' ', '"');
             $searchConditions = [];
 
@@ -61,8 +63,6 @@ class Arbre
             $query .= ' WHERE ' . implode(' AND ', $searchConditions);
         }
 
-        echo json_encode($column, $reverse, $search);
-        exit();
         $query .= ' ORDER BY ' . $column . ' ' . ($reverse ? 'DESC' : 'ASC');
 
         if ($per_page && $page) {
