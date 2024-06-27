@@ -67,7 +67,7 @@ class Tableau
         <table id="tableau">
             <thead>
                 <tr>
-                    <th>Prédiction âge</th>
+                    <th id="id_arbre">Prédiction âge</th>
                     <?php foreach ($this->columns as $column) : ?>
                         <?= $column ?>
                     <?php endforeach; ?>
