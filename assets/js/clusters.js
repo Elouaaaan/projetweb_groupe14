@@ -1,4 +1,4 @@
-let controller = null;
+const controller = null;
 const map = L.map('map').setView([49.847066, 3.2874], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -8,7 +8,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 const markers = L.markerClusterGroup({
     maxClusterRadius: 40,
-    iconCreateFunction: function (cluster) {
+    iconCreateFunction: (cluster) => {
         const childCount = cluster.getChildCount();
         let size = 'small';
         if (childCount > 10) {
@@ -18,53 +18,59 @@ const markers = L.markerClusterGroup({
             size = 'large';
         }
         return new L.DivIcon({
-            html: '<div><span>' + childCount + '</span></div>',
-            className: 'marker-cluster marker-cluster-' + size,
+            html: `<div><span>${childCount}</span></div>`,
+            className: `marker-cluster marker-cluster-${size}`,
             iconSize: new L.Point(40, 40)
         });
     }
 });
 
-function get_clusters(clusterId) {
+const radioButtons = document.getElementsByName('choix-clusters');
+
+radioButtons.forEach((radio) => {
+    radio.addEventListener('click', async (event) => {
+        if (controller) {
+            controller.abort();
+        }
+
+        controller = new AbortController();
+
+        try {
+            const data = await get_clusters(event.target.value);
+            if (!controller.signal.aborted) {
+                show_clusters(data);
+            }
+        } catch (error) {
+            if (error.name !== 'AbortError') {
+                console.error('Error:', error);
+            }
+        }
+    });
+});
+
+async function get_clusters(clusterId) {
     if (controller) {
         controller.abort();
     }
 
     controller = new AbortController();
 
-    return fetch(`api/request.php/clusters/?cluster=${clusterId}`, {
+    const response = await fetch(`api/request.php/clusters/?cluster=${clusterId}`, {
         method: 'GET',
         signal: controller.signal
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Request failed with status: ' + response.status);
-            }
-            return response.json();
-        });
-}
-
-document.getElementsByName('choix-clusters').forEach((radio) => {
-    radio.addEventListener('click', (event) => {
-        get_clusters(event.target.value)
-            .then(data => {
-                if (!controller.signal.aborted) {
-                    show_clusters(data);
-                }
-            })
-            .catch(error => {
-                if (error.name !== 'AbortError') {
-                    console.error('Error:', error);
-                }
-            });
     });
-});
+
+    if (!response.ok) {
+        throw new Error('Request failed with status: ' + response.status);
+    }
+
+    return response.json();
+}
 
 function show_clusters(cluster_data) {
     markers.clearLayers();
 
-    cluster_data.forEach(cluster_tree => {
-        const { longitude, latitude, cluster, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port } = cluster_tree;
+    cluster_data.forEach(({ longitude, latitude, cluster, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port }) => {
         const marker = L.marker([latitude, longitude]);
         marker.setIcon(createMarkerIcon(cluster));
 
@@ -125,10 +131,11 @@ function createMarkerIcon(cluster) {
     });
 }
 
-get_clusters(1)
-    .then(data => {
+(async () => {
+    try {
+        const data = await get_clusters(1);
         show_clusters(data);
-    })
-    .catch(error => {
+    } catch (error) {
         console.error('Error:', error);
-    });
+    }
+})();
