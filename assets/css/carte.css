@@ -1,9 +1,9 @@
 #map {
   width: 50vw;
-  aspect-ratio: 16/9;
+  aspect-ratio: 2/1;
   border: none;
   border-radius: 12px;
-  margin: 3vh 0;
+  margin: 2vh 0;
   display: block;
   margin-left: auto;
   margin-right: auto;
