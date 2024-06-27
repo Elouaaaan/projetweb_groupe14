@@ -33,6 +33,7 @@ class Header
     <header>
       <h1><?php echo getenv('APP_NAME'); ?></h1>
       <nav class="header-nav">
+        <button class="header-toggle" onclick="toggleNav()">☰</button>
         <ul class="header-ul">
           <?php foreach ($this->nav_list as $title => $url): ?>
             <li class="header-li"><a class="header-a" href="<?= $url ?>"><?= $title ?></a></li>
@@ -40,6 +41,13 @@ class Header
         </ul>
       </nav>
     </header>
+
+    <script>
+      function toggleNav() {
+        const navUl = document.querySelector('.header-ul');
+        navUl.classList.toggle('show');
+      }
+    </script>
 
     <?php
 
