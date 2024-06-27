@@ -4,7 +4,7 @@ table {
   margin: 10vh 10vw 10vh 10vw;
   padding: 0;
   box-sizing: border-box;
-  table-layout: auto;
+  /* table-layout: auto; */
   display: block;
   overflow-x: auto;
   border-radius: 12px;
@@ -56,7 +56,7 @@ Sélécteur de colonnes
   align-items: center;
   border-radius: 8px;
   cursor: pointer;
-  width: 8.5vw;
+  width: 8.3vw;
   height: 40px;
   transition: background-color 0.3s ease;
   margin: 7px;
