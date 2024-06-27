@@ -50,7 +50,7 @@ document.querySelectorAll('.sort_asc').forEach(button => {
     const parentDiv = event.target.parentNode;
     let new_column = parentDiv.id;
     console.log(new_column);
-    if (column === new_column) {
+    if (new_column === column) {
       column = 'id_arbre';
     } else {
       column = new_column;
@@ -65,7 +65,7 @@ document.querySelectorAll('.sort_desc').forEach(button => {
     const parentDiv = event.target.parentNode.parentNode;
     let new_column = parentDiv.id;
     console.log(new_column);
-    if (column === new_column) {
+    if (new_column === column) {
       column = 'id_arbre';
       reverse = false;
     } else {
