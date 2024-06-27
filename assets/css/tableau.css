@@ -114,6 +114,12 @@ bouton de recherche au dessus du tableau
   text-decoration: none;
 }
 
+.btn-clusters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10vh;
+}
 
 
 
