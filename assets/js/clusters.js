@@ -36,13 +36,13 @@ const get_clusters = async (clusterId) => {
 
 document.querySelectorAll('[name="choix-clusters"]').forEach(radio => {
     radio.addEventListener('click', async (event) => {
+        markers.clearLayers();
         const data = await get_clusters(event.target.value);
         if (data) show_clusters(data);
     });
 });
 
 const show_clusters = (cluster_data) => {
-    markers.clearLayers();
     cluster_data.forEach(({ longitude, latitude, cluster, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port }) => {
         const marker = L.marker([latitude, longitude], {
             icon: createMarkerIcon(cluster)
