@@ -72,7 +72,7 @@ const createMarkerIcon = (cluster, cluster_nb) => {
     const color = clusterColors[cluster + 1];
     return L.divIcon({
         className: 'marker-icon',
-        html: `<div style="background-color: ${color}; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${cluster}</div>`
+        html: `<div style="background-color: ${color}; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;"></div>`
     });
 };
 
