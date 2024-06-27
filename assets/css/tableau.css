@@ -29,7 +29,7 @@ th,
 td {
   /* overflow: hidden; */
   white-space: nowrap;
-  /* text-overflow: ellipsis; */
+  position: relative;
   text-align: left;
   padding: 20px;
 }
@@ -117,7 +117,7 @@ sort buttons
   display: flex;
   flex-direction: column;
   position: absolute;
-  right: 5px;
+  right: 3px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -128,5 +128,5 @@ sort buttons
   padding: 2px;
 }
 .sort-buttons button:hover {
-  color: red;
+  color: #828282;
 }
