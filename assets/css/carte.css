@@ -1,0 +1,10 @@
+iframe {
+  width: 50vw;
+  height: 70vh;
+  border: none;
+  border-radius: 12px;
+  margin: 10vh 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

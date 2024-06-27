@@ -77,6 +77,15 @@ class Tableau
                 <?php endforeach; ?>
             </tbody>
         </table>
+
+        <div class="carte">
+            <iframe src="./app/assets/cartes/carte1.html" name="carte" title="Carte">
+            </iframe>
+        </div>
+
+        <div class="btn-clusters">
+            <a href="./clusters.php">Voir les clusters</a>
+        </div>
 <?php
         return ob_get_clean();
     }
