@@ -23,7 +23,7 @@ async function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, p
   }
 }
 
-document.getElementById('search').addEventListener('keypress', (event) => {
+document.getElementById('search').addEventListener('input', (event) => {
   var search = event.target.value;
   console.log(search);
   get_arbres('id_arbre', false, 10, 1, search)

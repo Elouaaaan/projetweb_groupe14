@@ -49,23 +49,13 @@ class Arbre
                 $searchConditions[] = '(' .
                     'age_estim LIKE :word' . $index . ' OR 
                                       arb_etat LIKE :word' . $index . ' OR 
-                                      feuillage LIKE :word' . $index . ' OR 
-                                      haut_tot LIKE :word' . $index . ' OR 
-                                      haut_tronc LIKE :word' . $index . ' OR 
-                                      latitude LIKE :word' . $index . ' OR 
-                                      longitude LIKE :word' . $index . ' OR 
-                                      nbr_diag LIKE :word' . $index . ' OR 
                                       nomtech LIKE :word' . $index . ' OR 
                                       pied LIKE :word' . $index . ' OR 
                                       port LIKE :word' . $index . ' OR 
-                                      prec_estim LIKE :word' . $index . ' OR 
                                       quartier LIKE :word' . $index . ' OR 
-                                      remarquable LIKE :word' . $index . ' OR 
-                                      revetement LIKE :word' . $index . ' OR 
                                       secteur LIKE :word' . $index . ' OR 
                                       situation LIKE :word' . $index . ' OR 
                                       stadedev LIKE :word' . $index . ' OR 
-                                      tronc_diam LIKE :word' . $index . ' OR 
                                       villeca LIKE :word' . $index . ')';
             }
             $query .= ' WHERE ' . implode(' AND ', $searchConditions);
@@ -92,7 +82,14 @@ class Arbre
         }
 
         $stmt->execute();
-        return $stmt->fetchAll();
+        $data = $stmt->fetchAll();
+
+        foreach ($data as &$row) {
+            $row['revetement'] = $row['revetement'] ? 'Oui' : 'Non';
+            $row['remarquable'] = $row['remarquable'] ? 'Oui' : 'Non';
+        }
+
+        return $data;
     }
 
     public function add($haut_tot, $haut_tronc, $tronc_diam, $id_stadedev, $id_nom_tech, $longitude, $latitude, $revetement, $nbr_diag, $remarquable, $id_secteur, $id_quartier, $id_arb_etat, $id_port, $id_pied, $id_situation, $id_villeca, $id_feuillage)
