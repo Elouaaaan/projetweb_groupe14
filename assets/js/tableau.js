@@ -136,7 +136,7 @@ document.querySelectorAll('.column-toggle').forEach(checkbox => {
 });
 
 
-const map = L.map('map').setView([49.84050020512298, 3.2932636093638927], 13);
+const map = L.map('map').setView([49.847066, 3.2874], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 21,
