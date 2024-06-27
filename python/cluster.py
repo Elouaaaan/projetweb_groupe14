@@ -1,5 +1,6 @@
 import os
 import sys
+from io import StringIO
 
 import pandas as pd
 import numpy as np
@@ -8,7 +9,8 @@ import joblib
 print(sys.argv)
 dirname = os.path.dirname(os.path.abspath(__file__))
 
-df = pd.read_json(sys.argv[1])
+json_content = StringIO(sys.argv[1])
+df = pd.read_json(json_content)
 df['tronc_section'] = np.pi * (df['tronc_diam'] / 2) ** 2
 
 # Handling different model choices based on sys.argv[2]
