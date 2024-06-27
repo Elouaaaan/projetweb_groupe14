@@ -45,6 +45,11 @@ kmeans_3_clusters.fit(X_prep)
 dbscan = DBSCAN(eps=0.65, min_samples=3)
 dbscan.fit(X_prep)
 
+# Get the current path
+import os
+current_path = os.getcwd()
+print("Current path:", current_path)
+
 # Save the models and preprocessor
 joblib.dump(preprocessor, 'models/preprocessor.pkl')
 joblib.dump(kmeans_2_clusters, 'models/kmeans_2_clusters.pkl')
