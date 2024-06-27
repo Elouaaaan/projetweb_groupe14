@@ -8,12 +8,10 @@ let currentRequest = null;
  * @param {number} per_page - The number of results to fetch per page. Default is 10.
  * @param {number} page - The page number to fetch. Default is 1.
  * @param {string} search - The search term to filter the results. Default is an empty string. Words in brackets are considered as a single search term.
- * @returns {Promise} - A promise that resolves to the JSON response from the API.
  */
 function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, page = 1, search = '') {
   if (currentRequest) {
     currentRequest.abort();
-    console.log(currentRequest.signal.aborted);
   }
 
   const url = `api/request.php/arbre/?column=${column}&reverse=${reverse}&per_page=${per_page}&page=${page}&search=${search}`;
@@ -27,12 +25,9 @@ function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, page = 
   })
     .then(response => {
       if (!response.ok) {
-        throw new Error('Request failed with status:', response.status);
+        throw new Error('Request failed with status: ' + response.status);
       }
       return response.json();
-    })
-    .catch(error => {
-      console.error('Error:', error);
     });
 }
 
@@ -41,20 +36,20 @@ let column = 'id_arbre';
 let per_page = 50;
 let page = 1;
 let search = '';
-let columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
+let columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable'];
 let column_visible = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
-
 
 function update_arbres() {
   get_arbres(column, reverse, per_page, page, search)
     .then(data => {
-      console.log(currentRequest.signal.aborted);
       if (!currentRequest.signal.aborted) {
         show_arbres(data);
       }
     })
     .catch(error => {
-      console.error('Error:', error);
+      if (error.name !== 'AbortError') {
+        console.error('Error:', error);
+      }
     });
 }
 
@@ -79,6 +74,7 @@ function show_arbres(arbre_data) {
     table.appendChild(row);
   });
 }
+
 
 
 document.querySelectorAll('.sort_asc').forEach(button => {
