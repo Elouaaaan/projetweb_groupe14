@@ -77,6 +77,11 @@ class Tableau
                 <?php endforeach; ?>
             </tbody>
         </table>
+
+        <div class="carte">
+            <iframe src="./app/assets/cartes/carte1.html" name="carte" title="Carte">
+            </iframe>
+        </div>
 <?php
         return ob_get_clean();
     }

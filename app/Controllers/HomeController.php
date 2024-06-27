@@ -163,6 +163,7 @@ class HomeController
             'header.css',
             'footer.css',
             'tableau.css',
+            'carte.css',
         ];
 
         $jsFiles = [
@@ -182,6 +183,7 @@ class HomeController
             'main.css',
             'header.css',
             'footer.css',
+            'carte.css',
         ];
 
         echo HTML::generateHTML($header, $content, $footer, $cssFiles);
