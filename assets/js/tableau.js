@@ -10,27 +10,30 @@ let currentRequest = null;
  * @param {string} search - The search term to filter the results. Default is an empty string. Words in brackets are considered as a single search term.
  * @returns {Promise} - A promise that resolves to the JSON response from the API.
  */
-async function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, page = 1, search = '') {
-  try {
-    if (currentRequest) {
-      currentRequest.abort();
-      console.log(currentRequest.signal.aborted);
-    }
-    const url = `api/request.php/arbre/?column=${column}&reverse=${reverse}&per_page=${per_page}&page=${page}&search=${search}`;
-    const controller = new AbortController();
-    const signal = controller.signal;
-    currentRequest = controller;
-    const response = await fetch(url, {
-      method: 'GET',
-      signal: signal
-    });
-    if (!response.ok) {
-      throw new Error('Request failed with status:', response.status);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Error:', error);
+function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, page = 1, search = '') {
+  if (currentRequest) {
+    currentRequest.abort();
+    console.log(currentRequest.signal.aborted);
   }
+
+  const url = `api/request.php/arbre/?column=${column}&reverse=${reverse}&per_page=${per_page}&page=${page}&search=${search}`;
+  const controller = new AbortController();
+  const signal = controller.signal;
+  currentRequest = controller;
+
+  return fetch(url, {
+    method: 'GET',
+    signal: signal
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Request failed with status:', response.status);
+      }
+      return response.json();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 }
 
 let reverse = false;
