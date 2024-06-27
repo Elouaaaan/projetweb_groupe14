@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Arbre;
 use App\Models\Categories\Feuillage;
 use App\Models\Categories\Nomtech;
 use App\Models\Categories\Pied;
@@ -127,7 +128,33 @@ class HomeController
     static public function tableaucarte()
     {
         $header = (new Header())->render();
-        $content = (new Tableau())->render();
+
+        $tableau = new Tableau();
+
+        $table_data = (new Arbre())->all('id_arbre', false, 100, 1);
+
+        $content = $tableau->addColumn('Longitude', 'longitude')
+            ->addColumn('Latitude', 'latitude')
+            ->addColumn('Quartier', 'quartier')
+            ->addColumn('Secteur', 'secteur')
+            ->addColumn('Hauteur totale (cm)', 'haut_tot')
+            ->addColumn('Hauteur tronc (cm)', 'haut_tronc')
+            ->addColumn('Diamètre tronc (cm)', 'tronc_diam')
+            ->addColumn('Etat de l\'arbre', 'arb_etat')
+            ->addColumn('Stade de développement', 'stade_dev')
+            ->addColumn('Pied', 'pied')
+            ->addColumn('Port', 'port')
+            ->addColumn('Situation', 'situation')
+            ->addColumn('Revêtement', 'revetement')
+            ->addColumn('Nombre de diagnostics', 'nb_diag')
+            ->addColumn('Nom technique', 'nom_tech')
+            ->addColumn('Villeca', 'villeca')
+            ->addColumn('Feuillage', 'feuillage')
+            ->addColumn('Remarquable', 'remarquable')
+            ->addRows($table_data)
+            ->render();
+
+
         $footer = (new Footer())->render();
 
         $cssFiles = [

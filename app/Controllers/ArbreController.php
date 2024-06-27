@@ -45,7 +45,6 @@ class ArbreController
 
     public function addArbre()
     {
-        echo '<pre>' . print_r($_POST, true) . '</pre>';
         $haut_tot = $_POST['haut_tot'] ?? null;
         $haut_tronc = $_POST['haut_tronc'] ?? null;
         $tronc_diam = $_POST['tronc_diam'] ?? null;
