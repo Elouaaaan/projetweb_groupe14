@@ -150,7 +150,7 @@ get_arbres().then(data => {
     marker.setIcon(
       L.divIcon({
         className: 'marker-icon',
-        html: `<div style="background-color: #1E90FF; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${cluster}</div>`
+        html: `<div style="background-color: #1E90FF; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;"></div>`
       })
     );
 
