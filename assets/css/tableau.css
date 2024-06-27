@@ -34,3 +34,39 @@ td {
   padding: 20px;
 }
 
+
+
+/*
+Sélécteur de colonnes
+*/
+
+.toggle-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10vh 2.8vw;
+  background-color: #e0e0e0;
+  border-radius: 12px;
+}
+
+.toggle-container label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 8.5vw;
+  height: 40px;
+  transition: background-color 0.3s ease;
+  margin: 7px;
+  text-align: center;
+}
+
+.toggle-container input {
+  display: none;
+}
+
+.toggle-container input:checked + label {
+  background-color: #ffffff;
+}
