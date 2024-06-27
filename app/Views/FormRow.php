@@ -29,7 +29,7 @@ class FormRow
         <label>' . $label . '</label>
         <div class="radio-group">';
         foreach ($options as $index => $option) {
-            $this->rowHTML .= '<input type="radio" name="' . $name . '" id="' . $name . '_' . $option[0] . '" value="' . $option[1] . '"';
+            $this->rowHTML .= '<input type="radio" name="' . $name . '" id="' . $name . '_' . $option[0] . '" value="' . $option[0] . '"';
             if ($index === 0) {
                 $this->rowHTML .= ' checked';
             }
