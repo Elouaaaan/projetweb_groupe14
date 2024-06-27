@@ -59,7 +59,7 @@ document.getElementsByClassName('sort-asc').forEach(button => {
   });
 });
 
-document.getElementsByClassName('sort-desc').forEach(button => {
+document.querySelectorAll('.sort-desc').forEach(button => {
   button.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode.parentNode;
     new_column = parentDiv.id;
