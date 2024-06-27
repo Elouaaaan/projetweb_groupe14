@@ -7,7 +7,7 @@ function get_clusters(clusterId) {
 
     controller = new AbortController();
 
-    fetch(`api/request.php/clusters/?cluster=${clusterId}`, {
+    return fetch(`api/request.php/clusters/?cluster=${clusterId}`, {
         method: 'GET',
         signal: controller.signal
     })
@@ -17,16 +17,28 @@ function get_clusters(clusterId) {
             }
             return response.json();
         })
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
 }
 
 document.getElementsByName('choix-clusters').forEach((radio) => {
     radio.addEventListener('click', (event) => {
-        get_clusters(event.target.value);
+        get_clusters(event.target.value)
+            .then(data => {
+                if (!controller.signal.aborted) {
+                    show_clusters(data);
+                }
+            })
+            .catch(error => {
+                if (error.name !== 'AbortError') {
+                    console.error('Error:', error);
+                }
+            });
     });
 });
+
+function show_clusters(cluster_data) {
+    cluster_data.forEach(cluster => {
+        const { longitude, latitude } = cluster;
+        echo_cluster(latitude, longitude);
+        const marker = L.marker([latitude, longitude]).addTo(map);
+    });
+}
