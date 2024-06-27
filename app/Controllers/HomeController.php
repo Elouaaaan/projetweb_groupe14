@@ -205,6 +205,6 @@ class HomeController
             'cluster.js'
         ];
 
-        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles, $jsFiles);
     }
 }

@@ -1,10 +1,10 @@
+import sys
 import pandas as pd
 import numpy as np
 import joblib
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
-import mysql.connector
 
 DB_CONNECTION = 'mysql'
 DB_HOST = 'localhost'
@@ -12,16 +12,7 @@ DB_DATABASE = 'etu1114'
 DB_USERNAME = 'etu1114'
 DB_PASSWORD = 'ubxzbxlt'
 
-mydb = mysql.connector.connect(
-    host=DB_HOST,
-    user=DB_USERNAME,
-    password=DB_PASSWORD,
-    database=DB_DATABASE
-)
-
-mycursor = mydb.cursor()
-mycursor.execute("SELECT haut_tot, tronc_diam, port FROM arbre JOIN port USING(id_port)")
-df = pd.DataFrame(mycursor.fetchall(), columns=['haut_tot', 'tronc_diam', 'port'])
+df = pd.read_json(sys.argv[1])
 
 df['tronc_section'] = np.pi * (df['tronc_diam'] / 2) ** 2
 features = ['haut_tot', 'tronc_section', 'port']
