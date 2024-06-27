@@ -4,6 +4,17 @@ namespace App\Models;
 
 use Core\Database;
 
+use App\Models\Categories\Quartier;
+use App\Models\Categories\Secteur;
+use App\Models\Categories\Nomtech;
+use App\Models\Categories\Situation;
+use App\Models\Categories\Pied;
+use App\Models\Categories\Port;
+use App\Models\Categories\Stadedev;
+use App\Models\Categories\ArbEtat;
+use App\Models\Categories\Villeca;
+use App\Models\Categories\Feuillage;
+
 use PDO;
 
 
@@ -35,8 +46,8 @@ class Arbre
             $searchConditions = [];
 
             foreach ($searchWords as $index => $word) {
-                $searchConditions[] = '(' . 
-                                      'age_estim LIKE :word' . $index . ' OR 
+                $searchConditions[] = '(' .
+                    'age_estim LIKE :word' . $index . ' OR 
                                       arb_etat LIKE :word' . $index . ' OR 
                                       feuillage LIKE :word' . $index . ' OR 
                                       haut_tot LIKE :word' . $index . ' OR 
@@ -55,7 +66,7 @@ class Arbre
                                       situation LIKE :word' . $index . ' OR 
                                       stadedev LIKE :word' . $index . ' OR 
                                       tronc_diam LIKE :word' . $index . ' OR 
-                                      villeca LIKE :word' . $index . ')' ;
+                                      villeca LIKE :word' . $index . ')';
             }
             $query .= ' WHERE ' . implode(' AND ', $searchConditions);
         }
@@ -82,5 +93,76 @@ class Arbre
 
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+    public function add($haut_tot, $haut_tronc, $tronc_diam, $id_stadedev, $id_nom_tech, $longitude, $latitude, $revetement, $nbr_diag, $remarquable, $id_secteur, $id_quartier, $id_arb_etat, $id_port, $id_pied, $id_situation, $id_villeca, $id_feuillage)
+    {
+        if (!$haut_tot || !$haut_tronc || !$tronc_diam || !$id_stadedev || !$id_nom_tech) {
+            return [
+                'status_code_header' => 'HTTP/1.1 422 Unprocessable Entity',
+                'body' => json_encode(['error' => 'Missing required fields'])
+            ];
+        }
+
+        $longitude = $longitude === null ? '' : $longitude;
+        $latitude = $latitude === null ? '' : $latitude;
+        $revetement = $revetement === null ? '' : $revetement;
+        $nbr_diag = $nbr_diag === null ? '' : $nbr_diag;
+        $remarquable = $remarquable === null ? '' : $remarquable;
+        $id_secteur = $id_secteur === null ? '' : $id_secteur;
+        $id_quartier = $id_quartier === null ? '' : $id_quartier;
+        $id_arb_etat = $id_arb_etat === null ? '' : $id_arb_etat;
+        $id_port = $id_port === null ? '' : $id_port;
+        $id_pied = $id_pied === null ? '' : $id_pied;
+        $id_situation = $id_situation === null ? '' : $id_situation;
+        $id_villeca = $id_villeca === null ? '' : $id_villeca;
+        $id_feuillage = $id_feuillage === null ? '' : $id_feuillage;
+
+        $id_stadedev = (new Stadedev())->idExist($id_stadedev) ? $id_stadedev : '';
+        $id_nom_tech = (new Nomtech())->idExist($id_nom_tech) ? $id_nom_tech : '';
+        $id_secteur = (new Secteur())->idExist($id_secteur) ? $id_secteur : '';
+        $id_quartier = (new Quartier())->idExist($id_quartier) ? $id_quartier : '';
+        $id_arb_etat = (new ArbEtat())->idExist($id_arb_etat) ? $id_arb_etat : '';
+        $id_port = (new Port())->idExist($id_port) ? $id_port : '';
+        $id_pied = (new Pied())->idExist($id_pied) ? $id_pied : '';
+        $id_situation = (new Situation())->idExist($id_situation) ? $id_situation : '';
+        $id_villeca = (new Villeca())->idExist($id_villeca) ? $id_villeca : '';
+        $id_feuillage = (new Feuillage())->idExist($id_feuillage) ? $id_feuillage : '';
+
+        if ($id_stadedev === '' || $id_nom_tech === '') {
+            return [
+                'status_code_header' => 'HTTP/1.1 422 Unprocessable Entity',
+                'body' => json_encode(['error' => 'Invalid values for stadedev or nomtech'])
+            ];
+        }
+
+        $query = 'INSERT INTO arbre (haut_tot, haut_tronc, tronc_diam, id_stadedev, id_nomtech, longitude, latitude, revetement, nbr_diag, remarquable, id_secteur, id_quartier, id_arb_etat, id_port, id_pied, id_situation, id_villeca, id_feuillage) VALUES (:haut_tot, :haut_tronc, :tronc_diam, :id_stadedev, :id_nomtech, :longitude, :latitude, :revetement, :nbr_diag, :remarquable, :id_secteur, :id_quartier, :id_arb_etat, :id_port, :id_pied, :id_situation, :id_villeca, :id_feuillage)';
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':haut_tot', $haut_tot, PDO::PARAM_INT);
+        $stmt->bindValue(':haut_tronc', $haut_tronc, PDO::PARAM_INT);
+        $stmt->bindValue(':tronc_diam', $tronc_diam, PDO::PARAM_INT);
+        $stmt->bindValue(':id_stadedev', $id_stadedev, PDO::PARAM_INT);
+        $stmt->bindValue(':id_nomtech', $id_nom_tech, PDO::PARAM_INT);
+        $stmt->bindValue(':longitude', $longitude, PDO::PARAM_INT);
+        $stmt->bindValue(':latitude', $latitude, PDO::PARAM_INT);
+        $stmt->bindValue(':revetement', $revetement, PDO::PARAM_BOOL);
+        $stmt->bindValue(':nbr_diag', $nbr_diag, PDO::PARAM_INT);
+        $stmt->bindValue(':remarquable', $remarquable, PDO::PARAM_BOOL);
+        $stmt->bindValue(':id_secteur', $id_secteur, PDO::PARAM_INT);
+        $stmt->bindValue(':id_quartier', $id_quartier, PDO::PARAM_INT);
+        $stmt->bindValue(':id_arb_etat', $id_arb_etat, PDO::PARAM_INT);
+        $stmt->bindValue(':id_port', $id_port, PDO::PARAM_INT);
+        $stmt->bindValue(':id_pied', $id_pied, PDO::PARAM_INT);
+        $stmt->bindValue(':id_situation', $id_situation, PDO::PARAM_INT);
+        $stmt->bindValue(':id_villeca', $id_villeca, PDO::PARAM_INT);
+        $stmt->bindValue(':id_feuillage', $id_feuillage, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return [
+            'status_code_header' => 'HTTP/1.1 201 Created',
+            'body' => null
+        ];
     }
 }
