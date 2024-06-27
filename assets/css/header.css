@@ -57,6 +57,11 @@ header {
   text-decoration: underline;
 }
 
+.header-toggle {
+  display: none;
+}
+
+
 /*
 
 pour l'instant on laisse comme ça mais on verra si on peut pas faire un meilleur sélecteur.
