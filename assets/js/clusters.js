@@ -6,7 +6,24 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-const markers = L.markerClusterGroup();
+const markers = L.markerClusterGroup({
+    maxClusterRadius: 40, // Smaller clusters
+    iconCreateFunction: function (cluster) {
+        const childCount = cluster.getChildCount();
+        let size = 'small';
+        if (childCount > 10) {
+            size = 'medium';
+        }
+        if (childCount > 100) {
+            size = 'large';
+        }
+        return new L.DivIcon({
+            html: '<div><span>' + childCount + '</span></div>',
+            className: 'marker-cluster marker-cluster-' + size,
+            iconSize: new L.Point(40, 40)
+        });
+    }
+});
 
 function get_clusters(clusterId) {
     if (controller) {
@@ -52,10 +69,10 @@ function show_clusters(cluster_data) {
         marker.setIcon(createMarkerIcon(cluster_tree));
 
         marker.bindPopup(`
-                    <b>Cluster:</b> ${cluster_tree.cluster}<br>
-                    <b>Height:</b> ${cluster_tree.haut_tot}m<br>
-                    <b>Diameter:</b> ${cluster_tree.tronc_diam}cm
-                `);
+            <b>Cluster:</b> ${cluster_tree.cluster}<br>
+            <b>Height:</b> ${cluster_tree.haut_tot}m<br>
+            <b>Diameter:</b> ${cluster_tree.tronc_diam}cm
+        `);
 
         markers.addLayer(marker);
     });
@@ -66,16 +83,35 @@ function show_clusters(cluster_data) {
 function createMarkerIcon(cluster_tree) {
     const { cluster } = cluster_tree;
 
-    const clusterColors = {
-        0: 'red',
-        1: 'blue',
-        2: 'green'
-    };
+    const clusterColors = [
+        '#FF0000',
+        '#1E90FF',
+        '#32CD32',
+        '#FFD700',
+        '#FF69B4',
+        '#8A2BE2',
+        '#FF4500',
+        '#2E8B57',
+        '#8B4513',
+        '#00CED1',
+        '#9400D3',
+        '#FF6347',
+        '#4682B4',
+        '#D2691E',
+        '#00FF7F',
+        '#DC143C',
+        '#000080',
+        '#ADFF2F',
+        '#FF8C00',
+        '#9932CC',
+        '#8B0000',
+        '#006400'
+    ];
 
-    const color = clusterColors[cluster];
+    const color = clusterColors[cluster + 1];
 
     return L.divIcon({
         className: 'marker-icon',
-        html: `<div style="background-color: ${color}; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${cluster}</div>`
+        html: `<div style="background-color: ${color}; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${cluster}</div>`
     });
 }
