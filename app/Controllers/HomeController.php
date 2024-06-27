@@ -22,6 +22,7 @@ use App\Views\Form;
 use App\Views\FormRow;
 use App\Views\Tableau;
 use App\Views\Clusters;
+use App\Views\Age;
 
 class HomeController
 {
@@ -193,5 +194,21 @@ class HomeController
         ];
 
         echo HTML::generateHTML($header, $content, $footer, $cssFiles, $jsFiles);
+    }
+
+    static public function age()
+    {
+        $header = (new Header())->render();
+        $content = (new Age())->render();
+        $footer = (new Footer())->render();
+
+        $cssFiles = [
+            'main.css',
+            'header.css',
+            'footer.css',
+            'age.css',
+        ];
+
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 }
