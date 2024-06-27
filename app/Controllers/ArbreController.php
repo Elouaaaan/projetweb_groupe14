@@ -11,23 +11,22 @@ class ArbreController
     private $options;
 
 
-    public function __construct($requestMethod, $options)
+    public function __construct($requestMethod)
     {
         $this->arbre = new Arbre();
         $this->requestMethod = $requestMethod;
-        $this->options = $options;
     }
 
-    public function processRequest()
+    public function processRequest($options)
     {
         $response = null;
         switch ($this->requestMethod) {
             case 'GET':
-                $column = $this->options['column'] ?? 'id_arbre';
-                $reverse = $this->options['reverse'] ?? false;
-                $per_page = $this->options['per_page'] ?? null;
-                $page = $this->options['page'] ?? null;
-                $search = $this->options['search'] ?? null;
+                $column = $options['column'] ?? 'id_arbre';
+                $reverse = $options['reverse'] ?? false;
+                $per_page = $options['per_page'] ?? null;
+                $page = $options['page'] ?? null;
+                $search = $options['search'] ?? null;
 
                 $response = $this->getArbres($column, $reverse, $per_page, $page, $search);
         }
