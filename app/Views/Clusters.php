@@ -20,6 +20,12 @@ class Clusters
                 <label for="anomalies">Détection des anomalies</label>
               </div>
             </div>
+
+            <div class="carte">
+              <iframe src="./app/assets/cartes/carte1.html" name="carte" title="Carte">
+              </iframe>
+            </div>
+
           </div>
         ';
     }
