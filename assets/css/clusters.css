@@ -4,5 +4,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10vh 0;
+  margin: 10vh 20vw;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
 }
