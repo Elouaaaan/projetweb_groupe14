@@ -61,6 +61,7 @@ document.querySelectorAll('.column-toggle').forEach(checkbox => {
 
 document.getElementById('search').addEventListener('keypress', () => {
   var search = this.value;
+  console.log(search);
   get_arbres('id_arbre', false, 10, 1, search)
     .then(data => {
       console.log(data);
