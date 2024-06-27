@@ -45,7 +45,7 @@ let column_visible = [true, true, true, true, true, true, true, true, true, true
 function update_arbres() {
   get_arbres(column, reverse, per_page, page, search)
     .then(data => {
-      if (currentRequest === null) {
+      if (currentRequest.signal.aborted) {
         return;
       }
       show_arbres(data);
