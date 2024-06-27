@@ -49,10 +49,9 @@ function update_arbres() {
   get_arbres(column, reverse, per_page, page, search)
     .then(data => {
       console.log(currentRequest.signal.aborted);
-      if (currentRequest.signal.aborted) {
-        return;
+      if (!currentRequest.signal.aborted) {
+        show_arbres(data);
       }
-      show_arbres(data);
     })
     .catch(error => {
       console.error('Error:', error);
