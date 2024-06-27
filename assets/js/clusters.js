@@ -1,5 +1,5 @@
 let controller = null;
-const map = L.map('map').setView([51.505, -0.09], 13);
+const map = L.map('map').setView([3.2932636093638927, 49.84050020512298], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
