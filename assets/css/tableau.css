@@ -70,3 +70,38 @@ Sélécteur de colonnes
 .toggle-container input:checked + label {
   background-color: #ffffff;
 }
+
+
+
+
+/*
+bouton de recherche au dessus du tableau
+*/
+
+.search-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.search-button input {
+  width: 15vw;
+  padding: 12px;
+  height: 22px;
+  border: 1px solid #828282;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.search-button button {
+  height: 45px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
