@@ -8,8 +8,6 @@ class ArbreController
 {
     private $arbre;
     private $requestMethod;
-    private $options;
-
 
     public function __construct($requestMethod)
     {
@@ -19,7 +17,6 @@ class ArbreController
 
     public function processRequest($options)
     {
-        $response = null;
         switch ($this->requestMethod) {
             case 'GET':
                 $column = $options['column'] ?? 'id_arbre';
@@ -29,6 +26,7 @@ class ArbreController
                 $search = $options['search'] ?? null;
 
                 $response = $this->getArbres($column, $reverse, $per_page, $page, $search);
+                break;
         }
 
         header($response['status_code_header']);
@@ -41,6 +39,33 @@ class ArbreController
     {
         $result = $this->arbre->all($column, $reverse, $per_page, $page, $search);
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
+    }
+
+    public function addArbre()
+    {
+        $haut_tot = $_POST['haut_tot'] ?? null;
+        $haut_tronc = $_POST['haut_tronc'] ?? null;
+        $tronc_diam = $_POST['tronc_diam'] ?? null;
+        $id_stadedev = $_POST['id_stadedev'] ?? null;
+        $id_nom_tech = $_POST['id_nom_tech'] ?? null;
+        $longitude = $_POST['longitude'] ?? null;
+        $latitude = $_POST['latitude'] ?? null;
+        $revetement = $_POST['revetement'] ?? null;
+        $nbr_diag = $_POST['nbr_diag'] ?? null;
+        $remarquable = $_POST['remarquable'] ?? null;
+        $id_secteur = $_POST['id_secteur'] ?? null;
+        $id_quartier = $_POST['id_quartier'] ?? null;
+        $id_arb_etat = $_POST['id_arb_etat'] ?? null;
+        $id_port = $_POST['id_port'] ?? null;
+        $id_pied = $_POST['id_pied'] ?? null;
+        $id_situation = $_POST['id_situation'] ?? null;
+        $id_villeca = $_POST['id_villeca'] ?? null;
+        $id_feuillage = $_POST['id_feuillage'] ?? null;
+
+        $result = $this->arbre->add($haut_tot, $haut_tronc, $tronc_diam, $id_stadedev, $id_nom_tech, $longitude, $latitude, $revetement, $nbr_diag, $remarquable, $id_secteur, $id_quartier, $id_arb_etat, $id_port, $id_pied, $id_situation, $id_villeca, $id_feuillage);
+        $response['status_code_header'] = 'HTTP/1.1 201 Created';
         $response['body'] = json_encode($result);
         return $response;
     }
