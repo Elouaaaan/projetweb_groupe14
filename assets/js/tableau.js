@@ -46,6 +46,7 @@ document.getElementById('search').addEventListener('input', (event) => {
 });
 
 document.querySelectorAll('.sort-asc').forEach(button => {
+  console.log(button);
   button.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode;
     new_column = parentDiv.id;
