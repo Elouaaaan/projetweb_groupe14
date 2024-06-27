@@ -49,23 +49,13 @@ class Arbre
                 $searchConditions[] = '(' .
                     'age_estim LIKE :word' . $index . ' OR 
                                       arb_etat LIKE :word' . $index . ' OR 
-                                      feuillage LIKE :word' . $index . ' OR 
-                                      haut_tot LIKE :word' . $index . ' OR 
-                                      haut_tronc LIKE :word' . $index . ' OR 
-                                      latitude LIKE :word' . $index . ' OR 
-                                      longitude LIKE :word' . $index . ' OR 
-                                      nbr_diag LIKE :word' . $index . ' OR 
                                       nomtech LIKE :word' . $index . ' OR 
                                       pied LIKE :word' . $index . ' OR 
                                       port LIKE :word' . $index . ' OR 
-                                      prec_estim LIKE :word' . $index . ' OR 
                                       quartier LIKE :word' . $index . ' OR 
-                                      remarquable LIKE :word' . $index . ' OR 
-                                      revetement LIKE :word' . $index . ' OR 
                                       secteur LIKE :word' . $index . ' OR 
                                       situation LIKE :word' . $index . ' OR 
                                       stadedev LIKE :word' . $index . ' OR 
-                                      tronc_diam LIKE :word' . $index . ' OR 
                                       villeca LIKE :word' . $index . ')';
             }
             $query .= ' WHERE ' . implode(' AND ', $searchConditions);
