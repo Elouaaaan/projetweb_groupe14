@@ -21,6 +21,7 @@ use App\Views\Accueil;
 use App\Views\Form;
 use App\Views\FormRow;
 use App\Views\Tableau;
+use App\Views\Cluster;
 
 class HomeController
 {
@@ -169,5 +170,24 @@ class HomeController
         ];
 
         echo HTML::generateHTML($header, $content, $footer, $cssFiles, $jsFiles);
+    }
+
+    static public function cluster()
+    {
+        $header = (new Header())->render();
+        $content = (new Cluster())->render();
+        $footer = (new Footer())->render();
+
+        $cssFiles = [
+            'main.css',
+            'header.css',
+            'footer.css'
+        ];
+
+        $jsFiles = [
+            'cluster.js'
+        ];
+
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 }

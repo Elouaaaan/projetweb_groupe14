@@ -154,4 +154,15 @@ class Arbre
             'body' => null
         ];
     }
+
+    public function get_cluster_data()
+    {
+        $query = 'SELECT haut_tot, tronc_diam, port FROM arbre
+        JOIN port USING(id_port)';
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $data = $stmt->fetchAll();
+
+        return $data;
+    }
 }
