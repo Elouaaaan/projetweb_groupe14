@@ -81,10 +81,11 @@ function show_arbres(arbre_data) {
   arbre_data.forEach(arbre => {
     const row = document.createElement('tr');
     columns.forEach((column, index) => {
-      if (column_visible[index]) {
-        const cell = document.createElement('td');
-        cell.textContent = arbre[column];
-        row.appendChild(cell);
+      const cell = document.createElement('td');
+      cell.textContent = arbre[column];
+      row.appendChild(cell);
+      if (!column_visible[index]) {
+        cell.style.display = 'none';
       }
     });
     table.appendChild(row);
