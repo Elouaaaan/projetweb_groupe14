@@ -161,7 +161,9 @@ class Arbre
         JOIN port USING(id_port)
         JOIN nomtech USING(id_nomtech)
         JOIN stadedev USING(id_stadedev)
-        JOIN feuillage USING(id_feuillage)';
+        JOIN feuillage USING(id_feuillage)
+        JOIN stadedev USING(id_stadedev)
+        WHERE stadedev = "EN PLACE';
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $data = $stmt->fetchAll();
