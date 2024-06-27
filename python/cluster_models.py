@@ -4,10 +4,7 @@ import joblib
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from dotenv import load_dotenv
 import os
-
-load_dotenv()
 
 DB_CONNECTION = 'mysql'
 DB_HOST = 'localhost'
