@@ -47,10 +47,8 @@ document.getElementById('search').addEventListener('input', (event) => {
 
 document.querySelectorAll('.sort_asc').forEach(button => {
   button.addEventListener('click', (event) => {
-    console.log('click');
     const parentDiv = event.target.parentNode.parentNode;
     let new_column = parentDiv.id;
-    console.log(parentDiv);
     if (new_column === column && reverse === false) {
       column = 'id_arbre';
     } else {
@@ -65,21 +63,18 @@ document.querySelectorAll('.sort_desc').forEach(button => {
   button.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode.parentNode;
     let new_column = parentDiv.id;
-    console.log(new_column);
     if (new_column === column && reverse === true) {
       column = 'id_arbre';
       reverse = false;
     } else {
       column = new_column;
       reverse = true;
-      console.log(column);
     }
     update_arbres();
   });
 });
 
-
-columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
+let columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
 function show_arbres(arbre_data) {
   const table = document.querySelector('#tableau tbody');
   table.innerHTML = '';
