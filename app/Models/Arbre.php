@@ -160,7 +160,8 @@ class Arbre
         $query = 'SELECT longitude, latitude, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port FROM arbre
         JOIN port USING(id_port)
         JOIN nomtech USING(id_nomtech)
-        JOIN stadedev USING(id_stadedev)';
+        JOIN stadedev USING(id_stadedev)
+        JOIN feuillage USING(id_feuillage)';
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $data = $stmt->fetchAll();
