@@ -41,6 +41,13 @@ class Header
       </nav>
     </header>
 
+    <script>
+      function toggleNav() {
+        const navUl = document.querySelector('.header-ul');
+        navUl.classList.toggle('show');
+      }
+    </script>
+
     <?php
 
     return ob_get_clean();
