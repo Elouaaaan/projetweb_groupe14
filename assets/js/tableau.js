@@ -96,10 +96,8 @@ function toggleColumn(colIndex, isVisible) {
   // afficher/masquer la colonne basée sur colIndex et isVisible
   document.querySelectorAll(`#tableau tr > *:nth-child(${colIndex + 1})`).forEach(cell => {
     if (isVisible) {
-      column_visible[colIndex] = true;
       cell.style.display = '';
     } else {
-      column_visible[colIndex] = false;
       cell.style.display = 'none';
     }
   });
@@ -112,6 +110,7 @@ document.querySelectorAll('.column-toggle').forEach(checkbox => {
     var colIndex = parseInt(this.getAttribute('data-col-index'), 10);
     // Afficher/masquer la colonne
     toggleColumn(colIndex, this.checked);
+    column_visible[colIndex] = this.checked;
   });
 });
 
