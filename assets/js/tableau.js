@@ -71,6 +71,7 @@ document.querySelectorAll('.sort_desc').forEach(button => {
     } else {
       column = new_column;
       reverse = true;
+      console.log(column);
     }
     update_arbres();
   });
