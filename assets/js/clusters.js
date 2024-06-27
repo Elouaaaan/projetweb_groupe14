@@ -8,7 +8,7 @@ fetch('api/request.php/clusters/?cluster=1', {
         return response.json();
     })
     .then(data => {
-        console.log(typeof data);
+        console.log(data);
     })
     .catch(error => {
         console.error('Error:', error);
