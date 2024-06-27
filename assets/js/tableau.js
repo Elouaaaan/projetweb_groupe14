@@ -61,7 +61,7 @@ document.getElementsByClassName('sort-asc').forEach(button => {
 
 document.getElementsByClassName('sort-desc').forEach(button => {
   button.addEventListener('click', (event) => {
-    const parentDiv = event.target.parentNode;
+    const parentDiv = event.target.parentNode.parentNode;
     new_column = parentDiv.id;
     if (column === new_column) {
       column = 'id_arbre';
