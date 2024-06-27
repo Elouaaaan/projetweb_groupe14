@@ -49,7 +49,7 @@ class ArbreController
         $haut_tot = $_POST['haut_tot'] ?? null;
         $haut_tronc = $_POST['haut_tronc'] ?? null;
         $tronc_diam = $_POST['tronc_diam'] ?? null;
-        $id_stadedev = $_POST['stadedev'] ?? null;
+        $id_stadedev = $_POST['stade_dev'] ?? null;
         $id_nom_tech = $_POST['nom_tech'] ?? null;
         $longitude = $_POST['longitude'] ?? null;
         $latitude = $_POST['latitude'] ?? null;
