@@ -131,7 +131,7 @@ class HomeController
 
         $tableau = new Tableau();
 
-        $table_data = (new Arbre())->all(per_page: 10, page: 1);
+        $table_data = (new Arbre())->all(['per_page' => 10, 'page' => 1]);
 
         $content = $tableau->addColumn('Longitude', 'longitude')
             ->addColumn('Latitude', 'latitude')
