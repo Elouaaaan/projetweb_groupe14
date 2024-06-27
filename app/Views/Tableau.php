@@ -31,9 +31,9 @@ class Tableau
         $ageBtn = '<button type="button" class="age-btn" onclick="window.location.href=\'./age.php\'">prédiction âge</button>';
         $row = '<tr>';
         foreach ($this->columnsNames as $column) {
-            $row .= '<td>' . $data[$column] . $ageBtn . '</td>';
+            $row .= '<td>' . $data[$column] . '</td>';
         }
-        $row .= '</tr>';
+        $row .= $ageBtn . '</tr>';
 
         $this->rows[] = $row;
 
