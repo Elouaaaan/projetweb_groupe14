@@ -42,27 +42,28 @@ document.getElementsByName('choix-clusters').forEach((radio) => {
 });
 
 function show_clusters(cluster_data) {
-    cluster_data.forEach(cluster => {
-        const { longitude, latitude, clusterNb } = cluster;
+    cluster_data.forEach(cluster_tree => {
+        const { longitude, latitude, cluster } = cluster_tree;
         const marker = L.marker([latitude, longitude]).addTo(map);
-        marker.setIcon(getClusterIcon(clusterNb));
+        marker.setIcon(createMarkerIcon(cluster_tree));
     });
 }
 
-function getClusterIcon(cluster) {
+function createMarkerIcon(cluster_tree) {
+    const { cluster } = cluster_tree;
+
     const clusterColors = {
         0: 'red',
         1: 'blue',
-        2: 'green',
+        2: 'green'
     };
 
-    const color = clusterColors[cluster];
+    const color = 'style="background-color: ' + clusterColors[cluster] + ';"';
 
-    const icon = L.divIcon({
-        className: 'cluster-icon',
-        html: `<div style="background-color: ${color};"></div>`,
-        iconSize: [25, 25]
+    return L.divIcon({
+        className: `marker-icon ${colorClass}`,
+        style: `background-color: ${clusterColors[cluster]};`,
+        html: `<div ${color}>${cluster}</div>`
     });
-
-    return icon;
 }
+
