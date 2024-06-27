@@ -2,7 +2,7 @@
 
 namespace App\Views;
 
-class Footer
+class Age
 {
   public function render()
   {
