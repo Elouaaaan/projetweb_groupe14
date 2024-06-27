@@ -37,6 +37,8 @@ td {
   text-align: left;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-right: 30px;
+  /* c'est fait exprès de le mettre en 3 parties et pas en une ligne */
 }
 
 
