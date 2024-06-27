@@ -54,7 +54,7 @@ class Tableau
 ?>
         <div class="search-button">
             <input type="text" id="search" name="search" placeholder="Rechercher...">
-            <button type="submit" id="search-button">Rechercher</button>
+            <!-- <button type="submit" id="search-button">Rechercher</button> -->
         </div>
 
         <div class="toggle-container">
