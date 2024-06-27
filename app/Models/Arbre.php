@@ -104,7 +104,7 @@ class Arbre
         echo $id_stadedev;
         echo $id_nom_tech;
 
-        if (!$haut_tot || !$haut_tronc || !$tronc_diam || (new Stadedev())->idExist($id_stadedev) || (new Nomtech())->idExist($id_nom_tech)) {
+        if (!$haut_tot || !$haut_tronc || !$tronc_diam || !(new Stadedev())->idExist($id_stadedev) || !(new Nomtech())->idExist($id_nom_tech)) {
             return [
                 'status_code_header' => 'HTTP/1.1 422 Unprocessable Entity',
                 'body' => json_encode(['error' => 'Missing required fields'])
