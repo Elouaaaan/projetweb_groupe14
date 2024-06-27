@@ -68,4 +68,4 @@ document.getElementById('search').addEventListener('input', function () {
     .catch(error => {
       console.error('Error:', error);
     });
-}
+});
