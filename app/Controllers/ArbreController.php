@@ -81,6 +81,6 @@ class ArbreController
         unlink($json_data);
 
         header('HTTP/1.1 200 OK');
-        echo $output
+        echo $output;
     }
 }
