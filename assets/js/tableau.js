@@ -23,10 +23,14 @@ async function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, p
   }
 }
 
-document.getElementById('search').addEventListener('input', (event) => {
-  var search = event.target.value;
-  console.log(search);
-  get_arbres('id_arbre', false, 10, 1, search)
+let reverse = false;
+let column = 'id_arbre';
+let per_page = 10;
+let page = 1;
+let search = '';
+
+function update_arbres() {
+  get_arbres(column, reverse, per_page, page, search)
     .then(data => {
       console.log(data);
       show_arbres(data);
@@ -34,6 +38,27 @@ document.getElementById('search').addEventListener('input', (event) => {
     .catch(error => {
       console.error('Error:', error);
     });
+}
+
+document.getElementById('search').addEventListener('input', (event) => {
+  search = event.target.value;
+  update_arbres();
+});
+
+document.getElementsByClassName('sort-buttons').forEach(button => {
+  button.addEventListener('click', (event) => {
+    const parentDiv = event.target.parentNode;
+    new_column = parentDiv.id;
+    if (column === new_column) {
+      if (reverse) {
+        column = 'id_arbre';
+        reverse = false;
+      } else {
+        column = new_column;
+        reverse = !reverse;
+      }
+    }
+  });
 });
 
 
