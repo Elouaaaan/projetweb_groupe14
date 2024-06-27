@@ -45,19 +45,32 @@ document.getElementById('search').addEventListener('input', (event) => {
   update_arbres();
 });
 
-document.getElementsByClassName('sort-buttons').forEach(button => {
+document.getElementsByClassName('sort-asc').forEach(button => {
   button.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode;
     new_column = parentDiv.id;
     if (column === new_column) {
-      if (reverse) {
-        column = 'id_arbre';
-        reverse = false;
-      } else {
-        column = new_column;
-        reverse = !reverse;
-      }
+      column = 'id_arbre';
+    } else {
+      column = new_column;
     }
+    reverse = false;
+    update_arbres();
+  });
+});
+
+document.getElementsByClassName('sort-desc').forEach(button => {
+  button.addEventListener('click', (event) => {
+    const parentDiv = event.target.parentNode;
+    new_column = parentDiv.id;
+    if (column === new_column) {
+      column = 'id_arbre';
+      reverse = false;
+    } else {
+      column = new_column;
+      reverse = true;
+    }
+    update_arbres();
   });
 });
 
