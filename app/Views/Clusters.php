@@ -20,7 +20,7 @@ class Clusters
               </div>
             </div>
 
-            <div class="map">
+            <div id="map">
 
             </div>
 
