@@ -84,12 +84,14 @@ pour les téléphones
 
   .header-nav .header-ul.show {
     display: flex;
+    padding: 0;
   }
 
   .header-nav .header-ul .header-li {
     width: 100%;
     text-align: center;
     border-bottom: 1px solid #eaeaea;
+    padding: 10px;
   }
 
   .header-nav .header-ul .header-li:last-child {
