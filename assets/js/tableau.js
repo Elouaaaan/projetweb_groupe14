@@ -134,3 +134,31 @@ document.querySelectorAll('.column-toggle').forEach(checkbox => {
   var colIndex = parseInt(checkbox.getAttribute('data-col-index'), 10);
   toggleColumn(colIndex, checkbox.checked);
 });
+
+get_arbres().then(data => {
+  data.forEach(arbre => {
+    const { longitude, latitude, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port } = arbre;
+    const marker = L.marker([latitude, longitude]);
+    marker.setIcon(
+      L.divIcon({
+        className: 'marker-icon',
+        html: `<div style="background-color: #1E90FF; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${cluster}</div>`
+      })
+    );
+
+    marker.bindPopup(`
+        <b>Espèce:</b> ${nomtech}<br>
+        <b>Type:</b> ${feuillage}<br>
+        <b>Port:</b> ${port}<br>
+        <b>Stade de développement:</b> ${stadedev}<br>
+        <b>Hauteur de l'arbre:</b> ${haut_tot}cm<br>
+        <b>Diameter du tronc:</b> ${tronc_diam}cm<br>
+    `);
+
+    markers.addLayer(marker);
+  });
+
+  map.addLayer(markers);
+}).catch(error => {
+  console.error('Error:', error);
+});
