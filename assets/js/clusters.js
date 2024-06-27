@@ -1,5 +1,5 @@
 let controller = null;
-let map = L.map('map').setView([51.505, -0.09], 13);
+const map = L.map('map').setView([51.505, -0.09], 13);
 
 function get_clusters(clusterId) {
     if (controller) {
