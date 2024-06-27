@@ -31,11 +31,11 @@ elif model_choice == '3':
 else:
     raise ValueError("Invalid model choice. Please choose from '1', '2', or '3'.")
 
-preprocessor = joblib.load(os.path.join(dirname, 'models/preprocessor.pkl'))
-X = preprocessor.transform(df[['haut_tot', 'tronc_section', 'port']])
-model = joblib.load(model_path)
-y_pred = model.predict(X)
+# preprocessor = joblib.load(os.path.join(dirname, 'models/preprocessor.pkl'))
+# X = preprocessor.transform(df[['haut_tot', 'tronc_section', 'port']])
+# model = joblib.load(model_path)
+# y_pred = model.predict(X)
 
-df['cluster'] = y_pred
-result = df.to_json(orient='records')
-print(result)
+# df['cluster'] = y_pred
+# result = df.to_json(orient='records')
+# print(result)
