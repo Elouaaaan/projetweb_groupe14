@@ -41,8 +41,10 @@ switch ($uri[3]) {
         $controller->processRequest($id_quartier);
         break;
     case 'clusters':
+        $cluster = $_GET['cluster'] ?? null;
+
         $controller = new ArbreController($requestMethod);
-        $controller->getClusters();
+        $controller->getClusters($cluster);
         break;
     default:
         header("HTTP/1.1 404 Not Found");

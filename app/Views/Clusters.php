@@ -4,9 +4,9 @@ namespace App\Views;
 
 class Clusters
 {
-    public function render()
-    {
-        return '
+  public function render()
+  {
+    return '
           <div class="div-clusters">
             <p>Choix des clusters</p>
             <div class="form-group-radio">
@@ -21,12 +21,11 @@ class Clusters
               </div>
             </div>
 
-            <div class="carte">
-              <iframe src="./app/assets/cartes/carte1.html" name="carte" title="Carte">
-              </iframe>
+            <div class="map">
+
             </div>
 
           </div>
         ';
-    }
+  }
 }
