@@ -44,28 +44,27 @@ class Tableau
     {
         ob_start();
 ?>
-        <div>
-            <div class="search-button">
-                <input type="text" id="search" name="search" placeholder="Rechercher...">
-                <button type="submit" id="search-button">Rechercher</button>
-            </div>
-
-            <div class="toggle-container">
-                <?php foreach ($this->toggleButtons as $toggleButton) : ?>
-                    <?= $toggleButton ?>
-                <?php endforeach; ?>
-            </div>
-
-            <table id="tableau">
-                <tr>
-                    <?php foreach ($this->columns as $column) : ?>
-                        <?= $column ?>
-                    <?php endforeach; ?>
-                </tr>
-                <?php foreach ($this->rows as $row) : ?>
-                    <?= $row ?>
-                <?php endforeach; ?>
+        <div class="search-button">
+            <input type="text" id="search" name="search" placeholder="Rechercher...">
+            <button type="submit" id="search-button">Rechercher</button>
         </div>
+
+        <div class="toggle-container">
+            <?php foreach ($this->toggleButtons as $toggleButton) : ?>
+                <?= $toggleButton ?>
+            <?php endforeach; ?>
+        </div>
+
+        <table id="tableau">
+            <tr>
+                <?php foreach ($this->columns as $column) : ?>
+                    <?= $column ?>
+                <?php endforeach; ?>
+            </tr>
+            <?php foreach ($this->rows as $row) : ?>
+                <?= $row ?>
+            <?php endforeach; ?>
+        </table>
     <?php
         return ob_get_clean();
     }
