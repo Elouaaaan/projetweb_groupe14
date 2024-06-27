@@ -8,25 +8,3 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-
-.marker-cluster {
-}
-
-.marker-cluster-small {
-  width: 20px;
-  height: 20px;
-  line-height: 18px;
-}
-
-.marker-cluster-medium {
-  width: 30px;
-  height: 30px;
-  line-height: 28px;
-}
-
-.marker-cluster-large {
-  width: 40px;
-  height: 40px;
-  line-height: 38px;
-}
