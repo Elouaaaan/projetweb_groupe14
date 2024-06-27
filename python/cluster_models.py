@@ -4,7 +4,8 @@ import joblib
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
-import os
+from sqlalchemy import create_engine
+
 
 DB_CONNECTION = 'mysql'
 DB_HOST = 'localhost'
@@ -14,7 +15,9 @@ DB_PASSWORD = 'ubxzbxlt'
 
 con = f'{DB_CONNECTION}://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_DATABASE}'
 
-df = pd.read_sql_query("SELECT haut_tot, tronc_diam, port FROM arbres JOIN port USING(id_port)", con)
+engine = create_engine(con)
+
+df = pd.read_sql_query("SELECT haut_tot, tronc_diam, port FROM arbre JOIN port USING(id_port)", engine)
 
 print(df)
 
