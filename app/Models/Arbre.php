@@ -104,6 +104,8 @@ class Arbre
             ];
         }
 
+        echo 'AAAAAAAAAAAAAAAAA';
+
         $longitude = $longitude === null ? '' : $longitude;
         $latitude = $latitude === null ? '' : $latitude;
         $revetement = $revetement === null ? '' : $revetement;
@@ -129,12 +131,17 @@ class Arbre
         $id_villeca = (new Villeca())->idExist($id_villeca) ? $id_villeca : '';
         $id_feuillage = (new Feuillage())->idExist($id_feuillage) ? $id_feuillage : '';
 
+        echo 'AAAAAAAAAAAAAAAAA';
+
+
         if ($id_stadedev === '' || $id_nom_tech === '') {
             return [
                 'status_code_header' => 'HTTP/1.1 422 Unprocessable Entity',
                 'body' => json_encode(['error' => 'Invalid values for stadedev or nomtech'])
             ];
         }
+        echo 'AAAAAAAAAAAAAAAAA';
+
 
         $query = 'INSERT INTO arbre (haut_tot, haut_tronc, tronc_diam, id_stadedev, id_nomtech, longitude, latitude, revetement, nbr_diag, remarquable, id_secteur, id_quartier, id_arb_etat, id_port, id_pied, id_situation, id_villeca, id_feuillage) VALUES (:haut_tot, :haut_tronc, :tronc_diam, :id_stadedev, :id_nomtech, :longitude, :latitude, :revetement, :nbr_diag, :remarquable, :id_secteur, :id_quartier, :id_arb_etat, :id_port, :id_pied, :id_situation, :id_villeca, :id_feuillage)';
 
@@ -157,6 +164,9 @@ class Arbre
         $stmt->bindValue(':id_situation', $id_situation, PDO::PARAM_INT);
         $stmt->bindValue(':id_villeca', $id_villeca, PDO::PARAM_INT);
         $stmt->bindValue(':id_feuillage', $id_feuillage, PDO::PARAM_INT);
+
+        echo 'AAAAAAAAAAAAAAAAA';
+
 
         $stmt->execute();
 
