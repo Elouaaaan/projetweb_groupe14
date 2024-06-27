@@ -11,6 +11,7 @@
 async function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, page = 1, search = '') {
   try {
     const url = `api/request.php/arbre/?column=${column}&reverse=${reverse}&per_page=${per_page}&page=${page}&search=${search}`;
+    console.log(url);
     const response = await fetch(url, {
       method: 'GET'
     });
@@ -30,8 +31,6 @@ let page = 1;
 let search = '';
 
 function update_arbres() {
-  console.log(column)
-  console.log(reverse)
   get_arbres(column, reverse, per_page, page, search)
     .then(data => {
       show_arbres(data);
