@@ -176,7 +176,7 @@ class HomeController
     static public function clusters()
     {
         $header = (new Header())->render();
-        $content = "<div id='clusters'>Les clusters</div>";
+        $content = (new Clusters())->render();
         $footer = (new Footer())->render();
 
         $cssFiles = [
