@@ -69,6 +69,7 @@ const show_clusters = (cluster_data, cluster_nb) => {
 const createMarkerIcon = (cluster, cluster_nb) => {
     const clusterColors = ['#FF0000', '#1E90FF', '#32CD32', '#FFD700'];
     cluster = (cluster_nb === 3 && cluster > 0) ? 0 : cluster;
+    console.log(cluster);
     const color = clusterColors[cluster + 1];
     return L.divIcon({
         className: 'marker-icon',
