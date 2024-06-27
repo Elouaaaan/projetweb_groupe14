@@ -82,7 +82,14 @@ class Arbre
         }
 
         $stmt->execute();
-        return $stmt->fetchAll();
+        $data = $stmt->fetchAll();
+
+        foreach ($data as &$row) {
+            $row['revetement'] = $row['revetement'] ? 'Oui' : 'Non';
+            $row['remarquable'] = $row['remarquable'] ? 'Oui' : 'Non';
+        }
+
+        return $data;
     }
 
     public function add($haut_tot, $haut_tronc, $tronc_diam, $id_stadedev, $id_nom_tech, $longitude, $latitude, $revetement, $nbr_diag, $remarquable, $id_secteur, $id_quartier, $id_arb_etat, $id_port, $id_pied, $id_situation, $id_villeca, $id_feuillage)
