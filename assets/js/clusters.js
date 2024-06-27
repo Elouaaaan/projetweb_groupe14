@@ -45,7 +45,7 @@ function show_clusters(cluster_data) {
     cluster_data.forEach(cluster_tree => {
         const { longitude, latitude, cluster } = cluster_tree;
         const marker = L.marker([latitude, longitude]).addTo(map);
-        marker.setIcon(createMarkerIcon(cluster_tree));
+        marker.setIcon(createMarkerIcon(cluster));
 
         marker.bindPopup(`
                     <b>Cluster:</b> ${cluster_tree.cluster}<br>
@@ -55,9 +55,7 @@ function show_clusters(cluster_data) {
     });
 }
 
-function createMarkerIcon(cluster_tree) {
-    const { cluster } = cluster_tree;
-
+function createMarkerIcon(cluster) {
     const clusterColors = {
         0: 'red',
         1: 'blue',
