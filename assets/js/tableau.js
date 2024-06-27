@@ -143,6 +143,25 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+const markers = L.markerClusterGroup({
+  maxClusterRadius: 40, // Smaller clusters
+  iconCreateFunction: function (cluster) {
+    const childCount = cluster.getChildCount();
+    let size = 'small';
+    if (childCount > 10) {
+      size = 'medium';
+    }
+    if (childCount > 100) {
+      size = 'large';
+    }
+    return new L.DivIcon({
+      html: '<div><span>' + childCount + '</span></div>',
+      className: 'marker-cluster marker-cluster-' + size,
+      iconSize: new L.Point(40, 40)
+    });
+  }
+});
+
 get_arbres().then(data => {
   data.forEach(arbre => {
     const { longitude, latitude, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port } = arbre;
