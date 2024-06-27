@@ -74,7 +74,7 @@ class ArbreController
 
         # get console output
         echo json_encode($result);
-        $output = shell_exec(__DIR__ . '../../bin/python3 ' . __DIR__ . '/../../python/cluster_models.py ' . json_encode($result));
-        // echo json_encode($output);
+        $output = shell_exec(__DIR__ . '../../venv/bin/python3 ' . __DIR__ . '/../../python/cluster_models.py \'' . json_encode($result) . '\'');
+        echo json_encode($output);
     }
 }
