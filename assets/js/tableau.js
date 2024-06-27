@@ -45,37 +45,40 @@ document.getElementById('search').addEventListener('input', (event) => {
   update_arbres();
 });
 
-document.querySelectorAll('.sort-desc').forEach(button => {
+document.querySelectorAll('.sort_asc').forEach(button => {
   button.addEventListener('click', (event) => {
-    const parentDiv = event.target.parentNode;
-    new_column = parentDiv.id;
-    if (column === new_column) {
+    const parentDiv = event.target.parentNode.parentNode;
+    let new_column = parentDiv.id;
+    if (new_column === column && reverse === false) {
       column = 'id_arbre';
     } else {
       column = new_column;
     }
     reverse = false;
+    console.log(column);
+    console.log(reverse);
     update_arbres();
   });
 });
 
-document.querySelectorAll('.sort-desc').forEach(button => {
+document.querySelectorAll('.sort_desc').forEach(button => {
   button.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode.parentNode;
-    new_column = parentDiv.id;
-    if (column === new_column) {
+    let new_column = parentDiv.id;
+    if (new_column === column && reverse === true) {
       column = 'id_arbre';
       reverse = false;
     } else {
       column = new_column;
       reverse = true;
     }
+    console.log(column);
+    console.log(reverse);
     update_arbres();
   });
 });
 
-
-columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
+let columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
 function show_arbres(arbre_data) {
   const table = document.querySelector('#tableau tbody');
   table.innerHTML = '';
