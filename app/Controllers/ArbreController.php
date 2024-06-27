@@ -74,12 +74,12 @@ class ArbreController
 
         # get console output
         $json_data = tempnam(sys_get_temp_dir(), 'json_data');
-        file_put_contents($json_data, json_encode($result));
+        file_put_contents($json_data, json_encode($result, JSON_UNESCAPED_UNICODE));
 
         $output = shell_exec(__DIR__ . '/../../venv/bin/python3 ' . __DIR__ . '/../../python/cluster.py ' . $json_data . ' ' . '1');
 
         unlink($json_data);
 
-        echo json_encode($output);
+        echo json_encode($output, JSON_UNESCAPED_UNICODE);
     }
 }
