@@ -151,7 +151,8 @@ class HomeController
             ->addColumn('Villeca', 'villeca')
             ->addColumn('Feuillage', 'feuillage')
             ->addColumn('Remarquable', 'remarquable')
-            ->addRows($table_data);
+            ->addRows($table_data)
+            ->render();
 
 
         $footer = (new Footer())->render();
