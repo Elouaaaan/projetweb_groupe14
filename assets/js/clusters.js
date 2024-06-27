@@ -115,3 +115,11 @@ function createMarkerIcon(cluster_tree) {
         html: `<div style="background-color: ${color}; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${cluster}</div>`
     });
 }
+
+get_clusters(1)
+    .then(data => {
+        show_clusters(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
