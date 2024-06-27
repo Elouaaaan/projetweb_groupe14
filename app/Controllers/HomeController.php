@@ -184,6 +184,7 @@ class HomeController
             'header.css',
             'footer.css',
             'carte.css',
+            'tableau.css',
         ];
 
         $jsFiles = [
