@@ -162,7 +162,7 @@ const markers = L.markerClusterGroup({
   }
 });
 
-get_arbres('id_arbre', false, null, null).then(data => {
+get_arbres('id_arbre', false, '', '').then(data => {
   data.forEach(arbre => {
     const { longitude, latitude, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port } = arbre;
     const marker = L.marker([latitude, longitude]);
