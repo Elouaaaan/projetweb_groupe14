@@ -1,3 +1,5 @@
+let currentRequest = null;
+
 /**
  * Retrieves a list of arbres (trees) from the API.
  * 
@@ -8,8 +10,6 @@
  * @param {string} search - The search term to filter the results. Default is an empty string. Words in brackets are considered as a single search term.
  * @returns {Promise} - A promise that resolves to the JSON response from the API.
  */
-let currentRequest = null;
-
 async function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, page = 1, search = '') {
   try {
     if (currentRequest) {
@@ -37,10 +37,16 @@ let column = 'id_arbre';
 let per_page = 50;
 let page = 1;
 let search = '';
+let columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
+let column_visible = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+
 
 function update_arbres() {
   get_arbres(column, reverse, per_page, page, search)
     .then(data => {
+      if (currentRequest === null) {
+        return;
+      }
       show_arbres(data);
     })
     .catch(error => {
@@ -52,6 +58,24 @@ document.getElementById('search').addEventListener('input', (event) => {
   search = event.target.value;
   update_arbres();
 });
+
+function show_arbres(arbre_data) {
+  const table = document.querySelector('#tableau tbody');
+  table.innerHTML = '';
+  arbre_data.forEach(arbre => {
+    const row = document.createElement('tr');
+    columns.forEach((column, index) => {
+      const cell = document.createElement('td');
+      cell.textContent = arbre[column];
+      row.appendChild(cell);
+      if (!column_visible[index]) {
+        cell.style.display = 'none';
+      }
+    });
+    table.appendChild(row);
+  });
+}
+
 
 document.querySelectorAll('.sort_asc').forEach(button => {
   button.addEventListener('click', (event) => {
@@ -81,25 +105,6 @@ document.querySelectorAll('.sort_desc').forEach(button => {
     update_arbres();
   });
 });
-
-let columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
-let column_visible = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
-function show_arbres(arbre_data) {
-  const table = document.querySelector('#tableau tbody');
-  table.innerHTML = '';
-  arbre_data.forEach(arbre => {
-    const row = document.createElement('tr');
-    columns.forEach((column, index) => {
-      const cell = document.createElement('td');
-      cell.textContent = arbre[column];
-      row.appendChild(cell);
-      if (!column_visible[index]) {
-        cell.style.display = 'none';
-      }
-    });
-    table.appendChild(row);
-  });
-}
 
 
 function toggleColumn(colIndex, isVisible) {
