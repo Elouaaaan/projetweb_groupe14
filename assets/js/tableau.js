@@ -182,6 +182,14 @@ get_arbres().then(data => {
         <b>Diameter du tronc:</b> ${tronc_diam}cm<br>
     `);
 
+    marker.on('mouseover', function () {
+      this.openPopup();
+    });
+
+    marker.on('mouseout', function () {
+      this.closePopup();
+    });
+
     markers.addLayer(marker);
   });
 
