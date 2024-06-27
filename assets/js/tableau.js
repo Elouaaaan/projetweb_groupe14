@@ -8,11 +8,20 @@
  * @param {string} search - The search term to filter the results. Default is an empty string. Words in brackets are considered as a single search term.
  * @returns {Promise} - A promise that resolves to the JSON response from the API.
  */
+let currentRequest = null;
+
 async function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, page = 1, search = '') {
   try {
+    if (currentRequest) {
+      currentRequest.abort();
+    }
     const url = `api/request.php/arbre/?column=${column}&reverse=${reverse}&per_page=${per_page}&page=${page}&search=${search}`;
+    const controller = new AbortController();
+    const signal = controller.signal;
+    currentRequest = controller;
     const response = await fetch(url, {
-      method: 'GET'
+      method: 'GET',
+      signal: signal
     });
     if (!response.ok) {
       throw new Error('Request failed with status:', response.status);
