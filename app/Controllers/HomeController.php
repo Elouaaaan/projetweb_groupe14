@@ -22,7 +22,6 @@ use App\Views\Form;
 use App\Views\FormRow;
 use App\Views\Tableau;
 use App\Views\Clusters;
-use App\Views\Cluster;
 
 class HomeController
 {
@@ -193,7 +192,7 @@ class HomeController
     static public function cluster()
     {
         $header = (new Header())->render();
-        $content = (new Cluster())->render();
+        $content = (new Clusters())->render();
         $footer = (new Footer())->render();
 
         $cssFiles = [
