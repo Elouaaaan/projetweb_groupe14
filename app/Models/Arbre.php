@@ -45,9 +45,6 @@ class Arbre
             $searchWords = str_getcsv($search, ' ', '"');
             $searchConditions = [];
 
-            echo json_encode($column, $reverse, $search);
-            exit();
-
             foreach ($searchWords as $index => $word) {
                 $searchConditions[] = '(' .
                     'age_estim LIKE :word' . $index . ' OR 
