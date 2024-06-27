@@ -77,7 +77,7 @@ class ArbreController
         file_put_contents($json_data, json_encode($result, JSON_UNESCAPED_UNICODE));
 
         $output = shell_exec(__DIR__ . '/../../venv/bin/python3 ' . __DIR__ . '/../../python/cluster.py ' . $json_data . ' ' . $cluster);
-
+        echo __DIR__ . '/../../venv/bin/python3 ' . __DIR__ . '/../../python/cluster.py ' . $json_data . ' ' . $cluster;
         unlink($json_data);
 
         header('HTTP/1.1 200 OK');

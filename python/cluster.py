@@ -28,7 +28,6 @@ elif model_choice == '2':
     model_path = os.path.join(dirname, 'models/kmeans_3_clusters.pkl')
 elif model_choice == '3':
     model_path = os.path.join(dirname, 'models/dbscan.pkl')
-    print('aaaa')
 else:
     raise ValueError("Invalid model choice. Please choose from '1', '2', or '3'.")
 
