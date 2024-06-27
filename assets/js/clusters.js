@@ -38,14 +38,14 @@ document.querySelectorAll('[name="choix-clusters"]').forEach(radio => {
     radio.addEventListener('click', async (event) => {
         markers.clearLayers();
         const data = await get_clusters(event.target.value);
-        if (data) show_clusters(data);
+        if (data) show_clusters(data, event.target.value);
     });
 });
 
-const show_clusters = (cluster_data) => {
+const show_clusters = (cluster_data, cluster_nb) => {
     cluster_data.forEach(({ longitude, latitude, cluster, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port }) => {
         const marker = L.marker([latitude, longitude], {
-            icon: createMarkerIcon(cluster)
+            icon: createMarkerIcon(cluster, cluster_nb)
         });
 
         marker.bindPopup(`
@@ -66,12 +66,9 @@ const show_clusters = (cluster_data) => {
     map.addLayer(markers);
 };
 
-const createMarkerIcon = (cluster) => {
-    const clusterColors = [
-        '#FF0000', '#1E90FF', '#32CD32', '#FFD700', '#FF69B4', '#8A2BE2', '#FF4500', '#2E8B57',
-        '#8B4513', '#00CED1', '#9400D3', '#FF6347', '#4682B4', '#D2691E', '#00FF7F', '#DC143C',
-        '#000080', '#ADFF2F', '#FF8C00', '#9932CC', '#8B0000', '#006400'
-    ];
+const createMarkerIcon = (cluster, cluster_nb) => {
+    const clusterColors = ['#FF0000', '#1E90FF', '#32CD32', '#FFD700'];
+    cluster = (cluster_nb === 3 && cluster > 0) ? 0 : cluster;
     const color = clusterColors[cluster + 1];
     return L.divIcon({
         className: 'marker-icon',
