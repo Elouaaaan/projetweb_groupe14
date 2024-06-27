@@ -7,7 +7,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const markers = L.markerClusterGroup({
-    maxClusterRadius: 40, // Smaller clusters
+    maxClusterRadius: 40,
     iconCreateFunction: function (cluster) {
         const childCount = cluster.getChildCount();
         let size = 'small';
@@ -76,6 +76,14 @@ function show_clusters(cluster_data) {
             <b>Hauteur de l'arbre:</b> ${haut_tot}cm<br>
             <b>Diameter du tronc:</b> ${tronc_diam}cm<br>
         `);
+
+        marker.on('mouseover', function () {
+            this.openPopup();
+        });
+
+        marker.on('mouseout', function () {
+            this.closePopup();
+        });
 
         markers.addLayer(marker);
     });

@@ -144,7 +144,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const markers = L.markerClusterGroup({
-  maxClusterRadius: 40, // Smaller clusters
+  maxClusterRadius: 40,
   iconCreateFunction: function (cluster) {
     const childCount = cluster.getChildCount();
     let size = 'small';
@@ -162,7 +162,7 @@ const markers = L.markerClusterGroup({
   }
 });
 
-get_arbres().then(data => {
+get_arbres('id_arbre', false, null, null).then(data => {
   data.forEach(arbre => {
     const { longitude, latitude, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port } = arbre;
     const marker = L.marker([latitude, longitude]);
