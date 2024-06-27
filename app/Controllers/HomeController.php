@@ -21,6 +21,7 @@ use App\Views\Accueil;
 use App\Views\Form;
 use App\Views\FormRow;
 use App\Views\Tableau;
+use App\Views\Clusters;
 use App\Views\Cluster;
 
 class HomeController
@@ -170,6 +171,21 @@ class HomeController
         ];
 
         echo HTML::generateHTML($header, $content, $footer, $cssFiles, $jsFiles);
+    }
+
+    static public function clusters()
+    {
+        $header = (new Header())->render();
+        $content = "<div id='clusters'>Les clusters</div>";
+        $footer = (new Footer())->render();
+
+        $cssFiles = [
+            'main.css',
+            'header.css',
+            'footer.css',
+        ];
+
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 
     static public function cluster()
