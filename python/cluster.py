@@ -1,17 +1,23 @@
 import os
 import sys
-from io import StringIO
+import json
 
 import pandas as pd
 import numpy as np
 import joblib
 
-print(sys.argv)
 dirname = os.path.dirname(os.path.abspath(__file__))
 
-json_content = StringIO(sys.argv[1])
-df = pd.read_json(json_content)
-df['tronc_section'] = np.pi * (df['tronc_diam'] / 2) ** 2
+try:
+    data_path = sys.argv[1]
+    with open(data_path, 'r') as json_file:
+        data = json.load(json_file)
+except Exception as e:
+    print(f"Error loading JSON data: {e}")
+    sys.exit(1)
+
+# Check the loaded data
+print("Loaded data:", data)
 
 # # Handling different model choices based on sys.argv[2]
 # model_path = None
