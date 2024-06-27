@@ -84,7 +84,7 @@ class Tableau
         </div>
 
         <div class="btn-clusters">
-            <a href="./clusters.php">Voir les clusters</a>
+            <button type="button" onclick="window.location.href='./clusters.php'">Voir les clusters</button>
         </div>
 <?php
         return ob_get_clean();
