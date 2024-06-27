@@ -27,7 +27,7 @@ class Arbre
         $this->db = Database::getInstance()->getConnection();
     }
 
-    public function all($column, $reverse, $per_page = null, $page = null, $search = null)
+    public function all($column = 'id_arbre', $reverse = false, $per_page = null, $page = null, $search = null)
     {
         $query = 'SELECT age_estim, arb_etat, feuillage, haut_tot, haut_tronc, id_arbre, latitude, longitude, nbr_diag, nomtech, pied, port, prec_estim, quartier, remarquable, revetement, secteur, situation, stadedev, tronc_diam, villeca FROM arbre
             JOIN quartier USING(id_quartier)
