@@ -5,6 +5,7 @@ namespace App\Views;
 class Tableau
 {
     private $toggleButtons = [];
+    private $columnsNames = [];
     private $columns = [];
     private $rows = [];
 
@@ -12,6 +13,8 @@ class Tableau
     {
         $this->toggleButtons[] = '<input type="checkbox" id="column_' . $id . '" class="column-toggle" data-col-index="' . $id . '" checked="checked">
         <label for="column_' . $id . '">' . $label . '</label>';
+
+        $this->columnsNames[] = $id;
 
         $this->columns[] = '<th id="' . $id . '">' . $label . '</th>';
 
@@ -21,8 +24,8 @@ class Tableau
     public function addRow($data)
     {
         $row = '<tr>';
-        foreach ($data as $value) {
-            $row .= '<td>' . $value . '</td>';
+        foreach ($this->columnsNames as $column) {
+            $row .= '<td>' . $data[$column] . '</td>';
         }
         $row .= '</tr>';
 
