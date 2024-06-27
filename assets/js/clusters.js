@@ -7,7 +7,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const markers = L.markerClusterGroup({
-    maxClusterRadius: 40,
+    maxClusterRadius: 20,
     iconCreateFunction: cluster => {
         const childCount = cluster.getChildCount();
         const size = childCount > 100 ? 'large' : childCount > 10 ? 'medium' : 'small';
