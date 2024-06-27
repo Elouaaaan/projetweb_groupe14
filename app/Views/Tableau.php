@@ -16,7 +16,12 @@ class Tableau
 
         $this->columnsNames[] = $id;
 
-        $this->columns[] = '<th id="' . $id . '">' . $label . '</th>';
+        $sortbtns = '<div class="sort-buttons">'
+            . '<button onclick="sortTable(' . count($this->columnsNames) . ', \'asc\')">&#9650;</button>'
+            . '<button onclick="sortTable(' . count($this->columnsNames) . ', \'desc\')">&#9660;</button>'
+            . '</div>';
+
+        $this->columns[] = '<th id="' . $id . '">' . $label . $sortbtns . '</th>';
 
         return $this;
     }

@@ -105,3 +105,28 @@ bouton de recherche au dessus du tableau
   cursor: pointer;
   text-decoration: none;
 }
+
+
+
+
+/*
+sort buttons
+*/
+
+.sort-buttons {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sort-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+}
+.sort-buttons button:hover {
+  color: red;
+}
