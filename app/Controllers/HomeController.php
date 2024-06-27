@@ -66,8 +66,8 @@ class HomeController
         $form->addRow($row);
 
         $row = new FormRow();
-        $row->addField('Hauteur totale (cm)', 'hauteur_tot', 'text', 600, true);
-        $row->addField('Hauteur tronc (cm)', 'hauteur_tronc', 'text', 200, true);
+        $row->addField('Hauteur totale (cm)', 'haut_tot', 'text', 600, true);
+        $row->addField('Hauteur tronc (cm)', 'haut_tronc', 'text', 200, true);
         $row->addField('Diamètre tronc (cm)', 'tronc_diam', 'text', 37, true);
         $form->addRow($row);
 
