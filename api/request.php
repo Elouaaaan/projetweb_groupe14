@@ -25,8 +25,8 @@ switch ($uri[3]) {
             'search' => $_GET['search'] ?? null,
         ];
 
-        $controller = new ArbreController($requestMethod, $options);
-        $controller->processRequest();
+        $controller = new ArbreController($requestMethod);
+        $controller->processRequest($options);
         break;
     case 'quartier':
         $id_secteur = $_GET['id_secteur'] ?? null;
