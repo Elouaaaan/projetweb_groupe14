@@ -27,6 +27,7 @@ function get_clusters(clusterId) {
 
 document.getElementsByName('choix-clusters').forEach((radio) => {
     radio.addEventListener('click', (event) => {
+        console.log(event.target.value);
         get_clusters(event.target.value);
     });
 });
