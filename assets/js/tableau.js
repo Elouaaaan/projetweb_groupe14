@@ -74,14 +74,14 @@ document.querySelectorAll('.sort_desc').forEach(button => {
 });
 
 let columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
-let column_visible = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+let column_visible = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
 function show_arbres(arbre_data) {
   const table = document.querySelector('#tableau tbody');
   table.innerHTML = '';
   arbre_data.forEach(arbre => {
     const row = document.createElement('tr');
     columns.forEach((column, index) => {
-      if (!column_visible[index]) {
+      if (column_visible[index]) {
         const cell = document.createElement('td');
         cell.textContent = arbre[column];
         row.appendChild(cell);
