@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import joblib
 
+print(sys.argv)
 dirname = os.path.dirname(os.path.abspath(__file__))
 
 df = pd.read_json(sys.argv[1])
