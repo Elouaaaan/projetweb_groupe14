@@ -12,11 +12,11 @@ class Clusters
             <div class="form-group-radio">
               <!-- <label for="choix-clusters">Choix des clusters</label> -->
               <div class="radio-group">
-                <input type="radio" id="deux" name="choix-clusters" checked>
+                <input type="radio" id="deux" name="choix-clusters" value="1" checked>
                 <label for="deux">Deux clusters</label>
-                <input type="radio" id="trois" name="choix-clusters">
+                <input type="radio" id="trois" name="choix-clusters" value"2">
                 <label for="trois">Trois clusters</label>
-                <input type="radio" id="anomalies" name="choix-clusters">
+                <input type="radio" id="anomalies" name="choix-clusters" value="3">
                 <label for="anomalies">Détection des anomalies</label>
               </div>
             </div>

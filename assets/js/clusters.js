@@ -25,4 +25,3 @@ function get_clusters(clusterId) {
         });
 }
 
-get_clusters(1);
