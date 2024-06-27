@@ -46,7 +46,7 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 import os
 current_path = os.getcwd()
 print("Current path:", current_path)
-print(os.path.dirname(__file__))
+print(os.path.dirname(os.path.abspath(__file__)))
 
 # # Save the models and preprocessor
 # joblib.dump(preprocessor, '../python/models/preprocessor.pkl')
