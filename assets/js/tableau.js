@@ -14,6 +14,7 @@ async function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, p
   try {
     if (currentRequest) {
       currentRequest.abort();
+      console.log(currentRequest);
     }
     const url = `api/request.php/arbre/?column=${column}&reverse=${reverse}&per_page=${per_page}&page=${page}&search=${search}`;
     const controller = new AbortController();
