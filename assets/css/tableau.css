@@ -45,7 +45,7 @@ Sélécteur de colonnes
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 10vh 2.8vw;
+  margin: 10vh 8vw;
   background-color: #e0e0e0;
   border-radius: 12px;
 }
@@ -117,7 +117,7 @@ sort buttons
   display: flex;
   flex-direction: column;
   position: absolute;
-  right: 3px;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -126,6 +126,7 @@ sort buttons
   border: none;
   cursor: pointer;
   padding: 2px;
+  font-size: 10px;
 }
 .sort-buttons button:hover {
   color: #828282;

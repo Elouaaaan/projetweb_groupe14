@@ -21,7 +21,7 @@ class Tableau
             . '<button onclick="sortTable(' . count($this->columnsNames) . ', \'desc\')">&#9660;</button>'
             . '</div>';
 
-        $this->columns[] = '<th id="' . $id . '">' . $label . $sortbtns . '</th>';
+        $this->columns[] = '<th id="' . $id . '">' . $sortbtns . $label . '</th>';
 
         return $this;
     }
