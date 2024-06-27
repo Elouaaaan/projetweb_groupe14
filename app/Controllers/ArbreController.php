@@ -25,15 +25,6 @@ class ArbreController
                 $page = $options['page'] ?? null;
                 $search = $options['search'] ?? null;
 
-                echo json_encode([
-                    'column' => $column,
-                    'reverse' => $reverse,
-                    'per_page' => $per_page,
-                    'page' => $page,
-                    'search' => $search
-                ], JSON_UNESCAPED_UNICODE);
-                exit;
-
                 $response = $this->getArbres($column, $reverse, $per_page, $page, $search);
                 break;
         }

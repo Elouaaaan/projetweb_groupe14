@@ -41,6 +41,8 @@ class Arbre
             JOIN stadedev USING(id_stadedev)
             JOIN arb_etat USING(id_arb_etat)';
 
+        echo json_encode($query);
+
         if ($search) {
             $searchWords = str_getcsv($search, ' ', '"');
             $searchConditions = [];
@@ -61,6 +63,8 @@ class Arbre
             $query .= ' WHERE ' . implode(' AND ', $searchConditions);
         }
 
+        echo json_encode($query);
+
         $query .= ' ORDER BY ' . $column . ' ' . ($reverse ? 'DESC' : 'ASC');
 
         if ($per_page && $page) {
@@ -75,6 +79,7 @@ class Arbre
                 $stmt->bindValue(':word' . $index, '%' . $word . '%', PDO::PARAM_STR);
             }
         }
+        echo json_encode($stmt);
 
         if ($per_page && $page) {
             $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
@@ -88,6 +93,8 @@ class Arbre
             $row['revetement'] = $row['revetement'] ? 'Oui' : 'Non';
             $row['remarquable'] = $row['remarquable'] ? 'Oui' : 'Non';
         }
+        echo json_encode($stmt);
+
 
         return $data;
     }
