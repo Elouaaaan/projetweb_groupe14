@@ -69,12 +69,12 @@ function show_clusters(cluster_data) {
         marker.setIcon(createMarkerIcon(cluster));
 
         marker.bindPopup(`
-            <b>Hauteur de l'arbre:</b> ${haut_tot}cm<br>
-            <b>Diameter du tronc:</b> ${tronc_diam}cm<br>
             <b>Espèce:</b> ${nomtech}<br>
-            <b>Stade de développement:</b> ${stadedev}<br>
             <b>Type:</b> ${feuillage}<br>
             <b>Port:</b> ${port}<br>
+            <b>Stade de développement:</b> ${stadedev}<br>
+            <b>Hauteur de l'arbre:</b> ${haut_tot}cm<br>
+            <b>Diameter du tronc:</b> ${tronc_diam}cm<br>
         `);
 
         markers.addLayer(marker);
