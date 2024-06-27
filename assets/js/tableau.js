@@ -30,9 +30,10 @@ let page = 1;
 let search = '';
 
 function update_arbres() {
+  console.log(column)
+  console.log(reverse)
   get_arbres(column, reverse, per_page, page, search)
     .then(data => {
-      console.log(data);
       show_arbres(data);
     })
     .catch(error => {
@@ -55,8 +56,6 @@ document.querySelectorAll('.sort_asc').forEach(button => {
       column = new_column;
     }
     reverse = false;
-    console.log(column);
-    console.log(reverse);
     update_arbres();
   });
 });
@@ -72,8 +71,6 @@ document.querySelectorAll('.sort_desc').forEach(button => {
       column = new_column;
       reverse = true;
     }
-    console.log(column);
-    console.log(reverse);
     update_arbres();
   });
 });
