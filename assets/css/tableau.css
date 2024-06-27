@@ -102,8 +102,7 @@ bouton de recherche au dessus du tableau
 }
 
 .search-button button,
-.btn-clusters button,
-.age-btn {
+.btn-clusters button {
   height: 45px;
   background-color: #000000;
   color: #ffffff;
