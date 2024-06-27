@@ -11,7 +11,7 @@ class Tableau
 
     public function addColumn($label, $id)
     {
-        $this->toggleButtons[] = '<input type="checkbox" id="column_' . $id . '" class="column-toggle" data-col-index="' . $id . '" checked="checked">
+        $this->toggleButtons[] = '<input type="checkbox" id="column_' . $id . '" class="column-toggle" data-col-index="' . count($this->toggleButtons) . '" checked="checked">
         <label for="column_' . $id . '">' . $label . '</label>';
 
         $this->columnsNames[] = $id;
