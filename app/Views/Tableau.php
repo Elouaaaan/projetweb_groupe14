@@ -79,9 +79,7 @@ class Tableau
             </tbody>
         </table>
 
-        <div class="carte">
-            <iframe src="./app/assets/cartes/carte1.html" name="carte" title="Carte">
-            </iframe>
+        <div id="map">
         </div>
 
         <div class="btn-clusters">
