@@ -20,7 +20,7 @@ class ArbreController
         switch ($this->requestMethod) {
             case 'GET':
                 $column = $options['column'] ?? 'id_arbre';
-                $reverse = $options['reverse'] ?? false;
+                $reverse = filter_var($options['reverse'] ?? false, FILTER_VALIDATE_BOOLEAN);
                 $per_page = $options['per_page'] ?? null;
                 $page = $options['page'] ?? null;
                 $search = $options['search'] ?? null;
