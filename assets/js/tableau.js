@@ -45,10 +45,11 @@ document.getElementById('search').addEventListener('input', (event) => {
   update_arbres();
 });
 
-document.querySelectorAll('.sort-desc').forEach(button => {
+document.querySelectorAll('.sort-asc').forEach(button => {
   button.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode;
     new_column = parentDiv.id;
+    console.log(new_column);
     if (column === new_column) {
       column = 'id_arbre';
     } else {
@@ -63,6 +64,7 @@ document.querySelectorAll('.sort-desc').forEach(button => {
   button.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode.parentNode;
     new_column = parentDiv.id;
+    console.log(new_column);
     if (column === new_column) {
       column = 'id_arbre';
       reverse = false;
