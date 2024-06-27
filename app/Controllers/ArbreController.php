@@ -80,8 +80,7 @@ class ArbreController
 
         unlink($json_data);
 
-        header('Content-Type: application/json');
         header('HTTP/1.1 200 OK');
-        echo json_encode($output, JSON_UNESCAPED_UNICODE);
+        echo $output
     }
 }
