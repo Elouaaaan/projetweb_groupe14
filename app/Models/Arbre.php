@@ -97,6 +97,13 @@ class Arbre
 
     public function add($haut_tot, $haut_tronc, $tronc_diam, $id_stadedev, $id_nom_tech, $longitude, $latitude, $revetement, $nbr_diag, $remarquable, $id_secteur, $id_quartier, $id_arb_etat, $id_port, $id_pied, $id_situation, $id_villeca, $id_feuillage)
     {
+
+        echo $haut_tot;
+        echo $haut_tronc;
+        echo $tronc_diam;
+        echo $id_stadedev;
+        echo $id_nom_tech;
+
         if (!$haut_tot || !$haut_tronc || !$tronc_diam || !$id_stadedev || !$id_nom_tech) {
             return [
                 'status_code_header' => 'HTTP/1.1 422 Unprocessable Entity',
