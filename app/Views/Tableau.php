@@ -2,7 +2,7 @@
 
 namespace App\Views;
 
-class Footer
+class Tableau
 {
   public function render()
   {
