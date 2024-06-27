@@ -1,6 +1,6 @@
 #map {
   width: 50vw;
-  height: 70vh;
+  aspect-ratio: 16/9;
   border: none;
   border-radius: 12px;
   margin: 10vh 0;
