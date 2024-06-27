@@ -13,3 +13,5 @@ error.log
 .gnupg/
 .env
 update_repo.sh
+venv/
+.local/

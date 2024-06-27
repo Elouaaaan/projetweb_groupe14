@@ -6,13 +6,6 @@ from sklearn.cluster import KMeans, DBSCAN
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
-DB_CONNECTION = 'mysql'
-DB_HOST = 'localhost'
-DB_DATABASE = 'etu1114'
-DB_USERNAME = 'etu1114'
-DB_PASSWORD = 'ubxzbxlt'
-
-print(sys.argv)
 
 # df = pd.read_json(sys.argv[1])
 
@@ -49,8 +42,14 @@ print(sys.argv)
 # dbscan = DBSCAN(eps=0.65, min_samples=3)
 # dbscan.fit(X_prep)
 
+# Get the current path
+import os
+current_path = os.getcwd()
+print("Current path:", current_path)
+print(os.path.dirname(os.path.abspath(__file__)))
+
 # # Save the models and preprocessor
-# joblib.dump(preprocessor, 'models/preprocessor.pkl')
-# joblib.dump(kmeans_2_clusters, 'models/kmeans_2_clusters.pkl')
-# joblib.dump(kmeans_3_clusters, 'models/kmeans_3_clusters.pkl')
-# joblib.dump(dbscan, 'models/dbscan.pkl')
+# joblib.dump(preprocessor, '../python/models/preprocessor.pkl')
+# joblib.dump(kmeans_2_clusters, '../python/models/kmeans_2_clusters.pkl')
+# joblib.dump(kmeans_3_clusters, '../python/models/kmeans_3_clusters.pkl')
+# joblib.dump(dbscan, '../python/models/dbscan.pkl')
