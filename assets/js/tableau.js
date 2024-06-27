@@ -59,22 +59,17 @@ document.querySelectorAll('.column-toggle').forEach(checkbox => {
   toggleColumn(colIndex, checkbox.checked);
 });
 
-document.getElementById('search').addEventListener('keypress', async function () {
+document.getElementById('search').addEventListener('keypress', () => {
   var search = this.value;
-  if (this.request) {
-    console.log('aborting previous request');
-    this.request.abort();
-  }
-  this.request = get_arbres('id_arbre', false, 10, 1, search);
-  try {
-    const data = await this.request;
-    console.log(data);
-    show_arbres(data);
-  } catch (error) {
-    console.error('Error:', error);
-  }
+  get_arbres('id_arbre', false, 10, 1, search)
+    .then(data => {
+      console.log(data);
+      show_arbres(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 });
-
 
 
 columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable']
