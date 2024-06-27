@@ -72,6 +72,8 @@ class ArbreController
     {
         $result = $this->arbre->get_cluster_data();
 
-        system('python3 ' . __DIR__ . '/../../python/cluster_models.py ' . json_encode($result));
+        # get console output
+        $output = shell_exec('python3 ' . __DIR__ . '/../../python/cluster_models.py ' . json_encode($result));
+        echo json_encode($output);
     }
 }
