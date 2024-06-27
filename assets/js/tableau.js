@@ -33,7 +33,7 @@ function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, page = 
 
 let reverse = false;
 let column = 'id_arbre';
-let per_page = 50;
+let per_page = 25;
 let page = 1;
 let search = '';
 let columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable'];
