@@ -8,19 +8,6 @@ class Footer
   {
     ob_start();
     ?>
-    <body>
-      <header>
-        <h1>SQArbres</h1>
-        <nav>
-          <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Ajout</a></li>
-            <li><a href="#">Carte & Tableau</a></li>
-            <li><a href="#">Clusters</a></li>
-            <li><a href="#">Âge et déracinage</a></li>
-          </ul>
-        </nav>
-      </header>
 
       <div class="search-button">
         <input type="text" id="search" name="search" placeholder="Rechercher...">
@@ -178,8 +165,6 @@ class Footer
           <td>Feuillu</td>
           <td>Non</td>
       </table>
-
-    </body>
 
     <?php
     return ob_get_clean();
