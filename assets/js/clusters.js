@@ -38,7 +38,7 @@ document.getElementsByName('choix-clusters').forEach((radio) => {
 function show_clusters(cluster_data) {
     cluster_data.forEach(cluster => {
         const { longitude, latitude } = cluster;
-        echo_cluster(latitude, longitude);
+        console.log(latitude, longitude);
         const marker = L.marker([latitude, longitude]).addTo(map);
     });
 }
