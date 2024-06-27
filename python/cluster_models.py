@@ -51,7 +51,7 @@ current_path = os.getcwd()
 print("Current path:", current_path)
 
 # Save the models and preprocessor
-joblib.dump(preprocessor, 'models/preprocessor.pkl')
-joblib.dump(kmeans_2_clusters, 'models/kmeans_2_clusters.pkl')
-joblib.dump(kmeans_3_clusters, 'models/kmeans_3_clusters.pkl')
-joblib.dump(dbscan, 'models/dbscan.pkl')
+joblib.dump(preprocessor, '../python/models/preprocessor.pkl')
+joblib.dump(kmeans_2_clusters, '../python/models/kmeans_2_clusters.pkl')
+joblib.dump(kmeans_3_clusters, '../python/models/kmeans_3_clusters.pkl')
+joblib.dump(dbscan, '../python/models/dbscan.pkl')
