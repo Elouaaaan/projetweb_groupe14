@@ -117,7 +117,7 @@ sort buttons
   display: flex;
   flex-direction: column;
   position: absolute;
-  right: 8px;
+  right: 3px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -128,5 +128,5 @@ sort buttons
   padding: 2px;
 }
 .sort-buttons button:hover {
-  color: #222222;
+  color: #828282;
 }
