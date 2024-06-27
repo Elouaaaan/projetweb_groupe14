@@ -12,12 +12,14 @@ DB_DATABASE = 'etu1114'
 DB_USERNAME = 'etu1114'
 DB_PASSWORD = 'ubxzbxlt'
 
-mycursor = mysql.connector.connect(
+mydb = mysql.connector.connect(
     host=DB_HOST,
     user=DB_USERNAME,
     password=DB_PASSWORD,
     database=DB_DATABASE
 )
+
+mycursor = mydb.cursor()
 
 mycursor.execute("SELECT haut_tot, tronc_diam, port FROM arbre JOIN port USING(id_port)")
 
