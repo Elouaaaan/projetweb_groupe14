@@ -46,10 +46,9 @@ document.getElementById('search').addEventListener('input', (event) => {
 });
 
 document.querySelectorAll('.sort_asc').forEach(button => {
-  console.log(button);
   button.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode;
-    new_column = parentDiv.id;
+    let new_column = parentDiv.id;
     console.log(new_column);
     if (column === new_column) {
       column = 'id_arbre';
@@ -64,7 +63,7 @@ document.querySelectorAll('.sort_asc').forEach(button => {
 document.querySelectorAll('.sort_desc').forEach(button => {
   button.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode.parentNode;
-    new_column = parentDiv.id;
+    let new_column = parentDiv.id;
     console.log(new_column);
     if (column === new_column) {
       column = 'id_arbre';
