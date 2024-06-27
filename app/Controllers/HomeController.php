@@ -188,4 +188,23 @@ class HomeController
 
         echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
+
+    static public function cluster()
+    {
+        $header = (new Header())->render();
+        $content = (new Clusters())->render();
+        $footer = (new Footer())->render();
+
+        $cssFiles = [
+            'main.css',
+            'header.css',
+            'footer.css'
+        ];
+
+        $jsFiles = [
+            'cluster.js'
+        ];
+
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
+    }
 }
