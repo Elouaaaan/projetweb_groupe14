@@ -127,14 +127,14 @@ class Arbre
         $id_villeca = $id_villeca === null ? '' : $id_villeca;
         $id_feuillage = $id_feuillage === null ? '' : $id_feuillage;
 
-        $id_secteur = (new Secteur())->idExist($id_secteur) ? $id_secteur : '';
-        $id_quartier = (new Quartier())->idExist($id_quartier) ? $id_quartier : '';
-        $id_arb_etat = (new ArbEtat())->idExist($id_arb_etat) ? $id_arb_etat : '';
-        $id_port = (new Port())->idExist($id_port) ? $id_port : '';
-        $id_pied = (new Pied())->idExist($id_pied) ? $id_pied : '';
-        $id_situation = (new Situation())->idExist($id_situation) ? $id_situation : '';
-        $id_villeca = (new Villeca())->idExist($id_villeca) ? $id_villeca : '';
-        $id_feuillage = (new Feuillage())->idExist($id_feuillage) ? $id_feuillage : '';
+        $id_secteur = (new Secteur())->idExist($id_secteur) ? $id_secteur : 'NULL';
+        $id_quartier = (new Quartier())->idExist($id_quartier) ? $id_quartier : 'NULL';
+        $id_arb_etat = (new ArbEtat())->idExist($id_arb_etat) ? $id_arb_etat : 'NULL';
+        $id_port = (new Port())->idExist($id_port) ? $id_port : 'NULL';
+        $id_pied = (new Pied())->idExist($id_pied) ? $id_pied : 'NULL';
+        $id_situation = (new Situation())->idExist($id_situation) ? $id_situation : 'NULL';
+        $id_villeca = (new Villeca())->idExist($id_villeca) ? $id_villeca : 'NULL';
+        $id_feuillage = (new Feuillage())->idExist($id_feuillage) ? $id_feuillage : 'NULL';
 
         echo 'AAAAAAAAAAAAAAAAA';
         echo 'BBBBBB';
