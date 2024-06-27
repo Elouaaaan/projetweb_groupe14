@@ -11,7 +11,6 @@
 async function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, page = 1, search = '') {
   try {
     const url = `api/request.php/arbre/?column=${column}&reverse=${reverse}&per_page=${per_page}&page=${page}&search=${search}`;
-    console.log(url);
     const response = await fetch(url, {
       method: 'GET'
     });
@@ -26,7 +25,7 @@ async function get_arbres(column = 'id_arbre', reverse = false, per_page = 50, p
 
 let reverse = false;
 let column = 'id_arbre';
-let per_page = 10;
+let per_page = 50;
 let page = 1;
 let search = '';
 
