@@ -25,6 +25,8 @@ class ArbreController
                 $page = $options['page'] ?? null;
                 $search = $options['search'] ?? null;
 
+                echo '<pre>' . print_r($options, true) . '</pre>';
+
                 $response = $this->getArbres($column, $reverse, $per_page, $page, $search);
                 break;
         }
