@@ -25,7 +25,7 @@ class ArbreController
                 $page = $options['page'] ?? null;
                 $search = $options['search'] ?? null;
 
-                echo json_encode($options);
+                echo json_encode($reverse);
 
                 exit();
 
