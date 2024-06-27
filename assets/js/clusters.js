@@ -64,14 +64,17 @@ function show_clusters(cluster_data) {
     markers.clearLayers();
 
     cluster_data.forEach(cluster_tree => {
-        const { longitude, latitude, cluster } = cluster_tree;
+        const { longitude, latitude, cluster, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port } = cluster_tree;
         const marker = L.marker([latitude, longitude]);
-        marker.setIcon(createMarkerIcon(cluster_tree));
+        marker.setIcon(createMarkerIcon(cluster));
 
         marker.bindPopup(`
-            <b>Cluster:</b> ${cluster_tree.cluster}<br>
-            <b>Height:</b> ${cluster_tree.haut_tot}m<br>
-            <b>Diameter:</b> ${cluster_tree.tronc_diam}cm
+            <b>Hauteur de l'arbre:</b> ${haut_tot}cm<br>
+            <b>Diameter du tronc:</b> ${tronc_diam}cm<br>
+            <b>Espèce:</b> ${nomtech}<br>
+            <b>Stade de développement:</b> ${stadedev}<br>
+            <b>Type:</b> ${feuillage}<br>
+            <b>Port:</b> ${port}<br>
         `);
 
         markers.addLayer(marker);
@@ -80,9 +83,7 @@ function show_clusters(cluster_data) {
     map.addLayer(markers);
 }
 
-function createMarkerIcon(cluster_tree) {
-    const { cluster } = cluster_tree;
-
+function createMarkerIcon(cluster) {
     const clusterColors = [
         '#FF0000',
         '#1E90FF',
