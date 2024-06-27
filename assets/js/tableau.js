@@ -135,6 +135,14 @@ document.querySelectorAll('.column-toggle').forEach(checkbox => {
   toggleColumn(colIndex, checkbox.checked);
 });
 
+
+const map = L.map('map').setView([49.84050020512298, 3.2932636093638927], 13);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 21,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
 get_arbres().then(data => {
   data.forEach(arbre => {
     const { longitude, latitude, nomtech, stadedev, feuillage, haut_tot, tronc_diam, port } = arbre;
