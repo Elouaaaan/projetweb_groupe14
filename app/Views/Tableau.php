@@ -33,7 +33,7 @@ class Tableau
         foreach ($this->columnsNames as $column) {
             $row .= '<td>' . $data[$column] . '</td>';
         }
-        $row .= $ageBtn . '</tr>';
+        $row .= '<td>' . $ageBtn . '</td>' . '</tr>';
 
         $this->rows[] = $row;
 
