@@ -12,7 +12,7 @@ class Header
     $this->nav_list = [
       'Accueil' => $url,
       'Ajout' => $url . 'ajout.php',
-      'Carte & Tableau' => $url . 'carte.php',
+      'Carte & Tableau' => $url . 'tableaucarte.php',
       'Clusters' => $url . 'clusters.php',
       'Âge et déracinage' => $url . 'age.php',
     ];
