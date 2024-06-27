@@ -6,12 +6,6 @@ from sklearn.cluster import KMeans, DBSCAN
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
-DB_CONNECTION = 'mysql'
-DB_HOST = 'localhost'
-DB_DATABASE = 'etu1114'
-DB_USERNAME = 'etu1114'
-DB_PASSWORD = 'ubxzbxlt'
-
 print(sys.argv)
 
 # df = pd.read_json(sys.argv[1])
