@@ -45,8 +45,6 @@ class HTML
 
     public static function generateHTML($header, $content, $footer, $cssFiles = [], $jsFiles = [])
     {
-        echo $content;
-        echo $footer;
         return '
         <!DOCTYPE html>
         <html lang="fr">
