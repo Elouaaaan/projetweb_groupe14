@@ -72,5 +72,4 @@ class Tableau
         return ob_get_clean();
     }
 }
-
 ?>
