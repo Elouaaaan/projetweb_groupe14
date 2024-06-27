@@ -45,7 +45,7 @@ document.getElementById('search').addEventListener('input', (event) => {
   update_arbres();
 });
 
-document.getElementsByClassName('sort-asc').forEach(button => {
+document.querySelectorAll('.sort-desc').forEach(button => {
   button.addEventListener('click', (event) => {
     const parentDiv = event.target.parentNode;
     new_column = parentDiv.id;
