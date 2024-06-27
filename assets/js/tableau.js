@@ -55,6 +55,8 @@ document.querySelectorAll('.sort_asc').forEach(button => {
       column = new_column;
     }
     reverse = false;
+    console.log(column);
+    console.log(reverse);
     update_arbres();
   });
 });
@@ -70,6 +72,8 @@ document.querySelectorAll('.sort_desc').forEach(button => {
       column = new_column;
       reverse = true;
     }
+    console.log(column);
+    console.log(reverse);
     update_arbres();
   });
 });
