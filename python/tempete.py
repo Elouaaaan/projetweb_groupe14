@@ -147,7 +147,7 @@ if __name__ == '__main__':
     df = predict_data(df, dirname)
     
     today = date.today()
-    two_months_ago = today - timedelta(days=60)
+    two_months_ago = today - timedelta(days=30)
     date = two_months_ago.strftime('%Y/%m/%d')
     
     wind_speed = get_some_day_wind_speed(date)
