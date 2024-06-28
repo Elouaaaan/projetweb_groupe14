@@ -7,7 +7,7 @@ use App\Controllers\ArbreController;
 
 var_dump($_GET);
 
-if (empty($_GET['age'])) {
+if (empty($_GET['id_arbre'])) {
     header('Location: /tableaucarte.php');
     exit;
 }
