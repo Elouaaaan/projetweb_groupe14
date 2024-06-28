@@ -211,13 +211,10 @@ class HomeController
 
 
         $output = json_decode($output, true);
-        var_dump($output);
-
-
 
         $header = (new Header())->render();
         $content = (new Age())
-            ->add_risque($output[0]['proba_deracinage'])
+            ->add_risque($output[0]['proba_deracinage'] * 100)
             ->render();
         $footer = (new Footer())->render();
 
@@ -228,6 +225,6 @@ class HomeController
             'age.css',
         ];
 
-        // echo HTML::generateHTML($header, $content, $footer, $cssFiles);
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 }
