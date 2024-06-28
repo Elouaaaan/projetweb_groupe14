@@ -72,7 +72,7 @@ X_train, y_train = sm.fit_resample(X_train, y_train)
 
 
 model = RandomForestClassifier(**{'bootstrap': False, 'max_depth': 30, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 200})
-model.fit(X_train_scaled, y_train)
+model.fit(X_train, y_train)
 
 joblib.dump(scaler, 'models/tempete_standard_scaler.pkl')
 joblib.dump(onehot_encoder, 'models/tempete_one_hot_encoder.pkl')
