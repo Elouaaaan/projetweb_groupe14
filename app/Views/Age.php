@@ -27,6 +27,10 @@ class Age
 
   public function render()
   {
+
+    foreach ($this->age_info as $age) {
+      var_dump($age);
+    }
     ob_start();
 ?>
 
