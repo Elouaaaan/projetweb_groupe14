@@ -23,7 +23,6 @@ scaler_filename = os.path.join(dirname, 'models/age_scaler.pkl')
 scaler = joblib.load(scaler_filename)
 
 feature_names = scaler.get_feature_names_out()
-print(feature_names)
 scaled_numerical = scaler.transform(df[numerical_features])
 scaled_numerical_df = pd.DataFrame(scaled_numerical, columns=numerical_features)
     
@@ -38,7 +37,6 @@ models = {
     'svr_rbf': os.path.join(dirname, 'models/age_svr_model_rbf.pkl'),
     'random_forest': os.path.join(dirname, 'models/age_random_forest.pkl'),
 }
-
 
 X = pd.concat([scaled_numerical_df, encoded_categorial_df], axis=1)
 

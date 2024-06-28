@@ -5,6 +5,17 @@ namespace App\Views;
 class Age
 {
   private $risque;
+  private $age_info = [];
+
+  public function add_age($age, $modele)
+  {
+    $this->age_info[] = [
+      'age' => $age,
+      'modele' => $modele
+    ];
+    return $this;
+  }
+
   public function add_risque($risque)
   {
     $this->risque = $risque;
@@ -20,9 +31,20 @@ class Age
     <main>
 
       <div class="head">
-        <p class="resultat-final">6,0 ans</p>
-        <p class="moyenne">Moyenne d'âge prédit par 4 modèlels</p>
+        <p class="resultat-final"></p>
+        <p class="moyenne">Moyenne d'âge prédit par <?php echo count($this->age_info); ?> modèles</p>
       </div>
+      </div>
+
+      <?php foreach ($this->age_info as $age) : ?>
+        <div class="conteneur-boites">
+          <div class="boite">
+            <p class="nom_modele">modèle <?php echo $age['modele']; ?></p>
+            <p class="resultat"><?php echo $age['age']; ?> ans</p>
+          </div>
+        </div>
+      <?php endforeach; ?>
+
 
       <div class="conteneur-boites">
         <div class="boite">

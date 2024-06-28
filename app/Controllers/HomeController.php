@@ -210,18 +210,21 @@ class HomeController
 
         $proba_deracinage = $output[0]['proba_deracinage'] * 100;
 
-        $result = $arbre->all();
         $json_data = tempnam(sys_get_temp_dir(), 'json_data');
         file_put_contents($json_data, json_encode($result, JSON_UNESCAPED_UNICODE));
         $output = shell_exec(__DIR__ . '/../../venv/bin/python3 ' . __DIR__ . '/../../python/age.py ' . $json_data . ' 2>&1');
         unlink($json_data);
-        // $output = json_decode($output, true);
+        $output = json_decode($output, true);
 
         echo $output;
 
 
         $header = (new Header())->render();
         $content = (new Age())
+            ->add_age($output[0]['ridge_model'], 'Ridge')
+            ->add_age($output[0]['svr_linear'], 'SVR (Linear)')
+            ->add_age($output[0]['svr_rbf'], 'SVR (RBF)')
+            ->add_age($output[0]['random_forest'], 'Random Forest')
             ->add_risque($proba_deracinage)
             ->render();
         $footer = (new Footer())->render();
@@ -233,6 +236,6 @@ class HomeController
             'age.css',
         ];
 
-        // echo HTML::generateHTML($header, $content, $footer, $cssFiles);
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 }
