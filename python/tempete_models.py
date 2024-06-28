@@ -14,7 +14,7 @@ categorical_features = ['quartier', 'stadedev', 'port', 'pied', 'situation', 'no
 boolean_features = ['revetement', 'remarquable']
 target = 'arb_etat'
 
-print(sys.argv[1])
+print(sys.argv)
 
 
 data_path = sys.argv[1]
