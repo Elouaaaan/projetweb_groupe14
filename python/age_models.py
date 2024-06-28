@@ -2,11 +2,9 @@ import os
 import sys
 import json
 import pandas as pd
-import matplotlib.pyplot as plt
 import joblib
 
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 from sklearn.linear_model import Ridge
