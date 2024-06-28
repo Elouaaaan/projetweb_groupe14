@@ -214,9 +214,6 @@ class HomeController
         unlink($json_data);
         $output = json_decode($output, true);
 
-
-        echo '<pre>' . print_r($output, true) . '</pre>';
-
         $header = (new Header())->render();
         $content = (new Age())
             ->add_age($output[0]['ridge_model'], 'Ridge')

@@ -13,7 +13,6 @@ class Age
       'age' => $age,
       'modele' => $modele
     ];
-    var_dump($this->age_info);
 
     return $this;
   }
@@ -40,9 +39,10 @@ class Age
 
       <div class="conteneur-boites">
         <?php foreach ($this->age_info as $age) : ?>
-          <div class="boite">
+            <div class="boite">
             <p class="nom_modele">modèle <?php echo $age['modele']; ?></p>
-            <p class="resultat"><?php echo $age['age']; ?> ans</p>
+            <p class="resultat"><?php echo number_format($age['age'], 2); ?> ans</p>
+            </div>
           </div>
         <?php endforeach; ?>
       </div>
