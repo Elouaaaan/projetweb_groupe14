@@ -10,12 +10,6 @@ table {
   border-radius: 12px;
 }
 
-table td:first-child, table th:first-child {
-  position: sticky;
-  left: 0;
-  background-color: #ddd;
-}
-
 th {
   background-color: #f5f5f5;
   color: #000000;
