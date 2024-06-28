@@ -209,9 +209,8 @@ class HomeController
 
         unlink($json_data);
 
-        $output = json_decode($output, true);
 
-        echo 'azeazeaz';
+        echo $output;
 
         $header = (new Header())->render();
         $content = (new Age())
