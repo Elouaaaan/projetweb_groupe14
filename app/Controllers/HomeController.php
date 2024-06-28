@@ -211,6 +211,8 @@ class HomeController
 
         $output = json_decode($output, true);
 
+        echo $output;
+
         $header = (new Header())->render();
         $content = (new Age())
             ->add_risque($output['proba_deracinage'])
