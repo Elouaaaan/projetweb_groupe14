@@ -7,11 +7,11 @@ use App\Controllers\ArbreController;
 
 var_dump($_GET);
 
-// if (empty($_GET['age'])) {
-//     header('Location: /tableaucarte.php');
-//     exit;
-// }
+if (empty($_GET['age'])) {
+    header('Location: /tableaucarte.php');
+    exit;
+}
 
-// echo (new ArbreController('GET'))->getUprooted(1);
+echo (new ArbreController('GET'))->getUprooted(1);
 
-// echo HomeController::age();
+echo HomeController::age();
