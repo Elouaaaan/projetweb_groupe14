@@ -37,14 +37,14 @@ class Age
       </div>
       </div>
 
-      <?php foreach ($this->age_info as $age) : ?>
-        <div class="conteneur-boites">
+      <div class="conteneur-boites">
+        <?php foreach ($this->age_info as $age) : ?>
           <div class="boite">
             <p class="nom_modele">modèle <?php $age['modele'] ?></p>
             <p class="resultat"><?php $age['age'] ?> ans</p>
           </div>
-        </div>
-      <?php endforeach; ?>
+        <?php endforeach; ?>
+      </div>
 
 
       <div class="conteneur-boites">
