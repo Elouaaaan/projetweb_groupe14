@@ -200,7 +200,7 @@ class HomeController
     {
         $id_arbre = $_GET['age'] ?? null;
         $arbre = new Arbre();
-        $result = $arbre->get_arbre((int)$id_arbre);
+        $result = $arbre->get_arbre(1);
 
         $json_data = tempnam(sys_get_temp_dir(), 'json_data');
         file_put_contents($json_data, json_encode($result, JSON_UNESCAPED_UNICODE));
