@@ -14,6 +14,9 @@ categorical_features = ['quartier', 'stadedev', 'port', 'pied', 'situation', 'no
 boolean_features = ['revetement', 'remarquable']
 target = 'arb_etat'
 
+print(sys.argv[1])
+
+
 data_path = sys.argv[1]
 with open(data_path, 'r') as json_file:
     data = json.load(json_file)
