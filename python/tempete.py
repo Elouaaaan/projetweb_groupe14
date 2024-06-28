@@ -1,4 +1,6 @@
 import os
+import sys
+import json
 import pandas as pd
 import joblib
 
@@ -15,14 +17,14 @@ from math import sqrt, exp
 import requests
 
 coordinate_features = ['latitude', 'longitude']
-numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'age_estim', 'clc_nbr_diag']
-categorical_features = ['clc_quartier', 'fk_stadedev', 'fk_port', 'fk_pied', 'fk_situation', 'fk_nomtech', 'villeca', 'feuillage']
-boolean_features = ['fk_revetement', 'remarquable']
+numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'age_estim', 'nbr_diag']
+categorical_features = ['quartier', 'stadedev', 'port', 'pied', 'situation', 'nomtech', 'villeca', 'feuillage']
+boolean_features = ['revetement', 'remarquable']
 
 target = 'fk_arb_etat'
 
 
-def predict_data(file_path: str, dirname: str) -> None:
+def predict_data(df, dirname: str) -> None:
     """
     Predicts data using a trained machine learning model.
 
@@ -32,24 +34,21 @@ def predict_data(file_path: str, dirname: str) -> None:
 
     Returns:
         DataFrame: The original DataFrame with an additional column 'proba_deracinage' containing the predicted probabilities.
-    """
-    filename = os.path.join(dirname, file_path)
-    df = pd.read_json(filename, orient='records')
-        
+    """        
     # Scaling numerical features
-    scaler_filename = os.path.join(dirname, 'models/standart_scaler.pkl')
+    scaler_filename = os.path.join(dirname, 'models/tempete_scaler.pkl')
     numerical_scaler = joblib.load(scaler_filename)
     scaled_numerical = numerical_scaler.transform(df[numerical_features])
     scaled_numerical_df = pd.DataFrame(scaled_numerical, columns=numerical_features)
     
     # Encoding categorical features
-    categorical_encoder_filename = os.path.join(dirname, 'models/one_hot_encoder.pkl')
+    categorical_encoder_filename = os.path.join(dirname, 'models/tempete_onehot_encoder.pkl')
     categorical_encoder = joblib.load(categorical_encoder_filename)
     encoded_categorical = categorical_encoder.transform(df[categorical_features])
     encoded_categorial_df = pd.DataFrame(encoded_categorical, columns=categorical_encoder.get_feature_names_out(categorical_features))
     
     # Encoding boolean features
-    boolean_encoder_filename = os.path.join(dirname, 'models/ordinal_encoder.pkl')
+    boolean_encoder_filename = os.path.join(dirname, 'models/tempete_ordinal_encoder.pkl')
     boolean_encoder = joblib.load(boolean_encoder_filename)
     encoded_boolean = boolean_encoder.transform(df[boolean_features])
     encoded_boolean_df = pd.DataFrame(encoded_boolean, columns=boolean_features)
@@ -57,7 +56,7 @@ def predict_data(file_path: str, dirname: str) -> None:
     # Concatenating all features
     X = pd.concat([scaled_numerical_df, encoded_categorial_df, encoded_boolean_df], axis=1)
     
-    model_filename = os.path.join(dirname, 'models/random_forest.pkl')
+    model_filename = os.path.join(dirname, 'models/tempete_random_forest.pkl')
     model = joblib.load(model_filename)
     
     X = X[model.feature_names_in_]    
@@ -164,30 +163,33 @@ def get_percent_deracined(df):
 
 
 
-    
-def script(file_path: str) -> None:
-    dirname = os.path.dirname(__file__)
-    
-    df = predict_data(file_path, dirname)
-    return df
-    
-if __name__ == '__main__':
-    
-    #df = script('data/test_data.json')
-    #renvoyer la probabilité de déracinement de l'arbre
-    print(get_percent_deracined(df))
 
-
-
-    """
-    print("To see which tree might be deracined today, type 1: ")
-    result = input("To see which tree might have been deracined at a specific date, type the date (ex: 2010/02/28): ")
-
-    if result == '1':
-        wind_speed = get_today_wind_speed()
-        df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
         
-    else:
-        wind_speed = get_some_day_wind_speed(result)
-        df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
-    """
+if __name__ == '__main__':
+    dirname = os.path.dirname(os.path.abspath(__file__))
+    
+    data_path = sys.argv[1]
+    with open(data_path, 'r') as json_file:
+        data = json.load(json_file)
+
+    if isinstance(data, dict):
+        data = [data]
+    
+    df = pd.read_json(json.dumps(data))
+    
+    df = predict_data(df, dirname)
+    
+    result = 1
+    
+    wind_speed = get_some_day_wind_speed(result)
+    df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
+
+    
+    result = df.to_json(orient='records')
+    print(result)
+    print(df['deracined'])
+
+
+
+
+   
