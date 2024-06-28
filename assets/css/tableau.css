@@ -10,10 +10,10 @@ table {
   border-radius: 12px;
 }
 
-.sticky-col {
-  position: -webkit-sticky;
+table td:first-child, table th:first-child {
   position: sticky;
-  background-color: white;
+  left: 0;
+  background-color: #ddd;
 }
 
 th {

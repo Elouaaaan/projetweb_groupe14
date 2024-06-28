@@ -67,7 +67,7 @@ function show_arbres(arbre_data) {
     const cell = document.createElement('td');
     const button = document.createElement('button');
     button.textContent = 'Prédire';
-    button.className = 'age-btn sticky-col';
+    button.className = 'age-btn';
     button.type = 'button';
     button.value = arbre.id_arbre;
     cell.appendChild(button);
