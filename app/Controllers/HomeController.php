@@ -213,9 +213,11 @@ class HomeController
         $result = $arbre->all();
         $json_data = tempnam(sys_get_temp_dir(), 'json_data');
         file_put_contents($json_data, json_encode($result, JSON_UNESCAPED_UNICODE));
-        $output = shell_exec(__DIR__ . '/../../venv/bin/python3 ' . __DIR__ . '/../../python/age_models.py ' . $json_data);
+        $output = shell_exec(__DIR__ . '/../../venv/bin/python3 ' . __DIR__ . '/../../python/age_models.py ' . $json_data . ' 2>&1');
         unlink($json_data);
         $output = json_decode($output, true);
+
+        echo $output;
 
 
         $header = (new Header())->render();
