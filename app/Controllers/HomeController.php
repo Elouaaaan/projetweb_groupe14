@@ -209,7 +209,7 @@ class HomeController
 
         unlink($json_data);
 
-        echo $output['proba_deracinage'];
+        var_dump($output);
 
         $header = (new Header())->render();
         $content = (new Age())
