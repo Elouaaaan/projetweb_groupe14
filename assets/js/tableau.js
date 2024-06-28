@@ -211,6 +211,7 @@ get_arbres('id_arbre', false, '', '').then(data => {
 document.getElementById('pageup').addEventListener('click', (event) => {
   page += 1;
   console.log(page);
+  document.getElementById('numeropage').textContent = page;
   update_arbres();
 });
 
@@ -220,5 +221,6 @@ document.getElementById('pagedown').addEventListener('click', (event) => {
   if (page < 1) {
     page = 1;
   }
+  document.getElementById('numeropage').textContent = page;
   update_arbres();
 });
