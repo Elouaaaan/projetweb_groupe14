@@ -14,14 +14,17 @@ categorical_features = ['quartier', 'stadedev', 'port', 'pied', 'situation', 'no
 boolean_features = ['revetement', 'remarquable']
 target = 'arb_etat'
 
-print(sys.argv)
 
 
 data_path = sys.argv[1]
 with open(data_path, 'r') as json_file:
     data = json.load(json_file)
+    
+print(data)
 
 json_string = json.dumps(data)
+
+print(json_string)
 
 df = pd.read_json(json_string)
 
