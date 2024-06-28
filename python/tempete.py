@@ -36,7 +36,7 @@ def predict_data(df, dirname: str) -> None:
         DataFrame: The original DataFrame with an additional column 'proba_deracinage' containing the predicted probabilities.
     """        
     # Scaling numerical features
-    scaler_filename = os.path.join(dirname, 'models/tempete_standart_scaler.pkl')
+    scaler_filename = os.path.join(dirname, 'models/tempete_scaler.pkl')
     numerical_scaler = joblib.load(scaler_filename)
     scaled_numerical = numerical_scaler.transform(df[numerical_features])
     scaled_numerical_df = pd.DataFrame(scaled_numerical, columns=numerical_features)
