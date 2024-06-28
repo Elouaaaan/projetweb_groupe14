@@ -1,4 +1,6 @@
 import os
+import sys
+import json
 import pandas as pd
 import joblib
 
@@ -164,30 +166,26 @@ def get_percent_deracined(df):
 
 
 
-    
-def script(file_path: str) -> None:
+
+        
+if __name__ == '__main__':
     dirname = os.path.dirname(os.path.abspath(__file__))
     
-    df = predict_data(file_path, dirname)
-    return df
+    data_path = sys.argv[1]
+    with open(data_path, 'r') as json_file:
+        data = json.load(json_file)
+
+    if isinstance(data, dict):
+        data = [data]
     
-if __name__ == '__main__':
-    
-    #df = script('data/test_data.json')
-    #renvoyer la probabilité de déracinement de l'arbre
-    print(get_percent_deracined(df))
-
-
-
-    """
-    print("To see which tree might be deracined today, type 1: ")
-    result = input("To see which tree might have been deracined at a specific date, type the date (ex: 2010/02/28): ")
-
-    if result == '1':
-        wind_speed = get_today_wind_speed()
-        df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
         
-    else:
-        wind_speed = get_some_day_wind_speed(result)
-        df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
-    """
+    df = predict_data(json.dumps(data), dirname)
+    
+    
+    result = df.to_json(orient='records')
+    print(result)
+
+
+
+
+   
