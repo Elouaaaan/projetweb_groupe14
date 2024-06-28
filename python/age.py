@@ -5,14 +5,15 @@ import pandas as pd
 import joblib
 
 dirname = os.path.dirname(os.path.abspath(__file__))
-
+    
 data_path = sys.argv[1]
 with open(data_path, 'r') as json_file:
     data = json.load(json_file)
 
-json_string = json.dumps(data)
-
-df = pd.read_json(data)
+if isinstance(data, dict):
+    data = [data]
+    
+df = pd.read_json(json.dumps(data))
 
 # numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam']
 # categorical_features = ['stadedev', 'nomtech']
