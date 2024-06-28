@@ -15,6 +15,8 @@ from bs4 import BeautifulSoup
 from math import sqrt, exp
 
 import requests
+import datetime
+from datetime import date, timedelta
 
 coordinate_features = ['latitude', 'longitude']
 numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'age_estim', 'nbr_diag']
@@ -60,16 +62,10 @@ def predict_data(df, dirname: str) -> None:
     model = joblib.load(model_filename)
     
     X = X[model.feature_names_in_]    
-    y_pred = model.predict(X)
     y_pred_proba = model.predict_proba(X)
-    
-    plot_data = pd.concat([df[coordinate_features], pd.Series(y_pred, name='prediction'), pd.Series(y_pred_proba[:, 1], name='proba')], axis=1)
-        
-    #print('Predictions:', y_pred)
-
+            
     y_pred_proba = y_pred_proba[:, 1]
     df['proba_deracinage'] = y_pred_proba
-
 
     return df
 
@@ -85,35 +81,6 @@ def is_deracined(df, wind_speed) -> bool:
     
     return proba > 0.90
 
-
-def get_today_wind_speed() -> float:
-
-    # Configuration du service pour utiliser le ChromeDriver
-    service = Service(ChromeDriverManager().install())
-
-    # init navigateur
-    driver = webdriver.Chrome(service=service)
-    print("Navigateur ouvert")
-
-    url = 'https://meteofrance.com/previsions-meteo-france/saint-quentin/02100'
-
-    # ouvrir la page
-    driver.get(url)
-
-    # attendre que la vitesse du vent soit chargé
-    try:
-        WebDriverWait(driver, 5).until(
-            EC.presence_of_element_located((By.CLASS_NAME, 'wind'))
-        )
-        
-        page_content = driver.page_source
-        soup = BeautifulSoup(page_content, 'html.parser')
-        wind_div = soup.find('div', class_='wind')
-        wind_speed = wind_div.get_text(strip=True) if wind_div else 'Non trouvé'
-    finally:
-        driver.quit()
-        wind_speed = wind_speed[:-4]
-        return float(wind_speed)
     
 def get_some_day_wind_speed(day: str) -> float:
     # day format: '2024/05/01'
@@ -179,9 +146,11 @@ if __name__ == '__main__':
     
     df = predict_data(df, dirname)
     
-    result = 1
+    today = date.today()
+    two_months_ago = today - timedelta(days=30)
+    date = two_months_ago.strftime('%Y/%m/%d')
     
-    wind_speed = get_today_wind_speed() if result == 1 else get_some_day_wind_speed(result)
+    wind_speed = get_some_day_wind_speed(date)
     df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
 
     
