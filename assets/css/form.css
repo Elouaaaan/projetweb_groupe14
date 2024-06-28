@@ -152,12 +152,18 @@ il faudra donner des meilleurs noms de classes
 */
 
 @media (max-width: 600px) {
+
   form.tree-form {
     max-width: 80vw;
+    margin: 5vh auto;
   }
 
   .form-row {
     flex-direction: column;
+  }
+
+  footer {
+    display: none;
   }
 
 }
