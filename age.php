@@ -3,8 +3,10 @@
 require __DIR__ . '/bootstrap.php';
 
 use App\Controllers\HomeController;
-use App\Controllers\ArbreController;
 
-echo (new ArbreController('GET'))->getUprooted(1);
+if (empty($_GET['id_arbre'])) {
+    header('Location: /tableaucarte.php');
+    exit;
+}
 
-// echo HomeController::age();
+echo HomeController::age();
