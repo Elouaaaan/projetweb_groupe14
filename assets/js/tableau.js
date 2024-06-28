@@ -63,12 +63,16 @@ function show_arbres(arbre_data) {
   table.innerHTML = '';
   arbre_data.forEach(arbre => {
     const row = document.createElement('tr');
+
+    const cell = document.createElement('td');
     const button = document.createElement('button');
     button.textContent = 'Présire';
     button.className = 'age-btn';
     button.type = 'button';
     button.value = arbre.id_arbre;
-    row.appendChild(button);
+    cell.appendChild(button);
+    row.appendChild(cell);
+
     columns.forEach((column, index) => {
       const cell = document.createElement('td');
       cell.textContent = arbre[column];
