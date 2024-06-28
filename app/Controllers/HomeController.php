@@ -211,7 +211,7 @@ class HomeController
 
         $output = json_decode($output, true);
 
-        echo $output;
+        echo 'azeazeaz';
 
         $header = (new Header())->render();
         $content = (new Age())
