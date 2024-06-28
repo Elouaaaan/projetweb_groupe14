@@ -170,4 +170,30 @@ class Arbre
 
         return $data;
     }
+
+    public function get_arbre($id_arbre)
+    {
+        $query = 'SELECT age_estim, arb_etat, feuillage, haut_tot, haut_tronc, id_arbre, latitude, longitude, nbr_diag, nomtech, pied, port, prec_estim, quartier, remarquable, revetement, secteur, situation, stadedev, tronc_diam, villeca FROM arbre
+            JOIN quartier USING(id_quartier)
+            JOIN secteur USING(id_secteur)
+            JOIN feuillage USING(id_feuillage)
+            JOIN villeca USING(id_villeca)
+            JOIN nomtech USING(id_nomtech)
+            JOIN situation USING(id_situation)
+            JOIN pied USING(id_pied)
+            JOIN port USING(id_port)
+            JOIN stadedev USING(id_stadedev)
+            JOIN arb_etat USING(id_arb_etat)
+            WHERE id_arbre = :id_arbre';
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_arbre', $id_arbre, PDO::PARAM_INT);
+        $stmt->execute();
+        $data = $stmt->fetch();
+
+        $data['revetement'] = $data['revetement'] ? 'Oui' : 'Non';
+        $data['remarquable'] = $data['remarquable'] ? 'Oui' : 'Non';
+
+        return $data;
+    }
 }
