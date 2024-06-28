@@ -32,7 +32,7 @@ class Age
     foreach ($this->age_info as $age) {
       $sum += $age['age'];
     }
-    $mean = $sum / $count;
+    $mean = number_format($sum / $count, 2);
 
 
     ob_start();
