@@ -179,7 +179,7 @@ if __name__ == '__main__':
     
     df = predict_data(df, dirname)
     
-    result = '2024/05/01'
+    result = 1
     
     wind_speed = get_today_wind_speed() if result == 1 else get_some_day_wind_speed(result)
     df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
