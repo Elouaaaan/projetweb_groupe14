@@ -198,6 +198,7 @@ class HomeController
 
     static public function age()
     {
+        echo 'age';
         $id_arbre = $_GET['id_arbre'] ?? null;
         $arbre = new Arbre();
         $result = $arbre->get_arbre($id_arbre);
