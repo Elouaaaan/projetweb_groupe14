@@ -21,6 +21,9 @@ categorical_features = ['stadedev', 'nomtech']
         
 scaler_filename = os.path.join(dirname, 'models/age_scaler.pkl')
 scaler = joblib.load(scaler_filename)
+
+feature_names = scaler.get_feature_names_out()
+print(feature_names)
 scaled_numerical = scaler.transform(df[numerical_features])
 scaled_numerical_df = pd.DataFrame(scaled_numerical, columns=numerical_features)
     
