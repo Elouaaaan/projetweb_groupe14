@@ -213,6 +213,8 @@ class HomeController
         $output = shell_exec(__DIR__ . '/../../venv/bin/python3 ' . __DIR__ . '/../../python/age.py ' . $json_data . ' 2>&1');
         unlink($json_data);
 
+        echo '<pre>' . print_r($output, true) . '</pre>';
+
         $header = (new Header())->render();
         $content = (new Age())
             ->add_age($output[0]['ridge_model'], 'Ridge')
