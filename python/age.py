@@ -12,6 +12,8 @@ with open(data_path, 'r') as json_file:
 
 json_string = json.dumps(data)
 
+print(json_string)
+
 df = pd.read_json(json_string)
 
 numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam']
