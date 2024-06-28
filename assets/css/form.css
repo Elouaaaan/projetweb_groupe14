@@ -150,3 +150,14 @@ select {
 /*
 il faudra donner des meilleurs noms de classes
 */
+
+@media (max-width: 600px) {
+  form.tree-form {
+    max-width: 80vw;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+}
