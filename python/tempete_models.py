@@ -74,9 +74,9 @@ X_train, y_train = sm.fit_resample(X_train, y_train)
 model = RandomForestClassifier(**{'bootstrap': False, 'max_depth': 30, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 200})
 model.fit(X_train, y_train)
 
-joblib.dump(scaler, 'models/tempete_standard_scaler.pkl')
-joblib.dump(onehot_encoder, 'models/tempete_one_hot_encoder.pkl')
-joblib.dump(ordinal_encoder, 'models/tempete_ordinal_encoder.pkl')
-joblib.dump(model, 'models/tempete_random_forest.pkl')
+joblib.dump(scaler, os.path.join(dirname, 'models/tempete_scaler.pkl'))
+joblib.dump(onehot_encoder, os.path.join(dirname, 'models/tempete_onehot_encoder.pkl'))
+joblib.dump(ordinal_encoder, os.path.join(dirname, 'models/tempete_ordinal_encoder.pkl'))
+joblib.dump(model, os.path.join(dirname, 'models/tempete_random_forest.pkl'))
 
 print("Models and encoders have been saved successfully.")
