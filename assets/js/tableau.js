@@ -36,8 +36,8 @@ let column = 'id_arbre';
 let per_page = 25;
 let page = 1;
 let search = '';
-let columns = ['lala','longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable'];
-let column_visible = [false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+let columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable'];
+let column_visible = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
 
 function update_arbres() {
   get_arbres(column, reverse, per_page, page, search)
@@ -134,8 +134,8 @@ document.querySelectorAll('.column-toggle').forEach(checkbox => {
     // Utiliser l'attribut data-col-index pour déterminer l'index de la colonne
     var colIndex = parseInt(this.getAttribute('data-col-index'), 10);
     // Afficher/masquer la colonne
-    toggleColumn(colIndex, this.checked);
-    column_visible[colIndex] = this.checked;
+    toggleColumn(colIndex+1, this.checked);
+    column_visible[colIndex+1] = this.checked;
   });
 });
 
