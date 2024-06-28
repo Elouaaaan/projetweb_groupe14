@@ -49,7 +49,7 @@ class Age
 
       <div class="head">
         <p class="resultat-final">Arraché</p>
-        <p class="moyenne">Risque d'arrachage<?php echo $this->risque; ?></p>
+        <p class="moyenne">Risque d'arrachage</p>
       </div>
 
     </main>
