@@ -15,9 +15,9 @@ from math import sqrt, exp
 import requests
 
 coordinate_features = ['latitude', 'longitude']
-numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'age_estim', 'clc_nbr_diag']
-categorical_features = ['clc_quartier', 'fk_stadedev', 'fk_port', 'fk_pied', 'fk_situation', 'fk_nomtech', 'villeca', 'feuillage']
-boolean_features = ['fk_revetement', 'remarquable']
+numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'age_estim', 'nbr_diag']
+categorical_features = ['quartier', 'stadedev', 'port', 'pied', 'situation', 'nomtech', 'villeca', 'feuillage']
+boolean_features = ['revetement', 'remarquable']
 
 target = 'fk_arb_etat'
 
@@ -166,7 +166,7 @@ def get_percent_deracined(df):
 
     
 def script(file_path: str) -> None:
-    dirname = os.path.dirname(__file__)
+    dirname = os.path.dirname(os.path.abspath(__file__))
     
     df = predict_data(file_path, dirname)
     return df
