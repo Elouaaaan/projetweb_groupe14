@@ -91,10 +91,19 @@ p {
 
   .accueil-img-container h2 {
     font-size: 20px;
+    top: 40%;
   }
 
   main {
     width: 80vw;
   }
-  
+
+  h4 {
+    padding-top: 5vh;
+  }
+
+  footer {
+    display: none;
+  }
+
 }
