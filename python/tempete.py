@@ -156,7 +156,6 @@ if __name__ == '__main__':
     
     result = df.to_json(orient='records')
     print(result)
-    print(df['deracined'])
 
 
 
