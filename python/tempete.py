@@ -155,7 +155,15 @@ def get_resistance(H,D):
     resistance = sqrt((C*pi*D/100) / (2*rho*k1*H)) * 3.6
 
     return resistance
-    
+
+
+def get_percent_deracined(df):
+    # df: DataFrame qui contient un seul arbre.
+    # renvoie le pourcentage de chance que l'arbre soit déraciné sans tenir compte de la vitesse actuelle du vent
+    return df['proba_deracinage']
+
+
+
     
 def script(file_path: str) -> None:
     dirname = os.path.dirname(__file__)
@@ -164,8 +172,14 @@ def script(file_path: str) -> None:
     return df
     
 if __name__ == '__main__':
-    df = script('data/test_data.json')
+    
+    #df = script('data/test_data.json')
+    #renvoyer la probabilité de déracinement de l'arbre
+    print(get_percent_deracined(df))
 
+
+
+    """
     print("To see which tree might be deracined today, type 1: ")
     result = input("To see which tree might have been deracined at a specific date, type the date (ex: 2010/02/28): ")
 
@@ -176,3 +190,4 @@ if __name__ == '__main__':
     else:
         wind_speed = get_some_day_wind_speed(result)
         df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
+    """
