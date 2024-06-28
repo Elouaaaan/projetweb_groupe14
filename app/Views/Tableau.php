@@ -84,8 +84,9 @@ class Tableau
         </table>
 
         <div class="btn-voirplus">
-            <button type="button" id="pageup">Page Suivante</button>
             <button type="button" id="pagedown">Page Précédente</button>
+            <span id="numeropage"></span>
+            <button type="button" id="pageup">Page Suivante</button>
         </div>
 
         <div id="map">
