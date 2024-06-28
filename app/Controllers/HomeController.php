@@ -209,6 +209,8 @@ class HomeController
 
         unlink($json_data);
 
+        echo $output['proba_deracinage'];
+
         $output = json_decode($output, true);
 
         $header = (new Header())->render();
@@ -224,6 +226,6 @@ class HomeController
             'age.css',
         ];
 
-        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
+        // echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 }
