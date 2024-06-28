@@ -48,7 +48,7 @@ class Age
       </div>
 
       <div class="head">
-        <p class="resultat-final">Risque de déracinement</p>
+        <p class="resultat-final">Risque de déracinement il y a 1 mois</p>
         <p class="moyenne"><?php echo number_format($this->risque, 2); ?>%</p>
       </div>
 
