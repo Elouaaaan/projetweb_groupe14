@@ -1,4 +1,6 @@
 import os
+import sys
+import json
 import pandas as pd
 import matplotlib.pyplot as plt
 import joblib
@@ -12,10 +14,21 @@ from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor
 
 
-features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'fk_stadedev', 'fk_nomtech']
+features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'stadedev', 'nomtech']
 
 numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam']
-categorical_features = ['fk_stadedev', 'fk_nomtech']
+categorical_features = ['stadedev', 'nomtech']
+target = 'age_estim'
+
+dirname = os.path.dirname(os.path.abspath(__file__))
+
+data_path = sys.argv[1]
+with open(data_path, 'r') as json_file:
+    data = json.load(json_file)
+
+json_string = json.dumps(data)
+
+df = pd.read_json(json_string)
 
 X = df[features]
 y = df[target]
