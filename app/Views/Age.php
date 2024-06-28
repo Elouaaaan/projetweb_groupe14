@@ -14,7 +14,6 @@ class Age
       'modele' => $modele
     ];
 
-    var_dump($this->age_info);
     return $this;
   }
 
