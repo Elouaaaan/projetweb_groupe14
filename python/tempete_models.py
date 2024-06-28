@@ -22,7 +22,7 @@ with open(data_path, 'r') as json_file:
 if isinstance(data, dict):
     data = [data]
     
-df = pd.DataFrame(data)
+df = pd.read_json(json.dumps(data))
 
 print(df.head())
 
