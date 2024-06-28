@@ -134,8 +134,8 @@ document.querySelectorAll('.column-toggle').forEach(checkbox => {
     // Utiliser l'attribut data-col-index pour déterminer l'index de la colonne
     var colIndex = parseInt(this.getAttribute('data-col-index'), 10);
     // Afficher/masquer la colonne
-    toggleColumn(colIndex+1, this.checked);
-    column_visible[colIndex+1] = this.checked;
+    toggleColumn(colIndex + 1, this.checked);
+    column_visible[colIndex + 1] = this.checked;
   });
 });
 
@@ -206,4 +206,17 @@ get_arbres('id_arbre', false, '', '').then(data => {
   map.addLayer(markers);
 }).catch(error => {
   console.error('Error:', error);
+});
+
+document.getElementById('pageup').addEventListener('click', (event) => {
+  page += 1;
+  update_arbres();
+});
+
+document.getElementById('pagedown').addEventListener('click', (event) => {
+  page -= 1;
+  if (page < 1) {
+    page = 1;
+  }
+  update_arbres();
 });
