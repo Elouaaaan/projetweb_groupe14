@@ -24,7 +24,7 @@ boolean_features = ['revetement', 'remarquable']
 target = 'fk_arb_etat'
 
 
-def predict_data(file_path: str, dirname: str) -> None:
+def predict_data(df, dirname: str) -> None:
     """
     Predicts data using a trained machine learning model.
 
@@ -34,10 +34,7 @@ def predict_data(file_path: str, dirname: str) -> None:
 
     Returns:
         DataFrame: The original DataFrame with an additional column 'proba_deracinage' containing the predicted probabilities.
-    """
-    filename = os.path.join(dirname, file_path)
-    df = pd.read_json(filename, orient='records')
-        
+    """        
     # Scaling numerical features
     scaler_filename = os.path.join(dirname, 'models/standart_scaler.pkl')
     numerical_scaler = joblib.load(scaler_filename)
@@ -180,8 +177,7 @@ if __name__ == '__main__':
     
     df = pd.read_json(json.dumps(data))
     
-    print(df)
-    # df = predict_data(json.dumps(data), dirname)
+    df = predict_data(df, dirname)
     
     # result = 1
     
