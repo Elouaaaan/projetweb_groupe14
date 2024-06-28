@@ -23,9 +23,9 @@ y = df['target']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'age_estim', 'clc_nbr_diag']
-categorical_features = ['clc_quartier', 'fk_stadedev', 'fk_port', 'fk_pied', 'fk_situation', 'fk_nomtech', 'villeca', 'feuillage']
-boolean_features = ['fk_revetement', 'remarquable']
+numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'age_estim', 'nbr_diag']
+categorical_features = ['quartier', 'stadedev', 'port', 'pied', 'situation', 'nomtech', 'villeca', 'feuillage']
+boolean_features = ['revetement', 'remarquable']
 
 scaler = StandardScaler()
 scaler.fit(X[numerical_features])
