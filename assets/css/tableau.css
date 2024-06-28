@@ -115,7 +115,8 @@ bouton de recherche au dessus du tableau
   text-decoration: none;
 }
 
-.btn-clusters {
+.btn-clusters,
+.btn-voirplus {
   display: flex;
   justify-content: center;
   align-items: center;
