@@ -8,3 +8,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.leaflet-top, .leaflet-left {
+  z-index: 999;
+}
