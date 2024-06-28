@@ -41,11 +41,11 @@ models = {
 
 
 X = pd.concat([scaled_numerical_df, encoded_categorial_df], axis=1)
-X = X[model.feature_names_in_]
 
 
 for model_name, model_filename in models.items():
     model = joblib.load(model_filename)
+    X = X[model.feature_names_in_]
     
     y_pred = model.predict(X)
     
