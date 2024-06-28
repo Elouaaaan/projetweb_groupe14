@@ -5,8 +5,6 @@ import pandas as pd
 import numpy as np
 import joblib
 
-features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'fk_stadedev', 'fk_nomtech']
-
 dirname = os.path.dirname(os.path.abspath(__file__))
 
 data_path = sys.argv[1]
@@ -16,11 +14,10 @@ with open(data_path, 'r') as json_file:
 json_string = json.dumps(data)
 
 df = pd.read_json(json_string)
-df['tronc_section'] = np.pi * (df['tronc_diam'] / 2) ** 2
 
         
-numerical_features = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
-categorical_features = df.select_dtypes(include=['object']).columns.tolist()
+numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam']
+categorical_features = ['stadedev', 'nomtech']
         
 scaler_filename = os.path.join(dirname, 'models/age_scaler.pkl')
 scaler = joblib.load(scaler_filename)
