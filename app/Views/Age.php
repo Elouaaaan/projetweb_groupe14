@@ -34,7 +34,6 @@ class Age
     }
     $mean = number_format($sum / $count, 2);
 
-
     ob_start();
 ?>
 
