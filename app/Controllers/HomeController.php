@@ -216,6 +216,7 @@ class HomeController
         unlink($json_data);
         $output = json_decode($output, true);
 
+        var_dump($output);
 
         $header = (new Header())->render();
         $content = (new Age())
