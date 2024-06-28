@@ -21,6 +21,8 @@ with open(data_path, 'r') as json_file:
 
 if isinstance(data, dict):
     data = [data]
+    
+df = pd.DataFrame(data)
 
 
 # X = df.drop(columns=target)
