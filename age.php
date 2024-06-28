@@ -9,4 +9,4 @@ if (empty($_GET['id_arbre'])) {
     exit;
 }
 
-echo HomeController::age();
+HomeController::age();
