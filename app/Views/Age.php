@@ -29,7 +29,7 @@ class Age
   {
 
     foreach ($this->age_info as $age) {
-      var_dump($age);
+      var_dump($age['age']);
     }
     ob_start();
 ?>
