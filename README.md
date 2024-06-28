@@ -24,7 +24,7 @@
 - [x] Page d'accueil
 - [x] Ajout d'arbres
 - [x] Visualisation tableau et carte
-- [ ] Prédiction du cluster
+- [x] Prédiction du cluster
 - [ ] Prédiction âge et déracinement
 
 ## Rendu Intermédiaire
@@ -50,6 +50,6 @@ Les documents se trouvent dans le dossier [rendu intermédiaire](./rendu_interme
 
 ## Rendu Final
 
-- [ ] Readme
+- [x] Readme
 - [ ] Support présentation (avec slide bilan)
 - [x] Partage des tâches pour chaque demi-journée
