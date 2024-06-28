@@ -179,14 +179,15 @@ if __name__ == '__main__':
     
     df = predict_data(df, dirname)
     
-    # result = 1
+    result = 1
     
-    # wind_speed = get_some_day_wind_speed(result)
-    # df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
+    wind_speed = get_some_day_wind_speed(result)
+    df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
 
     
-    # result = df.to_json(orient='records')
-    # print(result)
+    result = df.to_json(orient='records')
+    print(result)
+    print(df['deracined'])
 
 
 
