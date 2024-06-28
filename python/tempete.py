@@ -42,7 +42,7 @@ def predict_data(df, dirname: str) -> None:
     scaled_numerical_df = pd.DataFrame(scaled_numerical, columns=numerical_features)
     
     # Encoding categorical features
-    categorical_encoder_filename = os.path.join(dirname, 'models/tempete_one_hot_encoder.pkl')
+    categorical_encoder_filename = os.path.join(dirname, 'models/tempete_onehot_encoder.pkl')
     categorical_encoder = joblib.load(categorical_encoder_filename)
     encoded_categorical = categorical_encoder.transform(df[categorical_features])
     encoded_categorial_df = pd.DataFrame(encoded_categorical, columns=categorical_encoder.get_feature_names_out(categorical_features))
