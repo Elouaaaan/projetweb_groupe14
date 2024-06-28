@@ -210,11 +210,13 @@ get_arbres('id_arbre', false, '', '').then(data => {
 
 document.getElementById('pageup').addEventListener('click', (event) => {
   page += 1;
+  console.log(page);
   update_arbres();
 });
 
 document.getElementById('pagedown').addEventListener('click', (event) => {
   page -= 1;
+  console.log(page);
   if (page < 1) {
     page = 1;
   }
