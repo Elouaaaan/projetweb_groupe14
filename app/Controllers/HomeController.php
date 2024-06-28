@@ -212,6 +212,8 @@ class HomeController
 
         $output = shell_exec(__DIR__ . '/../../venv/bin/python3 ' . __DIR__ . '/../../python/age.py ' . $json_data);
         unlink($json_data);
+        $output = json_decode($output, true);
+
 
         echo '<pre>' . print_r($output, true) . '</pre>';
 
