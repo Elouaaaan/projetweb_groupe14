@@ -7,4 +7,4 @@ use App\Controllers\ArbreController;
 
 echo (new ArbreController('GET'))->getUprooted(1);
 
-echo HomeController::age();
+// echo HomeController::age();
