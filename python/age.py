@@ -2,7 +2,6 @@ import os
 import sys
 import json
 import pandas as pd
-import numpy as np
 import joblib
 
 dirname = os.path.dirname(os.path.abspath(__file__))
@@ -15,7 +14,6 @@ json_string = json.dumps(data)
 
 df = pd.read_json(json_string)
 
-        
 numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam']
 categorical_features = ['stadedev', 'nomtech']
         
