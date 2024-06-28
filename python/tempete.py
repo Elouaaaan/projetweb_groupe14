@@ -60,16 +60,10 @@ def predict_data(df, dirname: str) -> None:
     model = joblib.load(model_filename)
     
     X = X[model.feature_names_in_]    
-    y_pred = model.predict(X)
     y_pred_proba = model.predict_proba(X)
-    
-    plot_data = pd.concat([df[coordinate_features], pd.Series(y_pred, name='prediction'), pd.Series(y_pred_proba[:, 1], name='proba')], axis=1)
-        
-    #print('Predictions:', y_pred)
-
+            
     y_pred_proba = y_pred_proba[:, 1]
     df['proba_deracinage'] = y_pred_proba
-
 
     return df
 
