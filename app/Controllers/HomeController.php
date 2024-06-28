@@ -198,9 +198,9 @@ class HomeController
 
     static public function age()
     {
-        $id_arbre = $_GET['age'] ?? null;
+        $id_arbre = $_GET['id_arbre'] ?? null;
         $arbre = new Arbre();
-        $result = $arbre->get_arbre(1);
+        $result = $arbre->get_arbre($id_arbre);
 
         $json_data = tempnam(sys_get_temp_dir(), 'json_data');
         file_put_contents($json_data, json_encode($result, JSON_UNESCAPED_UNICODE));
