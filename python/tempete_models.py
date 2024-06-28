@@ -60,9 +60,6 @@ X_train_encoded_boolean_df = pd.DataFrame(X_train_encoded_boolean, columns=boole
 X_test_encoded_boolean = ordinal_encoder.transform(X_test[boolean_features])
 X_test_encoded_boolean_df = pd.DataFrame(X_test_encoded_boolean, columns=boolean_features)
 
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-
 onehot_encoder.fit(X_train)
 ordinal_encoder.fit(X_train)
 
