@@ -9,6 +9,10 @@ import sys
 from imblearn.over_sampling import SMOTE
 
 dirname = os.path.dirname(os.path.abspath(__file__))
+numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'age_estim', 'nbr_diag']
+categorical_features = ['quartier', 'stadedev', 'port', 'pied', 'situation', 'nomtech', 'villeca', 'feuillage']
+boolean_features = ['revetement', 'remarquable']
+target = 'arb_etat'
 
 data_path = sys.argv[1]
 with open(data_path, 'r') as json_file:
@@ -18,14 +22,10 @@ json_string = json.dumps(data)
 
 df = pd.read_json(json_string)
 
-X = df.drop(columns='target')
-y = df['target']
+X = df.drop(columns=target)
+y = df[target]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'age_estim', 'nbr_diag']
-categorical_features = ['quartier', 'stadedev', 'port', 'pied', 'situation', 'nomtech', 'villeca', 'feuillage']
-boolean_features = ['revetement', 'remarquable']
 
 scaler = StandardScaler()
 scaler.fit(X[numerical_features])
