@@ -15,18 +15,12 @@ boolean_features = ['revetement', 'remarquable']
 target = 'arb_etat'
 
 
-
 data_path = sys.argv[1]
 with open(data_path, 'r') as json_file:
     data = json.load(json_file)
-    
-print(data)
 
-json_string = json.dumps(data)
-
-print(json_string)
-
-df = pd.read_json(json_string)
+if isinstance(data, dict):
+    data = [data]
 
 
 # X = df.drop(columns=target)
