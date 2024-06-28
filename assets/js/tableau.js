@@ -36,8 +36,8 @@ let column = 'id_arbre';
 let per_page = 25;
 let page = 1;
 let search = '';
-let columns = ['longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable'];
-let column_visible = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+let columns = ['lala','longitude', 'latitude', 'quartier', 'secteur', 'haut_tot', 'haut_tronc', 'tronc_diam', 'arb_etat', 'stadedev', 'pied', 'port', 'situation', 'revetement', 'nbr_diag', 'nomtech', 'villeca', 'feuillage', 'remarquable'];
+let column_visible = [false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
 
 function update_arbres() {
   get_arbres(column, reverse, per_page, page, search)
@@ -77,7 +77,7 @@ function show_arbres(arbre_data) {
       const cell = document.createElement('td');
       cell.textContent = arbre[column];
       row.appendChild(cell);
-      if (!column_visible[index+1]) {
+      if (!column_visible[index]) {
         cell.style.display = 'none';
       }
     });
