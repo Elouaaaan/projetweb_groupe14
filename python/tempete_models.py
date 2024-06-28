@@ -24,7 +24,7 @@ if isinstance(data, dict):
     
 df = pd.DataFrame(data)
 
-print(df)
+print(df.head())
 
 
 # X = df.drop(columns=target)
