@@ -233,6 +233,6 @@ class HomeController
             'age.css',
         ];
 
-        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
+        // echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 }
