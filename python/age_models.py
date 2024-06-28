@@ -67,7 +67,7 @@ for model_name, model in models.items():
     model.fit(X_train, y_train)
     
     dirname = os.path.dirname(os.path.abspath(__file__))
-    joblib.dump(model, os.path.join(dirname, f'models/{model_name}.pkl'))
+    joblib.dump(model, os.path.join(dirname, f'models/age_{model_name}.pkl'))
     
-joblib.dump(scaler, os.path.join(dirname, 'models/scaler.pkl'))
-joblib.dump(onehot_encoder, os.path.join(dirname, 'models/onehot_encoder.pkl'))
+joblib.dump(scaler, os.path.join(dirname, 'models/age_scaler.pkl'))
+joblib.dump(onehot_encoder, os.path.join(dirname, 'models/age_onehot_encoder.pkl'))

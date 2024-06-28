@@ -32,6 +32,10 @@ categorical_encoder = joblib.load(categorical_encoder_filename)
 encoded_categorical = categorical_encoder.transform(df[categorical_features])
 encoded_categorial_df = pd.DataFrame(encoded_categorical, columns=categorical_encoder.get_feature_names_out(categorical_features))
 
+models = {
+    'ridge_model': 'models/ridge.pkl',
+}
+
 model_filename = os.path.join(dirname, 'models/random_forest.pkl')
 model = joblib.load(model_filename)
 
