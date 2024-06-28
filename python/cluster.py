@@ -8,7 +8,7 @@ import joblib
 
 dirname = os.path.dirname(os.path.abspath(__file__))
 
-print(dirname)
+print(sys.argv[1])
 
 data_path = sys.argv[1]
 with open(data_path, 'r') as json_file:
