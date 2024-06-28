@@ -13,8 +13,7 @@ class Header
       'Accueil' => $url,
       'Ajout' => $url . 'ajout.php',
       'Carte & Tableau' => $url . 'tableaucarte.php',
-      'Clusters' => $url . 'clusters.php',
-      'Âge et déracinage' => $url . 'age.php',
+      'Clusters' => $url . 'clusters.php'
     ];
 
     $currentUrl = $url . ltrim($_SERVER['REQUEST_URI'], '/');
@@ -28,14 +27,14 @@ class Header
   public function render()
   {
     ob_start();
-    ?>
+?>
 
     <header>
       <h1><?php echo getenv('APP_NAME'); ?></h1>
       <nav class="header-nav">
         <button class="header-toggle" onclick="toggleNav()">☰</button>
         <ul class="header-ul">
-          <?php foreach ($this->nav_list as $title => $url): ?>
+          <?php foreach ($this->nav_list as $title => $url) : ?>
             <li class="header-li"><a class="header-a" href="<?= $url ?>"><?= $title ?></a></li>
           <?php endforeach; ?>
         </ul>
@@ -49,7 +48,7 @@ class Header
       }
     </script>
 
-    <?php
+<?php
 
     return ob_get_clean();
   }
