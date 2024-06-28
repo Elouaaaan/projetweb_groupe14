@@ -213,7 +213,7 @@ class HomeController
         $output = json_decode($output, true);
         var_dump($output);
 
-        echo $output['proba_deracinage'];
+        echo $output[0]['proba_deracinage'];
 
 
         $header = (new Header())->render();
