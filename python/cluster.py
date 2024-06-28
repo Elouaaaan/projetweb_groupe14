@@ -14,9 +14,7 @@ with open(data_path, 'r') as json_file:
 
 json_string = json.dumps(data)
 
-
 df = pd.read_json(json_string)
-
 df['tronc_section'] = np.pi * (df['tronc_diam'] / 2) ** 2
 
 model_choice = sys.argv[2]
