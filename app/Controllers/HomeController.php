@@ -213,8 +213,6 @@ class HomeController
         $output = shell_exec(__DIR__ . '/../../venv/bin/python3 ' . __DIR__ . '/../../python/age.py ' . $json_data . ' 2>&1');
         unlink($json_data);
 
-        var_dump($output);
-
         $header = (new Header())->render();
         $content = (new Age())
             ->add_age($output[0]['ridge_model'], 'Ridge')
@@ -232,6 +230,6 @@ class HomeController
             'age.css',
         ];
 
-        // echo HTML::generateHTML($header, $content, $footer, $cssFiles);
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 }
