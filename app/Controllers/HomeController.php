@@ -212,7 +212,7 @@ class HomeController
         return $output;
         $header = (new Header())->render();
         $content = (new Age())
-            ->add_risque($output['deracined'])
+            ->add_risque($output['proba_deracinage'] * 100)
             ->render();
         $footer = (new Footer())->render();
 
