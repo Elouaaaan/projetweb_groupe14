@@ -178,8 +178,10 @@ if __name__ == '__main__':
     if isinstance(data, dict):
         data = [data]
     
-        
-    df = predict_data(json.dumps(data), dirname)
+    df = pd.read_json(json.dumps(data))
+    
+    print(df)
+    # df = predict_data(json.dumps(data), dirname)
     
     result = 1
     
