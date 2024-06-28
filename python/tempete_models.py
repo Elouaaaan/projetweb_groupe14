@@ -24,7 +24,7 @@ if isinstance(data, dict):
     
 df = pd.read_json(json.dumps(data))
 
-print(df.head())
+print(df)
 
 
 X = df.drop(columns=target)
