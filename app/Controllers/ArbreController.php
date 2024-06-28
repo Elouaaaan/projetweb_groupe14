@@ -86,7 +86,7 @@ class ArbreController
 
     public function getUprooted($id_arbre)
     {
-        $result = $this->arbre->get_arbre($id_arbre);
+        $result = $this->arbre->all();
 
         $json_data = tempnam(sys_get_temp_dir(), 'json_data');
         file_put_contents($json_data, json_encode($result, JSON_UNESCAPED_UNICODE));
