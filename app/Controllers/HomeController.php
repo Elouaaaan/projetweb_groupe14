@@ -198,8 +198,22 @@ class HomeController
 
     static public function age()
     {
+        $id_arbre = $_GET['age'] ?? null;
+        $arbre = new Arbre();
+        $result = $arbre->get_arbre($id_arbre);
+
+        $json_data = tempnam(sys_get_temp_dir(), 'json_data');
+        file_put_contents($json_data, json_encode($result, JSON_UNESCAPED_UNICODE));
+
+        $output = shell_exec(__DIR__ . '/../../venv/bin/python3 ' . __DIR__ . '/../../python/tempete.py ' . $json_data . ' 2>&1');
+
+        unlink($json_data);
+
+        return $output;
         $header = (new Header())->render();
-        $content = (new Age())->render();
+        $content = (new Age())
+            ->add_risque($output['deracined'])
+            ->render();
         $footer = (new Footer())->render();
 
         $cssFiles = [

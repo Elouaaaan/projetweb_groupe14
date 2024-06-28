@@ -12,4 +12,4 @@ if (empty($_GET['age'])) {
 
 echo (new ArbreController('GET'))->getUprooted(1);
 
-// echo HomeController::age();
+echo HomeController::age();
