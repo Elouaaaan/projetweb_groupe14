@@ -33,7 +33,7 @@ encoded_categorical = categorical_encoder.transform(df[categorical_features])
 encoded_categorial_df = pd.DataFrame(encoded_categorical, columns=categorical_encoder.get_feature_names_out(categorical_features))
 
 models = {
-    'ridge_model': 'models/age_ridge.pkl',
+    'ridge_model': 'models/age_ridge_model.pkl',
     'svr_linear': 'models/age_svr_linear.pkl',
     'svr_rbf': 'models/age_svr_rbf.pkl',
     'random_forest': 'models/random_forest.pkl',
