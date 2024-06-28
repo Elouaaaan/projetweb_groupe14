@@ -36,19 +36,19 @@ def predict_data(df, dirname: str) -> None:
         DataFrame: The original DataFrame with an additional column 'proba_deracinage' containing the predicted probabilities.
     """        
     # Scaling numerical features
-    scaler_filename = os.path.join(dirname, 'models/standart_scaler.pkl')
+    scaler_filename = os.path.join(dirname, 'models/tempete_standart_scaler.pkl')
     numerical_scaler = joblib.load(scaler_filename)
     scaled_numerical = numerical_scaler.transform(df[numerical_features])
     scaled_numerical_df = pd.DataFrame(scaled_numerical, columns=numerical_features)
     
     # Encoding categorical features
-    categorical_encoder_filename = os.path.join(dirname, 'models/one_hot_encoder.pkl')
+    categorical_encoder_filename = os.path.join(dirname, 'models/tempete_one_hot_encoder.pkl')
     categorical_encoder = joblib.load(categorical_encoder_filename)
     encoded_categorical = categorical_encoder.transform(df[categorical_features])
     encoded_categorial_df = pd.DataFrame(encoded_categorical, columns=categorical_encoder.get_feature_names_out(categorical_features))
     
     # Encoding boolean features
-    boolean_encoder_filename = os.path.join(dirname, 'models/ordinal_encoder.pkl')
+    boolean_encoder_filename = os.path.join(dirname, 'models/tempete_ordinal_encoder.pkl')
     boolean_encoder = joblib.load(boolean_encoder_filename)
     encoded_boolean = boolean_encoder.transform(df[boolean_features])
     encoded_boolean_df = pd.DataFrame(encoded_boolean, columns=boolean_features)
@@ -56,7 +56,7 @@ def predict_data(df, dirname: str) -> None:
     # Concatenating all features
     X = pd.concat([scaled_numerical_df, encoded_categorial_df, encoded_boolean_df], axis=1)
     
-    model_filename = os.path.join(dirname, 'models/random_forest.pkl')
+    model_filename = os.path.join(dirname, 'models/tempete_random_forest.pkl')
     model = joblib.load(model_filename)
     
     X = X[model.feature_names_in_]    
