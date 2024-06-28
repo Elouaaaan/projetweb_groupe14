@@ -16,6 +16,7 @@ from math import sqrt, exp
 
 import requests
 import datetime
+from datetime import date, timedelta
 
 coordinate_features = ['latitude', 'longitude']
 numerical_features = ['haut_tot', 'haut_tronc', 'tronc_diam', 'age_estim', 'nbr_diag']
@@ -145,7 +146,9 @@ if __name__ == '__main__':
     
     df = predict_data(df, dirname)
     
-    date = datetime.date.today().strftime('%Y/%m/%d')
+    today = date.today()
+    two_months_ago = today - timedelta(days=60)
+    date = two_months_ago.strftime('%Y/%m/%d')
     
     wind_speed = get_some_day_wind_speed(date)
     df['deracined'] = df.apply(lambda x: 1 if is_deracined(x, wind_speed) else 0, axis=1)
