@@ -84,7 +84,7 @@ class Tableau
         </table>
 
         <div class="btn-voirplus">
-            <button type="button" onclick="">Voir plus</button>
+            <button type="button" id="voirplus">Voir plus</button>
         </div>
 
         <div id="map">
