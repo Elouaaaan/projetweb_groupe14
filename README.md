@@ -2,8 +2,7 @@
 
 ## Todo
 
-- footer alignement vertical des éléments
-- Bouton accueil qui ne marche pas
+- Bouton accueil découvrir qui ne marche pas
 - descriptif rapide accueil
 
 ## Liste des tâches
@@ -15,16 +14,16 @@
 | Mardi matin         | SQL                  | Blocks PHP            |
 | Mardi après-midi    | Backend              | Accueil               |
 | Mercredi matin      | Backend              | Ajout                 |
-| Mercredi après-midi |                      | Ajout et Tableau      |
-| Jeudi matin         | Backend              | Tableau               |
-| Jeudi après-midi    |                      | Age                   |
-| Vendredi matin      | Backend              |                       |
+| Mercredi après-midi | Backend              | Ajout et Tableau      |
+| Jeudi matin         | Backend              | Tableau et Clusters   |
+| Jeudi après-midi    | Backend              | Age et Tempêtes       |
+| Vendredi matin      | Backend              | Responsive            |
 
 ## Fonctionnalités de base
 
 - [x] Page d'accueil
 - [x] Ajout d'arbres
-- [ ] Visualisation tableau et carte
+- [x] Visualisation tableau et carte
 - [ ] Prédiction du cluster
 - [ ] Prédiction âge et déracinement
 
@@ -53,4 +52,4 @@ Les documents se trouvent dans le dossier [rendu intermédiaire](./rendu_interme
 
 - [ ] Readme
 - [ ] Support présentation (avec slide bilan)
-- [ ] Partage des tâches pour chaque demi-journée
+- [x] Partage des tâches pour chaque demi-journée
