@@ -6,7 +6,7 @@ import joblib
 import json
 import os
 import sys
-from smote import SMOTE
+from imblearn.over_sampling import SMOTE
 
 dirname = os.path.dirname(os.path.abspath(__file__))
 
