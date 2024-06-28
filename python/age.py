@@ -36,7 +36,7 @@ models = {
     'ridge_model': 'models/age_ridge.pkl',
     'svr_linear': 'models/age_svr_linear.pkl',
     'svr_rbf': 'models/age_svr_rbf.pkl',
-    'random_forest': 'models/random_forest.pkl
+    'random_forest': 'models/random_forest.pkl',
 }
 
 
