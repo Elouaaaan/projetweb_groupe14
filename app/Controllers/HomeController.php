@@ -210,7 +210,6 @@ class HomeController
         unlink($json_data);
 
         $output = json_decode($output, true);
-        var_dump($output);
 
         $header = (new Header())->render();
         $content = (new Age())
@@ -225,6 +224,6 @@ class HomeController
             'age.css',
         ];
 
-        // echo HTML::generateHTML($header, $content, $footer, $cssFiles);
+        echo HTML::generateHTML($header, $content, $footer, $cssFiles);
     }
 }
