@@ -60,15 +60,6 @@ X_train_encoded_boolean_df = pd.DataFrame(X_train_encoded_boolean, columns=boole
 X_test_encoded_boolean = ordinal_encoder.transform(X_test[boolean_features])
 X_test_encoded_boolean_df = pd.DataFrame(X_test_encoded_boolean, columns=boolean_features)
 
-onehot_encoder.fit(X_train)
-ordinal_encoder.fit(X_train)
-
-X_train_onehot = onehot_encoder.transform(X_train)
-X_test_onehot = onehot_encoder.transform(X_test)
-
-X_train_ordinal = ordinal_encoder.transform(X_train)
-X_test_ordinal = ordinal_encoder.transform(X_test)
-
 X_train = pd.concat([X_train_scaled_numerical_df, X_train_encoded_categorical_df, X_train_encoded_boolean_df], axis=1)
 X_test = pd.concat([X_test_scaled_numerical_df, X_test_encoded_categorical_df, X_test_encoded_boolean_df], axis=1)
 
