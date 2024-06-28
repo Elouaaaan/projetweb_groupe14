@@ -79,3 +79,22 @@ p {
   text-align: left;
   margin-bottom: 5vh;
 }
+
+
+
+@media (max-width: 600px) {
+  
+  .accueil-img-container h3,
+  .accueil-img-container a {
+    display: none;
+  }
+
+  .accueil-img-container h2 {
+    font-size: 20px;
+  }
+
+  main {
+    width: 80vw;
+  }
+  
+}
