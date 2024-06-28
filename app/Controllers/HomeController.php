@@ -217,6 +217,8 @@ class HomeController
             ->render();
         $footer = (new Footer())->render();
 
+        echo $content;
+
         $cssFiles = [
             'main.css',
             'header.css',
