@@ -36,7 +36,7 @@ models = {
     'ridge_model': os.path.join(dirname, 'models/age_ridge_model.pkl'),
     'svr_linear': os.path.join(dirname, 'models/age_svr_model_linear.pkl'),
     'svr_rbf': os.path.join(dirname, 'models/age_svr_model_rbf.pkl'),
-    'random_forest': os.path.join(dirname, 'models/random_forest.pkl'),
+    'random_forest': os.path.join(dirname, 'models/age_random_forest.pkl'),
 }
 
 
